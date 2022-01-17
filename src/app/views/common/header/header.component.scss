@@ -1,0 +1,37 @@
+.top-header {
+    background-color: #1A213B;
+    padding: 15px 0px;
+    font-size: 18px;
+            color: #fff;
+    .social {
+        margin: 0px; padding: 0px;
+        a {
+            display: inherit;
+            padding: 0px 10px;        
+            line-height: 18px;
+             img {
+                width: 20px;
+                height: 20px;
+             }
+        }
+    }
+}
+.login {
+    margin-left: 25px;
+}
+
+.v-divider {
+    background-color: #fff;
+    width: 1px;
+    height: 26px;
+    margin: 0 16px;
+}
+
+.home-intro-section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 23.96%, #011C62 100%);
+    p {
+        font-size: 24px;
+        line-height: initial;
+        font-weight: 700;
+    }
+}

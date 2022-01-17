@@ -1,29 +1,36 @@
-<style>
-    .toolbar {      
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      background-color: #1976d2;
-      color: white;
-      font-weight: 600;
-    }
-  
-    .toolbar img {
-      margin: 0 16px;
-    }
-  
-    .toolbar #twitter-logo {
-      height: 40px;
-      margin: 0 16px;
-    }
-  
-    .toolbar #twitter-logo:hover {
-      opacity: 0.8;
-    }  
-  </style>
+<div class="top-header">
+  <div class="container">
+
+    <div fxLayout="row">
+      <div fxFlex=50>
+        <div class="social" fxLayout="row">
+           <a href="#"><img src="/assets/facebook.svg" alt="facebook"></a>
+           <a href="#"><img src="/assets/twitter.svg" alt="twitter"></a>
+           <a href="#"><img src="/assets/instagram.svg" alt="instagram"></a>
+           <a href="#"><img src="/assets/linkedin.svg" alt="linkedin"></a>
+           <span class="v-divider"></span>
+           <a class="info">
+            <img src="/assets/Email.svg" alt="Email"> &nbsp;
+            info@xample.com
+           </a>
+        </div>
+      </div>
+      <div fxFlex=50>
+        <div fxLayout="row" fxLayoutAlign="end center">
+         <div class="search">
+          What do you want to learn ?
+         </div>
+         <div class="login">
+          Login / Register
+         </div>
+        </div>
+       </div>
+
+  </div>
+
+  </div>
+</div>
+
 
 <div class="toolbar" role="banner">  
     <span style="margin-left: 45%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to E-Learning</span>
@@ -33,5 +40,23 @@
       <a routerLink='/services' routerLinkActive='active'>Services</a>
       <a routerLink='/aboutus' routerLinkActive='active'>About us</a>
       <a routerLink='/contactus' routerLinkActive='active'>Contact</a>
+</div>
+
+<div class="home-intro-section">
+  <div class="container">
+   
+    <div fxLayout="row">
+      <div fxFlex=50>
+        <h2 class="sub-heading">We Envision World’s Best 
+          Learning Experience.</h2>
+          <p>Fintechedu courses is for every one from different age groups 
+            and with various level of skills.</p>
+      </div>
+      <div fxFlex=50>
+        <img src="/assets/study-png-clipart.png" alt="study-png-clipart">
+      </div>
+    </div>
+
+  </div>
 </div>
 

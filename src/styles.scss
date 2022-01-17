@@ -2,3 +2,28 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+  }
+
+  
+  .sub-heading {
+    font-size: 48px!important;
+    color: #1A213B!important;
+    font-family: arial!important;
+    font-weight: 700!important;
+    line-height: initial!important;
+}
+
+.tex-center {
+  text-align: center;
+}

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from '../../shared/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,7 +32,7 @@ const routes: Routes = [{
 @NgModule({
   declarations: [DashboardComponent, HomeComponent, HeaderComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule
+    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, FlexLayoutModule
   ]
 })
 export class AppsModule { }

@@ -1,0 +1,112 @@
+
+
+
+.home-footer {
+    background: #1A213B;
+    position: relative;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    .mat-divider {
+        border-top-color: rgba(255, 255, 255, 0.15);
+        margin: 0px;
+    }
+}
+
+.footer-title {
+    color: #fff;
+    font-size: 24px;
+    padding-top: 60px;
+}
+
+.home-footer a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-menu-list {
+  list-style: none;
+  padding: 0px;
+    li {
+        padding-left: 25px;
+        position: relative;
+        a {
+          text-decoration: none;
+          font-size: 24px;
+          padding: 12px 0px;
+          display: inherit;
+        }
+        &::before {
+         content: " ";
+         height: 3px;
+         width: 15px;
+         display: inherit;
+         background: rgba(255, 255, 255, 0.7);
+         position: absolute;
+         left: 0;
+         top: 50%;
+        }
+    }
+}
+
+
+.news-letter {
+    background-color: #CB0404;
+    border-radius: 20px;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -10%;
+    h5 {
+      color: #fff;
+      font-size: 24px;
+    }
+    h2 {
+        font-size: 48px;
+        line-height: 55.2px;
+        margin: 0px;
+        color: #fff;
+    }
+    .subscribe {
+        margin-top: 30px;
+        background: #fff;
+        padding: 6px 10px;
+        position: relative;
+        border-radius: 50px;
+        text-align: left;
+        border: 1px solid #bfdcf7;
+        margin: 0px;
+
+        input[type=email] {
+            border: 0;
+    padding: 0px;
+    width: calc(100% - 100px);
+    height: 35px;
+    margin: 15px 0px;
+    font-size: 24px;
+    padding: 15px;
+        }
+        input[type=submit] {
+            position: absolute;
+    top: 15%;
+    right: 10%;
+    /* font-size: 18px; */
+    bottom: 0;
+    border: 0;
+    background: none;
+    font-size: 18px;
+    padding: 0 60px;
+    background: #1A213B;
+    color: #fff;
+    transition: 0.3s;
+    border-radius: 50px;
+    background-image: url(/assets/Email.svg);
+    background-repeat: no-repeat;
+    background-position: 15% 50%;
+    height: 70%;
+        }
+  }
+}
+
+.h2 {
+    color: #fff;
+    font-size: 24px;
+}

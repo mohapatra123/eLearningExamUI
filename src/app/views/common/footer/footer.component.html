@@ -1,32 +1,86 @@
-<style>
-    .toolbar {      
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      background-color: goldenrod;
-      color: white;
-      font-weight: 600;
-    }
-  
-    .toolbar img {
-      margin: 0 16px;
-    }
-  
-    .toolbar #twitter-logo {
-      height: 40px;
-      margin: 0 16px;
-    }
-  
-    .toolbar #twitter-logo:hover {
-      opacity: 0.8;
-    }  
-  </style>
 
-<div class="toolbar" role="banner">  
-    <span style="margin-left: 45%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Footer</span>
-      <div class="spacer"></div>
+  <div class="container">
+    <div class="news-letter">
+     <div fxLayout="row" fxLayoutAlign="center center"> 
+
+    <div fxFlex=50 fxLayout="column">
+      <h5>#Newslettter</h5>
+      <h2>Join our community of students</h2>
+    </div>
+
+    <div fxFlex=50 fxLayout="row">
+      <form class="subscribe" fxFlex>
+        <input type="email" placeholder="Enter your email" >
+        <input type="submit" value="Subscribe">
+      </form>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="home-footer">
+  <div class="container">
+
+    <div fxLayout="row">
+
+      <div fxFlex=25>
+        <h2 class="footer-title">Company</h2>
+        <ul class="footer-menu-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Resource center</a></li>
+          <li><a href="#">Guides</a></li>
+        </ul>
+      </div>
+
+      <div fxFlex=25>
+        <h2 class="footer-title">Categories</h2>
+        <ul class="footer-menu-list">
+          <li><a href="#">All Courses</a></li>
+          <li><a href="#">Railways</a></li>
+          <li><a href="#">Banking</a></li>
+          <li><a href="#">JEE</a></li>
+        </ul>
+      </div>
+
+      <div fxFlex=25>
+        <h2 class="footer-title">Support</h2>
+        <ul class="footer-menu-list">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Content Issue</a></li>
+          <li><a href="#">Register/Login Issu</a></li>
+          <li><a href="#">Site feedback</a></li>
+        </ul>
+      </div>
+
+      <div fxFlex=25>
+      <h2 class="footer-title">Get in Touch</h2>
+        <ul class="footer-menu-list">
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div fxLayout="row">
+      <div fxFlex>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+      
+        <a href="#">
+          <img src="/assets/logo.png" alt="loto" >
+        </a>
+  
+   
+        <h2 class="h2">Copyright © 2021 DSW. All Right Reserved.</h2>
+
+    </div>
+
+  </div>
 </div>
 
