@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+//import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from '../../shared/home/home.component';
+import { ContentComponent } from '../../shared/home/content.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatModule } from '../../../mat-module/mat.module';
@@ -18,11 +19,11 @@ import { ContactUsComponent } from '../../shared/common/contact-us.component';
 
 const routes: Routes = [{
   path: '',
-  component: HomeComponent,
+  component: ContentComponent,
   children:[
     {
-      path: 'dashboard', component: DashboardComponent 
-    },
+      path: 'home', component: HomeComponent 
+    },    
     { path: 'aboutus', component: AboutusComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'services', component: ServicesComponent }
@@ -30,7 +31,7 @@ const routes: Routes = [{
 }]
 
 @NgModule({
-  declarations: [DashboardComponent, HomeComponent, HeaderComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent],
+  declarations: [HomeComponent, HeaderComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, FlexLayoutModule
   ]
