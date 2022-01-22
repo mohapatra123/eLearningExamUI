@@ -47,13 +47,45 @@
    
     <div fxLayout="row">
       <div fxFlex=50>
+
+        <div fxLayout="column">
+         
+          <div fxLayout="row">
+          <div class="logo">
+            <a href="#">
+              <img src="/assets/logo.png" alt="loto" >
+            </a>
+          </div>
+          <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">Exam categories</button>
+            <mat-menu #belowMenu="matMenu" yPosition="below">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>
+          </div>
+
         <h2 class="sub-heading">We Envision World’s Best 
           Learning Experience.</h2>
           <p>Fintechedu courses is for every one from different age groups 
             and with various level of skills.</p>
+            <div fxLayout="row" fxLayoutAlign="start center">                
+              <button mat-stroked-button class="own-btn icon white-btn">View courses</button>
+              <button mat-stroked-button class="own-btn gray-btn">Start Free Mock</button>
+          </div>
+        </div>
       </div>
+
       <div fxFlex=50>
-        <img src="/assets/study-png-clipart.png" alt="study-png-clipart">
+        <nav class="menu">
+          <button mat-button>Home</button>
+          <button mat-button>About Us</button>
+          <button mat-button>Services</button>
+          <button mat-button>Training</button>
+          <button mat-button>Events</button>
+          <button mat-button>Contact</button>
+        </nav>
+        
+          <img src="/assets/study-png-clipart.png" alt="study-png-clipart">
+        
       </div>
     </div>
 
