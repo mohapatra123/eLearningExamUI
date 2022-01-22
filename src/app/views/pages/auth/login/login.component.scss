@@ -1,3 +1,19 @@
+
+.loginLayout{
+  display: flex;
+}
+.loginForm{
+  background-color: #F2F3F7;
+  min-height: 100%;
+  display: flex;
+  padding: 30px;
+  justify-content: center;
+}
+.rightBox{
+  padding: 40px;
+  align-items: center;
+  display: flex;
+}
 form {
     border: 3px solid #f1f1f1;
   }

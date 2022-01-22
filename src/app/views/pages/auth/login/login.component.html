@@ -4,28 +4,11 @@
 <section class="logIn">
   <div class="container">
 
-      <div fxLayout="row">
-          <div fxFlex=40>
-              <div fxLayout="column">
-                  <a href="#" class="tex-center">
-                      <img src="/assets/logo.png" alt="logo" >
-                  </a>
-                 
-                  <form [formGroup]="loginForm" (ngSubmit)="validateUser(loginForm)">
-                    <div class="container">
-                      <label for="userId"><b>Username</b></label>
-                      <input type="text" placeholder="Enter Username" formControlName="userId" required>
-                  
-                      <label for="password"><b>Password</b></label>
-                      <input type="password" placeholder="Enter Password"  formControlName="password" required>
-                  
-                      <button type="submit">Login</button>      
-                    </div>    
-                </form>
-              
-              </div>
-          </div>
-          <div fxFlex=60>
+
+    
+      <div fxLayout="row" class="loginLayout">
+         
+          <div fxFlex=60 class="rightBox">
             
               <div fxLayout="column" fxLayoutAlign="center center">
                   <h2 class="sub-heading">Learn From <span>Anywhere</span></h2>
@@ -36,6 +19,26 @@
               </div>
 
           </div>
+          <div fxFlex=40 class="loginForm">
+            <div fxLayout="column">
+                <a href="#" class="tex-center">
+                    <img src="/assets/logo.png" alt="logo" >
+                </a>
+               
+                <form [formGroup]="loginForm" (ngSubmit)="validateUser(loginForm)">
+                  <div class="container">
+                    <label for="userId"><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" formControlName="userId" required>
+                
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password"  formControlName="password" required>
+                
+                    <button type="submit">Login</button>      
+                  </div>    
+              </form>
+            
+            </div>
+        </div>
       </div>
 
   </div>
