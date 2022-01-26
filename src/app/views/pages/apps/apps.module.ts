@@ -15,6 +15,8 @@ import { SidenavComponent } from '../../common/sidenav/sidenav.component';
 import { ServicesComponent } from '../../shared/common/services.component';
 import { AboutusComponent } from '../../shared/common/aboutus.component';
 import { ContactUsComponent } from '../../shared/common/contact-us.component';
+import { MainmenuComponent } from '../../common/mainmenu/mainmenu.component';
+import { PagebannerComponent } from '../../common/pagebanner/pagebanner.component'
 
 
 const routes: Routes = [{
@@ -31,7 +33,7 @@ const routes: Routes = [{
 }]
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
+  declarations: [HomeComponent, HeaderComponent, MainmenuComponent, PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, FlexLayoutModule
   ]

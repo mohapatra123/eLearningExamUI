@@ -4,14 +4,16 @@
 .home-footer {
     background: #1A213B;
     position: relative;
+    color: #fff;
     padding-top: 150px;
-    padding-bottom: 150px;
     .mat-divider {
         border-top-color: rgba(255, 255, 255, 0.15);
         margin: 0px;
     }
 }
-
+.gooterLogo{
+    padding-right: 40px;
+}
 .footer-title {
     color: #fff;
     font-size: 24px;
@@ -26,24 +28,23 @@
   list-style: none;
   padding: 0px;
     li {
-        padding-left: 25px;
         position: relative;
         a {
           text-decoration: none;
-          font-size: 24px;
-          padding: 12px 0px;
+          font-size: 16px;
+          padding: 6px 0px;
           display: inherit;
         }
-        &::before {
-         content: " ";
-         height: 3px;
-         width: 15px;
-         display: inherit;
-         background: rgba(255, 255, 255, 0.7);
-         position: absolute;
-         left: 0;
-         top: 50%;
-        }
+        // &::before {
+        //  content: " ";
+        //  height: 3px;
+        //  width: 15px;
+        //  display: inherit;
+        //  background: rgba(255, 255, 255, 0.7);
+        //  position: absolute;
+        //  left: 0;
+        //  top: 50%;
+        // }
     }
 }
 
@@ -109,4 +110,10 @@
 .h2 {
     color: #fff;
     font-size: 24px;
+}
+.copyright{
+    color: #fff;
+    border-top: 1px solid #858484;
+    margin-top: 30px;
+    padding: 15px;
 }

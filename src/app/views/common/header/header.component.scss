@@ -1,7 +1,7 @@
 .top-header {
     background-color: #1A213B;
-    padding: 15px 0px;
-    font-size: 18px;
+    padding: 5px 0px;
+    font-size: 14px;
             color: #fff;
     .social {
         margin: 0px; padding: 0px;
@@ -25,6 +25,11 @@
         }
     }
 }
+.headerRight{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 .login {
     margin-left: 25px;
 }
@@ -35,82 +40,17 @@
     height: 26px;
     margin: 0 16px;
 }
-
-.home-intro-section {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 23.96%, #011C62 100%);
-    p {
-        font-size: 24px;
-        line-height: initial;
-        font-weight: 700;
-        margin: 25px 0px;
-    }
-    .own-btn {
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 10px 25px 10px 25px;
-        border-radius: 50px;
-        border-width: 2px;                
-        position: relative;
-        margin-right: 25px;
-    }
-    .white-btn {
-       background-color: #fff;
-       border: 2px solid #fff;
-       color: #CB0404;
-       padding-left: 50px;
-
-       &::before {
-        background-image: url(/assets/plus.svg);
-        content: "";
-        width: 22px;
-        height: 22px;
-        position: absolute;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        left: 10%;
-        top: 30%;
-    }
-
-    }
-    .gray-btn{
-       background: rgba(255, 255, 255, 0.3);
-       border: 2px solid #fff;
-       color: #fff;
+.logo{
+    a{
+        display: flex;
     }
 }
-
-.exm-btn {
-    background-color: #1A213B;
-    font-size: 18px;
-    color: #fff;
-    border-radius: 0px;
-    height: fit-content;
-    position: relative;
-    padding: 0px 35px;
-    margin-left: 60px;
-    margin-top: 25px;
-    &::after {
-        background-image: url(/assets/icon-color.svg);
-    content: "";
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    right: 5%;
-    top: 30%;
-    top: 30%;
-    }
+.pagetopSec{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(4,33,109,1) 100%);
 }
 
-.menu {
-    .mat-button {
-        color: #0A2468;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    }
-}
+
+
 
 

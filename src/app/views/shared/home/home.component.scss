@@ -26,6 +26,7 @@
     border: 1px solid #CB0404;
     box-shadow: none;
     padding: 30px 20px;
+    min-width: 120px;
     .mat-card-content {
         margin-top: 15px;
     }
@@ -62,7 +63,16 @@
 
 }
 
-
+.weare{
+    padding: 80px 0;
+}
+.logotext{
+    color: #072263;
+    em{
+        font-style: normal;
+       color: #CB0404;
+    }
+}
 .categories {
     h4 {
         font-size: 24px;
@@ -76,6 +86,9 @@
         background-color: #ddd;
         border-radius: 50%;
         padding: 30px;
+    }
+    .sub-heading{
+        margin-bottom: 30px;
     }
 }
 
