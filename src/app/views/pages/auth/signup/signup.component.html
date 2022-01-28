@@ -1,1 +1,57 @@
-<p>signup works!</p>
+<form [formGroup]="signupForm" (ngSubmit)="userRegistration(signupForm)">
+    <div class="form-group">
+        <div>
+            <label for="firstName"><b>First Name</b></label>
+            <input type="text" formControlName="firstName" class="form-control" placeholder="FirstName" required>
+            <small style="color: red;"
+                *ngIf="signupForm.controls.firstName.touched && signupForm.controls.firstName.errors?.required">
+                    Please enter first name !
+            </small>
+        </div>
+        <div>
+            <label for="lastName"><b>Last Name</b></label>
+            <input type="text" formControlName="lastName" class="form-control" placeholder="LastName" required>
+        </div>
+        <div>
+            <label for="eMail"><b>Email</b></label>
+        <input type="text" formControlName="eMail" class="form-control" placeholder="EMail" required>
+        <small style="color: red;"
+                *ngIf="signupForm.controls.eMail.touched && signupForm.controls.eMail.errors?.required">
+                    Please enter Email !
+            </small>
+            <small style="color: red;"
+                *ngIf="signupForm.controls.eMail.touched && signupForm.controls.eMail.errors?.email">
+                    Please enter Valid Email !
+            </small>
+        </div>
+        <div>
+            <label for="mobile"><b>Mobile</b></label>
+            <input type="text" formControlName="mobile" class="form-control" placeholder="Mobile" required>
+            <small style="color: red;"
+                *ngIf="signupForm.controls.mobile.touched && signupForm.controls.mobile.errors?.required">
+                    Please enter Mobile !
+            </small>
+        </div>
+        <div>
+            <label for="password"><b>Password</b></label>
+        <input type="text" formControlName="password" class="form-control" placeholder="Password" required>
+        <small style="color: red;"
+                *ngIf="signupForm.controls.passsword.touched && signupForm.controls.passsword.errors?.required">
+                    Please enter Password !
+        </small>
+        </div>
+        <div>
+            <label for="confirmPassword"><b>Confirm Password</b></label>
+        <input type="text" formControlName="confirmPassword" class="form-control" placeholder="ConfirmPassword" required>
+        <small style="color: red;">
+                {{confirmPasswordMessage}}
+        </small>
+        </div>
+        <div>
+            <button type="submit" [disabled]="!signupForm.valid">Submit</button>  
+        </div>
+        <div>
+            {{statusMessage}}
+        </div>
+    </div>
+</form>

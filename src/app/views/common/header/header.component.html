@@ -21,11 +21,13 @@
           What do you want to learn ?
          </div>
          <div class="login">
-          Login / Register
+          <a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login</a>            
+         </div>
+         <div class="login">
+          <a style="color:white; text-decoration: none;" routerLink='/signup' routerLinkActive='active'>Register</a>            
          </div>
         </div>
        </div>
-
   </div>
 
   </div>
@@ -76,12 +78,12 @@
 
       <div fxFlex=50>
         <nav class="menu">
-          <button mat-button>Home</button>
-          <button mat-button>About Us</button>
-          <button mat-button>Services</button>
-          <button mat-button>Training</button>
+          <button mat-button routerLink='/home' routerLinkActive='active'>Home</button>
+          <button mat-button routerLink='/aboutus' routerLinkActive='active'>About Us</button>
+          <button mat-button routerLink='/services' routerLinkActive='active'>Services</button>
+          <button mat-button routerLink='/dashboard' routerLinkActive='active'>Training</button>
           <button mat-button>Events</button>
-          <button mat-button>Contact</button>
+          <button mat-button routerLink='/contactus' routerLinkActive='active'>Contact</button>
         </nav>
         
           <img src="/assets/study-png-clipart.png" alt="study-png-clipart">

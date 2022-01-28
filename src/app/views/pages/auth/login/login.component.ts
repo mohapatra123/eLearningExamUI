@@ -22,44 +22,46 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
-      userId: ['', [Validators.required]],
+      userId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     })
   }
 
   validateUser(loginForm){
     console.log(loginForm);
-    if(loginForm.value.userId == 'Admin' && loginForm.value.password == 'Admin@123'){
-      this._authService.setToken('12345');
-      this.redirectAfterAuth();      
-    }
+    // if(loginForm.value.userId == 'Admin' && loginForm.value.password == 'Admin@123'){
+    //   this._authService.setToken('12345');
+    //   this.redirectAfterAuth();      
+    // }
     // this.isValid = false;
-    // let loginData = {
-    //   email: this.loginForm.value.userId,
-    //   password: this.loginForm.value.password,
-    //   status: 1
-    // }
+    let loginData = {
+      email: this.loginForm.value.userId,
+      password: this.loginForm.value.password      
+    }
 
-    // if(this.loginForm.valid){
-    //   let authToken: any;
-    //   let result: any;
-    //   this._authService.authenticateUser(loginData).subscribe(res => {
-    //     if(res.token != null && res.token != undefined && res.token != ''){
-    //       this.isValid = true;
-    //       authToken = res.token;
-    //       this._authService.setToken(authToken);
-    //       this.redirectAfterAuth();
+    if(this.loginForm.valid){
+      let authToken: any;
+      let result: any;
+      this._authService.authenticateUser(loginData).subscribe(res => {
+        console.log(res);
+        if(res.token != null && res.token != undefined && res.token != ''){
+          this.isValid = true;
+          authToken = res.token;
+          this._authService.setToken(authToken);
+          this.redirectAfterAuth();
 
-    //       //this._authService.removeLocalAuth(authToken);
-    //     }
-    //     else{
-    //       this.isValid = false;
-    //     }
-    //   })
-    //   if(this.loginForm.value.userId == 'admin' && this.loginForm.value.password == 'admin'){
-    //     this.redirectAfterAuth();
-    //   }
-    // }
+          //this._authService.removeLocalAuth(authToken);
+        }
+        else{
+          this.isValid = false;
+        }
+      }, (err) => {
+        console.log(err);
+      })
+      if(this.loginForm.value.userId == 'admin' && this.loginForm.value.password == 'admin'){
+        this.redirectAfterAuth();
+      }
+    }
   }
 
   redirectAfterAuth(){

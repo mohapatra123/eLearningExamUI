@@ -31,15 +31,30 @@ export class AuthService {
   authenticateUser(param: any): Observable<any> {
     console.log(param);
       let formData: FormData = new FormData();
-      formData.append('email', param.email);
-      formData.append('password', param.password);
-      formData.append('status', '1');
-      return this._http.post(this.baseUri + 'o/login', formData, { headers: this.header }).pipe(
+      formData.append('eMail', param.email);
+      formData.append('password', param.password);      
+      return this._http.post(this.baseUri + 'cms/user/login', formData, { headers: this.header }).pipe(
       map((response: Response) => {
         return response;
       })
     )
   }  
+
+  userRegistration(param: any): Observable<any>{
+    let formData: FormData = new FormData();
+    formData.append('firstName', param.firstName);
+    formData.append('lastName', param.lastName); 
+    formData.append('eMail', param.eMail);
+    formData.append('mobile', param.mobile); 
+    formData.append('password', param.password); 
+    formData.append('roleId', "1"); 
+    formData.append('status', "1"); 
+    return this._http.post(this.baseUri + 'cms/user/register', formData, { headers: this.header }).pipe(
+      map((response: Response) => {
+        return response;
+      })
+    )   
+  }
 
   getToken(){
     return localStorage.getItem('user_token');
