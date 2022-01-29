@@ -1,27 +1,28 @@
+@import './src/app/common-styles/variable';
+
 .banner {
  overflow: hidden;
-    p {
-        font-size: 24px;
-        line-height: initial;
-        font-weight: 700;
-        margin: 10px 0px 40px;
+   h2 { 
+       margin-bottom: 40px;
+       margin-top: 40px; }
+   p { 
+    margin-bottom: 40px;
+    span {
+        color: $primary;
     }
+    .red {
+        color: $red;
+      }
+   }
     .own-btn {
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 700;
-        padding: 10px 25px 10px 25px;
-        border-radius: 50px;
-        border-width: 2px;                
-        position: relative;
+        @extend .custom-btn;
+        @include custom-bd(2px, #fff);              
         margin-right: 25px;
     }
     .white-btn {
-       background-color: #fff;
-       border: 2px solid #fff;
-       color: #CB0404;
+       background: $white;
+       color: $red;
        padding-left: 50px;
-
        &::before {
         background-image: url(/assets/plus.svg);
         content: "";
@@ -32,23 +33,17 @@
         background-size: 100% 100%;
         left: 10%;
         top: 30%;
-    }
+        }
 
     }
     .gray-btn{
-       background: rgba(255, 255, 255, 0.3);
-       border: 2px solid #fff;
-       color: #fff;
-    }
-    .bannerLeft{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+       background: $white3;
+       color: $white;
     }
     .home-banner-image{
         img{
             max-height: 450px;
-            margin-bottom: -36px;
+            margin-bottom: -6%;
         }
     
     }

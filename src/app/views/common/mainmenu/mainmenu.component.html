@@ -1,23 +1,20 @@
-<div class="home-intro-section">
-    <div class="container">
-     
-      <div fxLayout="row">
-        <div fxFlex=50>
-            <div fxLayout="row" class="logoSec">
+
+    <div class="container">     
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="row">    
+
             <div class="logo">
               <a href="#">
                 <img src="/assets/logo.png" alt="loto" >
               </a>
             </div>
-            <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn elIcon icon-Gate">Exam categories</button>
+            <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">
+              <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
+            </button>
               <mat-menu #belowMenu="matMenu" yPosition="below">
                 <button mat-menu-item>Item 1</button>
                 <button mat-menu-item>Item 2</button>
               </mat-menu>
-            </div>
-        </div>
   
-        <div fxFlex=50 class="menuSec">
           <nav class="menu">
             <button mat-button>Home</button>
             <button mat-button>About Us</button>
@@ -25,11 +22,7 @@
             <button mat-button>Training</button>
             <button mat-button>Events</button>
             <button mat-button>Contact</button>
-          </nav>        
-         
-          
-        </div>
-      </div>
-  
+          </nav>
+
+      </div>  
     </div>
-  </div>

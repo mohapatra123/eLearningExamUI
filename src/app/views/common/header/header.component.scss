@@ -3,36 +3,19 @@
     padding: 5px 0px;
     font-size: 14px;
             color: #fff;
-    .social {
-        margin: 0px; padding: 0px;
+    .social, .header-ight {
         a {
-            display: inherit;
-            padding: 0px 10px;        
-            line-height: 18px;
-            color: #fff;
-            text-decoration: none;
-             img {
-                width: 20px;
-                height: 20px;
-             }
-        }
-        .info{
             display: flex;
             align-items: center;
-            i{
-                margin-right: 10px;
-            }
+            padding: 0px 10px;
+            color: #fff;
+           }
+        }
+        .info, .header-ight {
+            .elIcon { margin-right: 10px; }
         }
     }
-}
-.headerRight{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.login {
-    margin-left: 25px;
-}
+
 
 .v-divider {
     background-color: #fff;
@@ -40,12 +23,8 @@
     height: 26px;
     margin: 0 16px;
 }
-.logo{
-    a{
-        display: flex;
-    }
-}
-.pagetopSec{
+
+.page-top-sec{
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(4,33,109,1) 100%);
 }

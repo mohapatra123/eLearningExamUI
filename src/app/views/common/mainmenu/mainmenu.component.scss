@@ -1,41 +1,18 @@
-.logoSec, .menuSec{
-    display: flex;
-    align-items: center;
-}
-.menuSec{
-    justify-content: flex-end;
-}
+@import './src/app/common-styles/variable';
+
 .exm-btn {
-    background-color: #1A213B;
+    background-color: $dark-primary;
     font-size: 18px;
     color: #fff;
+    text-transform: $upper-cse;
     border-radius: 0px;
-    height: fit-content;
-    position: relative;
-    padding: 0px 35px 0 10px;
-    margin-left: 60px;
-    &::after {
-        background-image: url(/assets/icon-color.svg);
-    content: "";
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    right: 5%;
-    top: 30%;
-    top: 30%;
-    }
-    &.icon-Gate {
-        &::before{
-            margin-right: 6px;
-        }
+    i {
+        font-size: 14px;;
     }
 }
-
 .menu {
     .mat-button {
-        color: #0A2468;
+    color: #0A2468;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
