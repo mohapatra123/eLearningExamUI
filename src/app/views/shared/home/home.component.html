@@ -55,7 +55,20 @@
 
             <div fxLayout="row wrap" fxLayoutGap="3%">
 
-                <div fxFlex=22>
+                <div fxFlex="22" *ngFor="let item of examArray; let i = index">
+                    <mat-card class="tutor-box categories-box">
+                        <span class="categories-icon">
+                            <img src="/assets/banking.svg" alt="banking">
+                        </span>
+                      <mat-card-content>
+                          <h4>{{item.name}}</h4>
+                          <p>{{item.description}}</p>
+                      </mat-card-content>
+                  </mat-card>
+                </div>
+
+
+                <!-- <div fxFlex=22>
                     <mat-card class="tutor-box categories-box">
                         <span class="categories-icon">
                             <img src="/assets/banking.svg" alt="banking">
@@ -146,12 +159,12 @@
                           <p>Mock Test</p>
                       </mat-card-content>
                   </mat-card>
-                </div>
+                </div> -->
 
             </div>
 
             <div fxLayout="row" fxLayoutAlign="center center">                
-                <button mat-stroked-button class="own-btn">Browse All</button>
+                <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">{{buttonText}}</button>
             </div>
 
         </div>

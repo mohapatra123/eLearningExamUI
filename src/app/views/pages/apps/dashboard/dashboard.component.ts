@@ -18,5 +18,4 @@ export class DashboardComponent implements OnInit {
     this._authService.removeLocalAuth('user_token');
     this._router.navigate(['/login']);
   }
-
 }
