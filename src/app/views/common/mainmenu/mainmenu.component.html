@@ -1,12 +1,15 @@
 
     <div class="container">     
-      <div fxLayout="row" fxLayoutAlign="space-between center" class="row">    
+      <div class="row">    
 
+        <div class="col-2">
             <div class="logo">
               <a href="#">
                 <img src="/assets/logo.png" alt="loto" >
               </a>
             </div>
+          </div>
+          <div class="col-4 col align-self-center">
             <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">
               <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
             </button>
@@ -14,7 +17,8 @@
                 <button mat-menu-item>Item 1</button>
                 <button mat-menu-item>Item 2</button>
               </mat-menu>
-  
+            </div>
+            <div class="col-6 col align-self-center">
           <nav class="menu">
             <button mat-button>Home</button>
             <button mat-button>About Us</button>
@@ -23,6 +27,6 @@
             <button mat-button>Events</button>
             <button mat-button>Contact</button>
           </nav>
-
+        </div>
       </div>  
     </div>

@@ -33,17 +33,9 @@ $center: center;
 $pad0: 0px;
 $marg0: 0px;
 
-/**** mixins ****/
-.row {
-  flex-direction: row;
-  box-sizing: border-box;
-  display: flex;
-}
+.red { color: $red; }
 
-$item-wrapperVal: 60px;
-@mixin item-wrapper($x){
-  margin: 0px $x;
-}
+/**** mixins ****/
 
 @mixin bd-radius($x){
     -webkit-border-radius: $x;

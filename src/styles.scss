@@ -10,31 +10,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0px;
     padding: 0px;
   }
-  
-  .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
-      padding-right: 15px;
-      padding-left: 15px;
-      .row {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-  }
 
-.tex-center {
-  text-align: $center;
-}
+  .container { max-width: 1280px!important; }
+
 a {
   text-decoration: $none;
 }
 
-.item-wrapper {
-  @include item-wrapper(-$item-wrapperVal + 15px );
-}
-.item {
-  padding-left: calc(#{$item-wrapperVal} / 2  - 1px );
-  padding-right: calc(#{$item-wrapperVal} / 2 - 1px );
-}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

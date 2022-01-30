@@ -1,18 +1,19 @@
+@import './src/app/common-styles/variable';
 
 .loginLayout{
   display: flex;
 }
 .loginForm{
   background-color: #F2F3F7;
-  min-height: 100%;
-  display: flex;
   padding: 30px;
-  justify-content: center;
+  height: 100%;
 }
 .rightBox{
   padding: 40px;
-  align-items: center;
-  display: flex;
+  .para {
+    font-size: 16px;
+    font-weight: $font-weight-7;
+  }
 }
 form {
     border: 3px solid #f1f1f1;

@@ -24,11 +24,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.elIcon{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 .icon-web-development:before {
   content: "\e91e";

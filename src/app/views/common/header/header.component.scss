@@ -1,18 +1,41 @@
+
+
 .top-header {
     background-color: #1A213B;
     padding: 5px 0px;
     font-size: 14px;
             color: #fff;
-    .social, .header-ight {
-        a {
-            display: flex;
-            align-items: center;
-            padding: 0px 10px;
-            color: #fff;
+        .social {
+               list-style: none;
+               display: inline-block;
+               margin: 0px;
+               li {
+                   display: inline-block;
+                   padding-right: 0.5rem;
+                a {
+                    color: #fff;
+                    text-decoration: none;
+             }
            }
         }
-        .info, .header-ight {
-            .elIcon { margin-right: 10px; }
+        .info{
+            display: inline-block;
+            .elIcon {
+                margin-right: 5px;
+            }
+        }
+        .headerRight {
+            text-align: right;
+            .search {
+                margin-right: 15px;
+            }
+            .search, .login {
+                display: inline-block;
+                padding: 0px 2px;
+                .elIcon {
+                    padding: 10px;
+                }
+            }
         }
     }
 
@@ -20,8 +43,13 @@
 .v-divider {
     background-color: #fff;
     width: 1px;
-    height: 26px;
-    margin: 0 16px;
+    height: 20px;
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.ifo {
+    display: inline-block;
 }
 
 .page-top-sec{

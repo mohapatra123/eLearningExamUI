@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +21,7 @@ const routes: Routes = [{
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, FlexLayoutModule
+    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule
   ]
 })
 export class AppAuthModule { }

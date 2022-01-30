@@ -2,9 +2,9 @@
 <section class="tutor">
 
     <div class="container">      
-        <div fxLayout="row" class="row">
+        <div class="row">
            
-            <div fxFlex=50>
+            <div class="col-7">
                 <h2 class="header1">We are <span class="logotext">Fintech<em>edu</em></span>.<br/>
                     An online & offline learning 
                     education tech.
@@ -16,9 +16,10 @@
                  </p>
             </div>
 
-            <div fxFlex=50 fxLayoutAlign="end end">
-                <div fxLayout="row" fxLayoutGap="25px" class="tutor-box">
+            <div class="col-5 align-self-end">
+                <div class="row tutor-box">
 
+                <div class="col-4">
                   <mat-card class="box">                 
                      <i title="course" class="icon-course"></i>                  
                     <mat-card-content>
@@ -26,7 +27,8 @@
                         <p>Courses</p>
                     </mat-card-content>
                  </mat-card>
-
+                </div>
+                <div class="col-4">
                  <mat-card class="box">  
                     <i title="courses" class="icon-courses"></i>              
                     <mat-card-content>
@@ -34,7 +36,8 @@
                       <p>Mock Test</p>
                     </mat-card-content>
                  </mat-card>
-
+                </div>
+                <div class="col-4">
                 <mat-card class="box"> 
                   <i title="student1" class="icon-student1"></i>               
                     <mat-card-content>
@@ -42,7 +45,7 @@
                       <p>Students</p>
                     </mat-card-content>
                 </mat-card>
-
+                </div>
               </div>
            </div>
 
@@ -56,10 +59,12 @@
 
     <div class="container">
 
-               <div fxLayout="column" class="row tex-center">
+               <div class="row text-center">
+                   <div class="col-12">
                     <p class="para">#Top categories</p>
                     <h2 class="header1">Exam Categories</h2> 
                </div>
+             </div> 
            
                     
 
@@ -173,8 +178,10 @@
 
             </div>
 
-            <div fxLayout="row" fxLayoutAlign="center center">                
+            <div class="row text-center">                
+                <div class="col-12">
                 <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">{{buttonText}}</button>
+              </div>
             </div>
 
     </div>
@@ -187,80 +194,85 @@
 <section class="feature-course">
   <div class="container">
 
-        <div fxLayout="column" class="row tex-center">
+        <div class="row text-center">
+            <div class="col-12">
            <p class="para">#Courses</p>
            <h2 class="header1">Featured Courses</h2> 
-        </div>  
+        </div> 
+    </div>
 
 
-    <div fxLayout="row wrap" class="item-wrapper feature-box">
-
-        <div fxFlex=33.33 class="item">
-            <mat-card>
+    <div class="feature-box">
+    <div class="row">
+        <div class="col-4 item">
+            <div class="card">
               <img src="/assets/engineering.svg" alt="banking">
-              <mat-card-content>
+              <div class="card-body">
                   <p>Engineering</p>
                   <h4>Antiquities Trafficking
                     and Art Crime</h4>
-              </mat-card-content>
-          </mat-card>
+              </div>
+          </div>
         </div>
 
-        <div fxFlex=33.33 class="item">
-            <mat-card>
+        <div class="col-4 item">
+            <div class="card">
               <img src="/assets/engineering.svg" alt="banking">
-              <mat-card-content>
+              <div class="card-body">
                   <p>Web development</p>
                   <h4>Making Music with Other People</h4>
-              </mat-card-content>
-          </mat-card>
+              </div>
+          </div>
         </div>
 
-        <div fxFlex=33.33 class="item">
-            <mat-card>
+        <div class="col-4 item">
+            <div class="card">
               <img src="/assets/data-science.svg" alt="banking">
-              <mat-card-content>
+              <div class="card-body">
                   <p>Data Science</p>
                   <h4>Inside Opera: Why Does It Matter?</h4>
-              </mat-card-content>
-          </mat-card>
+              </div>
+              </div>
         </div>
    
 
-    <div fxFlex=33.33 class="item">
-        <mat-card>
+    <div class="col-4 item">
+        <div class="card">
           <img src="/assets/computer-science.svg" alt="banking">
-          <mat-card-content>
+          <div class="card-body">
               <p>Computer Science</p>
               <h4>Using Creative Problem Solving</h4>
-          </mat-card-content>
-      </mat-card>
+          </div>
+        </div>
     </div>
 
-    <div fxFlex=33.33 class="item">
-        <mat-card>
+    <div class="col-4 item">
+        <div class="card">
           <img src="/assets/art-design.svg" alt="banking">
-          <mat-card-content>
+          <div class="card-body">
               <p>Architecture</p>
               <h4>Understanding Luxury Fashion in a Changing</h4>
-          </mat-card-content>
-      </mat-card>
+          </div>
+        </div>
     </div>
 
-    <div fxFlex=33.33 class="item">
-        <mat-card>
+    <div class="col-4 item">
+        <div class="card">
           <img src="/assets/engineering.svg" alt="banking">
-          <mat-card-content>
+          <div class="card-body">
               <p>Art & Desing</p>
               <h4>Sustainability Understanding Luxury</h4>
-          </mat-card-content>
-      </mat-card>
+          </div>
+        </div>
     </div>
 
 </div>
+</div>
 
-<div fxLayout="row" fxLayoutAlign="center center">                
+<div class="row text-center">                
+    <div class="col-12">
     <button mat-stroked-button class="own-btn blue-btn">Browse All</button>
+</div>
 </div>
 
   </div>
@@ -277,12 +289,12 @@
 <!------------ testimonial Top section start --------->
 
     <div class="testimonial-header"> 
-    <div fxLayout="row" class="row">             
-            <div fxFlex=45>
+         <div class="row">             
+            <div class="col-4">
               <p class="para">#Testimonial</p>
               <h2 class="header1">What Students Says</h2>
             </div>
-            <div fxFlex=50>
+            <div class="col-6">
               <div class="testimonial-para">
                   <p class="line para">Discover how to anticipate and adapt to the latest 
                   trends and digital</p>
@@ -296,7 +308,9 @@
     <!------------ testimonial bottom section start--------->
     
     <div class="testimonial-comments">
-        <div fxLayout="row" fxLayoutGap="50px" class="row">
+        <div class="row">
+
+            <div class="col-4">
             <div class="testimonial-sec">
                <p>Differe Using skills and behaviors 
                 People program enabled me to 
@@ -311,7 +325,9 @@
                     </span>
                 </div>
             </div>
+            </div>
 
+            <div class="col-4">
             <div class="testimonial-sec">
                 <p>People program enabled me to 
                     be a fuller me, using differe skills 
@@ -326,7 +342,9 @@
                     </span>
                  </div>
              </div>
+             </div>
 
+             <div class="col-4">
              <div class="testimonial-sec">
                 <p>Using differe skills and behaviors 
                     People program enabled me to 
@@ -341,6 +359,7 @@
                     </span>
                  </div>
              </div>
+             </div>
 
         </div>
     </div>
@@ -349,12 +368,12 @@
 <!------------ testimonial top section start--------->
 
     <div class="testimonial-header">
-        <div fxLayout="row" class="row">
-            <div fxFlex=45>
+        <div class="row">
+            <div class="col-4">
             <p class="para">#News</p>
             <h2 class="header1">News & Events</h2>
             </div>
-            <div fxFlex=55>
+            <div class="col-6">
               <div class="testimonial-para">
                   <p class="line para">Discover how to anticipate and adapt to the latest 
                     trends and digital</p>
@@ -375,29 +394,30 @@
 <section class="bottom-testimonial">
     <div class="container">
 
-        <div fxLayout="row" class="row">
-         <div fxFlex=70>
-            <div class="last" fxLayout="row">
-                <div fxflex="100">
-                <mat-card class="readBox">
+        <div class="row">
+
+         <div class="col-8">
+            <div class="row last">
+                <div class="col-6">
+                <div class="readBox card">
                     <img src="/assets/engineering.svg" alt="banking">
-                    <mat-card-content class="mat-card-content">
-                        <h4 _ngcontent-enl-c267="" class="sub-header">
+                    <div class="card-body">
+                        <h4>
                             Python and JS Course may be online
                         </h4>
                         <h3 class="para">
                             Creating software tailored to my 
                             games development gaming is a</h3>                        
                         <a hre="#" class="readmore">
-                            <span class="plusblack"></span> Read more</a>
-                    </mat-card-content>
-                </mat-card>
+                         <span class="plusblack"></span> Read more</a>
+                    </div>
+                </div>
             </div>
-            <div fxflex="100">
-                <mat-card class="readBox">
+            <div class="col-6">
+                <div class="readBox card">
                     <img src="/assets/engineering.svg" alt="banking">
-                    <mat-card-content class="mat-card-content">
-                        <h4 _ngcontent-enl-c267="" class="sub-header">
+                    <div class="card-body">
+                        <h4>
                             Python and JS Course may be online
                         </h4>
                         <h3 class="para">
@@ -405,12 +425,13 @@
                             games development gaming is a</h3>                        
                         <a hre="#" class="readmore">
                             <span class="plusblack"></span> Read more</a>
-                    </mat-card-content>
-                </mat-card>
+                    </div>
+                </div>
             </div>      
             </div>
          </div>
-         <div fxFlex=30>
+
+         <div class="col-4">
              <div class="last" fxLayout="column" fxLayoutGap="25px">
                 <mat-card class="time-box"> 
                     <div class="last" fxLayout="row">

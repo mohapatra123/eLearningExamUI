@@ -1,52 +1,44 @@
 <div class="top-header">
   <div class="container">
 
-    <div fxLayout="row" fxLayoutAlign="space-between center" class="row">
-      <div fxFlex=50>
-        <div class="social" fxLayout="row">
-           <a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a>
-           <a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a>
-           <a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a>
-           <a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a>
+    <div class="row">
+      <div class="col-6">
+        <ul class="social">
+           <li><a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a></li>
+           <li><a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a></li>
+           <li><a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a></li>
+           <li><a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a></li>
+        </ul>
            <span class="v-divider"></span>
-           <a class="info">
+           <span class="info">
             <i title="linkedin" class="elIcon icon-email"></i>
             info@xample.com
-           </a>
+           </span>
+      </div>
+      <div class="col-6">
+        <div class="headerRight">
+            <span class="search">
+              <i title="search" class="elIcon icon-search"></i>What do you want to learn ?
+             </span>
+
+              <span class="login">
+                <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login</a>            
+              </span>
+              <span class="login">/</span>
+               <span class="login">
+                <a style="color:white; text-decoration: none;" routerLink='/signup' routerLinkActive='active'>Register</a>            
+               </span>
         </div>
       </div>
-      <div fxFlex=50 class="headerRight">
-        <div fxLayout="row" fxLayoutAlign="end center">
-         <div class="search">
-          What do you want to learn ?
-         </div>
-         <div class="login">
-          <a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login</a>            
-         </div>
-         <div class="login">
-          <a style="color:white; text-decoration: none;" routerLink='/signup' routerLinkActive='active'>Register</a>            
-         </div>
-        </div>
+
        </div>
   </div>
 
   </div>
 
-</div>
 <div class="page-top-sec">
   <app-mainmenu></app-mainmenu>
   <app-pagebanner></app-pagebanner>
 </div>
-
-
-<!-- <div class="toolbar" role="banner">  
-    <span style="margin-left: 45%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to E-Learning</span>
-      <div class="spacer"></div>
-      <a routerLink='/home' routerLinkActive='active'>Home</a>      
-      <a routerLink='/services' routerLinkActive='active'>Services</a>
-      <a routerLink='/aboutus' routerLinkActive='active'>About us</a>
-      <a routerLink='/contactus' routerLinkActive='active'>Contact</a>
-      <a routerLink='/login' routerLinkActive='active'>Login</a>
-</div> -->
 
 
