@@ -15,6 +15,7 @@ import { AboutusComponent } from '../../shared/common/aboutus.component';
 import { ContactUsComponent } from '../../shared/common/contact-us.component';
 import { MainmenuComponent } from '../../common/mainmenu/mainmenu.component';
 import { PagebannerComponent } from '../../common/pagebanner/pagebanner.component'
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 const routes: Routes = [{
@@ -33,7 +34,7 @@ const routes: Routes = [{
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent, PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule
+    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule
   ]
 })
 export class AppsModule { }

@@ -2,12 +2,12 @@
 
 .top-header {
     background-color: #1A213B;
-    padding: 5px 0px;
+    padding: 10px 0px;
     font-size: 14px;
             color: #fff;
         .social {
                list-style: none;
-               display: inline-block;
+               display: flex;
                margin: 0px;
                li {
                    display: inline-block;
@@ -39,17 +39,20 @@
         }
     }
 
+    .headerLeft {
+        display: flex;
+    }
 
 .v-divider {
     background-color: #fff;
     width: 1px;
     height: 20px;
     margin: 0 10px;
-    display: inline-block;
+    display: flex;
     vertical-align: middle;
 }
 .ifo {
-    display: inline-block;
+    display: flex;
 }
 
 .page-top-sec{

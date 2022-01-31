@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -31,7 +30,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [AuthlayoutComponent, LoginComponent, SignupComponent, ResetPasswordComponent],
   imports: [
-    CommonModule, FormsModule, MatModule, RouterModule.forRoot(routes), ReactiveFormsModule, MatTabsModule, NgbModule
+    CommonModule, FormsModule, MatModule, RouterModule.forRoot(routes), ReactiveFormsModule, MatTabsModule
   ]
 })
 export class AuthModule { }
