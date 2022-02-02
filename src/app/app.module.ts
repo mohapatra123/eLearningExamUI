@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewsModule } from './views/views.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ViewsModule, FormsModule,
-    HttpClientModule,ViewsModule
+    HttpClientModule,ViewsModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
