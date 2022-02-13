@@ -58,12 +58,15 @@
         min-height: 225px;
     }
     .categories-icon {
-        display: inline-block;
-        width: 30%;
+        display: flex;
+        width: 120px;
         margin: auto;
         background-color: #ddd;
         border-radius: 50%;
         padding: 30px;
+        height: 120px;
+        align-items: center;
+        justify-content: center;
     }
     h4 {
         font-size: $h3;

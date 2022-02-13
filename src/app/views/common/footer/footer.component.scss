@@ -61,7 +61,7 @@
     background: #1A213B;
     position: relative;
     color: #fff;
-    padding-top: 150px;
+    padding-top: 170px;
     .mat-divider {
         border-top-color: rgba(255, 255, 255, 0.15);
         margin: 0px;
@@ -69,7 +69,6 @@
     .footer-title {
         color: #fff;
         font-size: 24px;
-        padding-top: 60px;
     }
 
     .footer-menu-list {
@@ -82,11 +81,16 @@
                 font-size: 16px;
                 padding: 6px 0px;
                 color: rgba(255, 255, 255, 0.7);
+                display: flex;
               }
           }
       }
       .footerLogo {
         padding-right: 40px;
+        p{
+            line-height: 24px;
+            margin: 0;
+        }
     }
     .copyright{
         color: #fff;
