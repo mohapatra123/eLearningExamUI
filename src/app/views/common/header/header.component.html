@@ -13,7 +13,7 @@
            <span class="v-divider"></span>
            <span class="info">
             <i title="linkedin" class="elIcon icon-email"></i>
-            info@xample.com
+            info@fintechedu.com
            </span>
       </div>
     </div>
@@ -22,9 +22,11 @@
             <span class="search">
               <i title="search" class="elIcon icon-search"></i>What do you want to learn ?
              </span>
-
-              <span class="login">
+              <span *ngIf="!isAuthenticated" class="login">
                 <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login / Register</a>            
+              </span>
+              <span *ngIf="isAuthenticated" class="login">
+                <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" (click)="logout()" >Logout</a>            
               </span>
               <!-- <span class="login">/</span> -->
                <!-- <span class="login">

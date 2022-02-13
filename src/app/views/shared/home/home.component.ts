@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Course } from '../../../core/models/course';
 import { Exam } from '../../../core/models/exam';
 import { ExamService } from '../../../core/services/exam/exam.service';
+import { BehaviorSubjectService } from '../../../core/services/common/behavior-subject.service';
 
 
 @Component({
@@ -11,13 +13,14 @@ import { ExamService } from '../../../core/services/exam/exam.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private examService: ExamService) { }
+  constructor(private examService: ExamService, private _behaviorSubject: BehaviorSubjectService) { }
 
   examArray: any[];
   examList: any[];
   buttonText: string = "Show All";
 
   ngOnInit(): void {
+    this._behaviorSubject.setRoute('Home');
     this.getAllExam();
   }
 

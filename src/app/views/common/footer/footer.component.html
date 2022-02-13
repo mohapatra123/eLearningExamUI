@@ -1,22 +1,21 @@
 
 <!--------------- News-letter start----------------->
 
-  <div class="container">
+  <div *ngIf="fromRoute == 'Home'" class="container">
      <div class="row news-letter"> 
+        <div class="col-6">
+          <p class="para">#Newslettter</p>
+          <h2 class="header1">Join our community of students</h2>
+        </div>
 
-    <div class="col-6">
-      <p class="para">#Newslettter</p>
-      <h2 class="header1">Join our community of students</h2>
-    </div>
-
-    <div class="col-6 col align-self-center">
-      <form class="subscribe">
-        <input type="email" placeholder="Enter your email" >
-        <input type="submit" value="Subscribe">
-      </form>
-    </div>
-  </div>
-</div>
+        <div class="col-6 col align-self-center">
+          <form class="subscribe">
+            <input type="email" placeholder="Enter your email" >
+            <input type="submit" value="Subscribe">
+          </form>
+        </div>
+     </div>
+ </div>
 
 <!--------------- News-letter end----------------->
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 import { CommonService } from 'src/app/core/services/common/common.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class ContactUsComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _commonService: CommonService, private _router: Router
+    private _commonService: CommonService, private _router: Router, private _behaviorSubject: BehaviorSubjectService
   ) { }
 
   contactForm: FormGroup;
@@ -20,6 +21,7 @@ export class ContactUsComponent implements OnInit {
   status: boolean = false;
 
   ngOnInit(): void {
+    this._behaviorSubject.setRoute('Contactus');
     this.clearForm();
   }
 
