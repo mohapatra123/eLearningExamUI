@@ -65,6 +65,6 @@ export class LoginComponent implements OnInit {
   }
 
   redirectAfterAuth(){
-    this._router.navigateByUrl('dashboard');
+    this._router.navigateByUrl('home');
   }
 }

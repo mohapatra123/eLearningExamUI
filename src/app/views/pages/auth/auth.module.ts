@@ -16,15 +16,9 @@ import { HomeComponent } from '../../shared/home/home.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 
-const routes: Routes = [
-  {
-    path: '',    
-    children:[
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent }      
-    ]
-  }
+const routes: Routes = [      
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent }  
 ]
 
 @NgModule({

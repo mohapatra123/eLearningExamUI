@@ -16,25 +16,29 @@ import { ContactUsComponent } from '../../shared/common/contact-us.component';
 import { MainmenuComponent } from '../../common/mainmenu/mainmenu.component';
 import { PagebannerComponent } from '../../common/pagebanner/pagebanner.component'
 import {MatTabsModule} from '@angular/material/tabs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EventsComponent } from '../../shared/common/events.component';
 
 
 const routes: Routes = [{
   path: '',
   component: ContentComponent,
   children:[
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
       path: 'home', component: HomeComponent 
     },    
     { path: 'aboutus', component: AboutusComponent },
     { path: 'contactus', component: ContactUsComponent },
-    { path: 'services', component: ServicesComponent }
+    { path: 'services', component: ServicesComponent },
+    { path: 'events', component: EventsComponent },
   ]
 }]
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent, PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule
+    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
 })
 export class AppsModule { }
