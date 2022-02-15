@@ -60,6 +60,44 @@
     background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(4,33,109,1) 100%);
 }
 
+@media (max-width: 576px) { 
+    .top-header {
+    .headerLeft {
+        flex-direction: column;
+        .social {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            li {
+                display: inline-block;
+                padding-right: 0.5rem;
+             a {
+                 color: #fff;
+                 text-decoration: none;
+          }
+        }
+      }
+      .v-divider {
+        height: 1px;
+        width: 90%;
+        margin: 2px auto;
+      }
+      .info {
+          text-align: center;
+          margin: 2px auto;
+      }
+    }
+    .headerRight {
+        text-align: center;
+        .search {
+            width: 100%;
+            margin: 2px auto;
+        }
+    }
+  }
+    
+ }
+
 
 
 

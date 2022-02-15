@@ -18,3 +18,16 @@
     text-transform: uppercase;
     }
 }
+
+.mob-menu {
+    display: none;
+}
+
+@media (max-width: 576px) { 
+    .menu {
+        display: none;
+    }
+    .mob-menu {
+        display: flex;
+    }
+}
