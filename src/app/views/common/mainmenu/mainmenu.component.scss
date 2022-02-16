@@ -23,11 +23,25 @@
     display: none;
 }
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {
+    .exm-btn {
+      font-size: 1rem;
+    }
     .menu {
         display: none;
     }
     .mob-menu {
         display: flex;
+        .mat-button {
+            background-color: #1A213B;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 0px;
+    line-height: 37px;
+        }
+        .mat-icon {
+            color: #fff;
+        }
     }
 }

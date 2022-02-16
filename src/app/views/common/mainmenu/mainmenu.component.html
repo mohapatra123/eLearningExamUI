@@ -9,7 +9,7 @@
               </a>
             </div>
           </div>
-          <div class="col-6 col-sm-12 col-md-4">
+          <div class="col-7 col-sm-12 col-md-4">
             <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">
               <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
             </button>
@@ -18,7 +18,7 @@
                 <button mat-menu-item>Item 2</button>
               </mat-menu>
             </div>
-            <div class="col-6 col-sm-12 col-md-6">
+            <div class="col-5 col-sm-12 col-md-6">
           <nav class="menu">
             <button mat-button routerLink="/" routerLinkActive="true">Home</button>
             <button mat-button routerLink="/" routerLinkActive="true">About Us</button>
@@ -29,7 +29,7 @@
           </nav>
          
           <div class="mob-menu">
-            <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+            <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item>Home</button>
               <button mat-menu-item>About Us</button>

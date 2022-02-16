@@ -330,3 +330,10 @@
 .mat-form-field {
   display: block;    
 }
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .feature-box .card {
+        max-height: 100%;
+        min-height: 100%;
+    }
+}
