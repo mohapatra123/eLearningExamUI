@@ -320,16 +320,107 @@
     border: 1px solid #C4C4C4;
     border-radius: 0px;
 }
-.move-to-top {
+.scroll-to-top {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    z-index: 1;
-}
+    opacity: 0;
+    transition: all .2s ease-in-out;
+   }
+   .show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+   }
 
 .mat-form-field {
   display: block;    
 }
+
+@media (max-width: 576px) {
+    
+    .tutor {
+        margin: 25px 0px 25px;
+       .tutor-box {
+        .box {          
+          i { font-size: 70px; }
+          .mat-card-content { margin-top: 15px; 
+            p{ font-size: 20px; }
+          }
+         }
+       }
+      }
+
+      .categories { margin: 25px 0px 25px;
+        .box {
+            margin-bottom: 12px;
+            padding: 15px 0px;
+            min-height: auto;
+            .categories-icon {
+                width: 100px;
+                height: 100px;
+                img {
+                    width: 50px;
+                }
+            }
+        }
+      }
+
+      .testimonial {
+        .testimonial-header {
+            padding: 0px;
+            margin-top: 15px;
+        }
+        .testimonial-comments {
+            .testimonial-sec {
+                margin: 5px 0px;
+            }
+        }
+        .testimonial-para {
+            margin-top: 15px;
+            .line {
+                padding: 15px 0px 15px 15px;
+            }
+        }
+        .testimonial-comments {
+            margin: 15px 0px;
+        }
+      }
+
+      .readBox {
+          img {
+              width: 75%;
+          }
+          padding: 15px 10px;
+          margin-bottom: 15px;
+      }
+
+      .bottom-testimonial {
+        margin: 15px 0px;
+        .time-box {
+            margin: 10px 0px;
+            .year {
+                margin: 0px;
+                p {
+                 margin-bottom: 2px
+                }
+                .sub-header {
+                    font-size: 26px;
+                    margin-bottom: 2px;
+                }
+            }
+         }
+     }
+
+     .track {        
+        h2 { font-size: 18px; }
+        p {  margin-bottom: 2px; }
+      }
+
+
+  
+}
+
+
 
 @media (min-width: 576px) and (max-width: 768px) {
     .feature-box .card {

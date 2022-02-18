@@ -32,7 +32,7 @@
         background-repeat: no-repeat;
         background-size: 100% 100%;
         left: 10%;
-        top: 30%;
+        top: 22px;
         }
 
     }
@@ -51,14 +51,23 @@
 
 @media (max-width: 576px) {
     .banner {
+        .white-btn {
+            padding-left: 40px;
+            margin-right: 10px;
+            &::before {
+             width: 20px;
+             height: 20px;
+             top: 12px;
+             }
+        }
     h2 { 
-        margin-bottom: 25px;
-        margin-top: 25px; }
+        margin-bottom: 15px;
+        margin-top: 15px; }
     p { 
-     margin-bottom: 25px;
+     margin-bottom: 15px;
     }
     .own-btn {
-       margin: 5px 0px;
+       margin: 5px;
     }
 }
 }

@@ -102,3 +102,39 @@
 
 
 /************ Home footer end *************/
+
+@media (max-width: 576px) {  
+    .news-letter {
+        padding: 15px 10px;
+        .subscribe {
+            input[type=email] {
+                font-size: 16px;
+                margin: 5px 0px;
+            }
+            input[type=submit] {
+                font-size: 16px;
+                padding: 0 15px 0 40px;
+                background-size: 18px;
+            }
+        }
+    }
+
+    .home-footer {
+        padding-top: 50px;
+        .footerLogo {
+            padding: 0px;
+            margin-bottom: 15px;
+        }
+        .footer-title {
+            margin-bottom: 10px;
+        }
+        .footer-menu-list {
+            margin-bottom: 10px;
+            li {
+                a {
+                    padding: 2px 0px;
+                }
+            }
+        }
+    }
+}
