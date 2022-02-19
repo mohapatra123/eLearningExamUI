@@ -30,6 +30,14 @@
     .menu {
         display: none;
     }
+    .cdk-overlay-connected-position-bounding-box {
+        left: 0 !important;
+      }
+    .menu-screen {
+        position: fixed;
+        max-width: unset !important;
+        width: 100vw;
+      }
     .mob-menu {
         display: flex;
         .mat-button {
