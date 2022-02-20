@@ -24,8 +24,19 @@
 }
 
 @media (max-width: 576px) {
-    .exm-btn {
-      font-size: 1rem;
+    .page-top-sec {
+        .mob-menu {
+            background-color: #1A213B;
+            color: #fff;
+            text-transform: uppercase;
+            min-width: 32px;
+            padding: 0px 10px;
+            float: right;
+        }
+        .exm-btn {
+            font-size: 12px;
+            padding: 0 10px;
+        }
     }
     .menu {
         display: none;
@@ -38,18 +49,10 @@
         max-width: unset !important;
         width: 100vw;
       }
-    .mob-menu {
-        display: flex;
-        .mat-button {
-            background-color: #1A213B;
-    font-size: 18px;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 0px;
-    line-height: 37px;
-        }
+
+        
         .mat-icon {
             color: #fff;
         }
-    }
+    
 }

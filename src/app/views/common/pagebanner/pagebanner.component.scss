@@ -51,6 +51,8 @@
 
 @media (max-width: 576px) {
     .banner {
+        position: relative;
+        padding-bottom: 50px;
         .white-btn {
             padding-left: 40px;
             margin-right: 10px;
@@ -58,7 +60,18 @@
              width: 20px;
              height: 20px;
              top: 12px;
-             }
+             }             
+        }
+        &::before {
+            content: "";
+            background-image: url("/assets/study-png-clipart.svg");
+            background-size: cover;
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
         }
     h2 { 
         margin-bottom: 15px;
