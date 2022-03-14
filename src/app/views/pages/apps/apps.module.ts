@@ -18,6 +18,8 @@ import { PagebannerComponent } from '../../common/pagebanner/pagebanner.componen
 import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EventsComponent } from '../../shared/common/events.component';
+import {ExamcategoryComponent} from '../../shared/common/examcategory.component';
+import {ExamcategoryAnsComponent} from '../../shared/common/examcategoryans.component';
 
 
 const routes: Routes = [{
@@ -32,11 +34,16 @@ const routes: Routes = [{
     { path: 'contactus', component: ContactUsComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'events', component: EventsComponent },
+    { path: 'examcategory', component: ExamcategoryComponent },
+    { path: 'examcategoryans', component: ExamcategoryAnsComponent}
   ]
 }]
 
 @NgModule({
-  declarations: [HomeComponent, HeaderComponent, MainmenuComponent, PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent, AboutusComponent, ContactUsComponent, ContentComponent],
+  declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
+    PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
+    AboutusComponent, ContactUsComponent, ContentComponent,
+    ExamcategoryComponent, ExamcategoryAnsComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]

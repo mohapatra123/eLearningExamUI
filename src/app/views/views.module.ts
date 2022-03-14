@@ -5,6 +5,7 @@ import { AppsModule } from './pages/apps/apps.module';
 import { AppAuthModule } from './pages/apps/app-auth.module';
 import { EventsComponent } from './shared/common/events.component';
 
+
 @NgModule({
   declarations: [EventsComponent],
   imports: [
