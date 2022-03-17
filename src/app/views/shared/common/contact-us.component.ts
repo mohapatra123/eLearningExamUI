@@ -25,11 +25,9 @@ export class ContactUsComponent implements OnInit {
     this.clearForm();
   }
 
-  postContact(contact: any){
-    console.log(contact);
+  postContact(contact: any){    
       this._commonService.postContact(contact.value).subscribe((res)=> {
-        if(res.error == false){
-          console.log(res);
+        if(res.error == false){          
           this.status = true;
           this.statusMessage = 'Successfully Saved';
           this.clearForm();

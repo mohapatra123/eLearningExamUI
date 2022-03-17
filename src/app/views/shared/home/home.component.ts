@@ -5,6 +5,9 @@ import { Course } from '../../../core/models/course';
 import { Exam } from '../../../core/models/exam';
 import { ExamService } from '../../../core/services/exam/exam.service';
 import { BehaviorSubjectService } from '../../../core/services/common/behavior-subject.service';
+import { CommonService } from 'src/app/core/services/common/common.service';
+import { Category } from 'src/app/core/models/category.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,23 +18,38 @@ import { BehaviorSubjectService } from '../../../core/services/common/behavior-s
 export class HomeComponent implements OnInit {
 
   constructor(private examService: ExamService, private _behaviorSubject: BehaviorSubjectService,
-    @Inject(DOCUMENT) private document: Document) { }
+    @Inject(DOCUMENT) private document: Document, private _commonService: CommonService, private _router: Router) { }
 
   examArray: any[];
   examList: any[];
   buttonText: string = "Show All";
 
+  public clients: Category[];
+
+  categoryData: Category;
+  dataSource: any;
+  
+
   ngOnInit(): void {
     this._behaviorSubject.setRoute('Home');
-    this.getAllExam();
+    this.getCategoryFromFile();
+    //this.getAllExam();
+  }
+
+  getCategoryFromFile(){
+    this._commonService.list().subscribe(o => {
+      this._commonService.list().subscribe(client => {
+        this.clients = client[0].Category;
+        this.dataSource = this.clients;        
+      });
+    })
   }
 
   getAllExam(){
       this.examService.getAllExam(0).subscribe(res => {
       this.examArray = res.list.slice(0, 8);
-      this.examList = res.list;
-      //this.showAll(this.buttonText);
-      console.log(res.list);
+      this.examList = res.list;     
+      
     });
   }
 
@@ -44,6 +62,11 @@ export class HomeComponent implements OnInit {
       this.examArray = this.examList.slice(0, 8);
       this.buttonText = "Show All";
     }    
+  }
+
+  selectCategory(cat){
+    this._behaviorSubject.setSubCategory(cat.name);
+    this._router.navigate(['/examcategory', cat.name]);     
   }
 
 

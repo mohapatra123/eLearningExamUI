@@ -13,11 +13,9 @@ export class FooterComponent implements OnInit {
 
   fromRoute: string = ''
 
-  ngOnInit(): void {
-    console.log('footer');
+  ngOnInit(): void {    
     this._behaviorSubject.routePage.subscribe(o =>{
-      this.fromRoute = o;
-      console.log(this.fromRoute);
+      this.fromRoute = o;      
     })
   }
 }
