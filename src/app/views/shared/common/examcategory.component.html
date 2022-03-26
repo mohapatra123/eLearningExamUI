@@ -10,33 +10,12 @@
                         <span _ngcontent-wkc-c218="" class="icon">
                             <img _ngcontent-wkc-c218="" src="/assets/man.svg" alt="man" class="img-fluid">
                         </span>
-                        <h2 class="header2">Select Your Bank Exam</h2>
+                        <h2 class="header1">Select Your {{subCategoryName}} Exam</h2>
                     </div>
-                    <div class="examCategory-body">
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
+                    <div class="examCategory-body" *ngFor="let data of dataSource">
+                        <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                            {{data.name}}
                         </button>
-
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
-                        </button>
-
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
-                        </button>
-
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
-                        </button>
-
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
-                        </button>
-
-                        <button mat-flat-button class="examBtn">
-                            <mat-icon>delete</mat-icon> Bank Exam
-                        </button>
-
                     </div>
                 </div>
 

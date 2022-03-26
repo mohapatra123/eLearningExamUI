@@ -28,8 +28,7 @@ export class AuthService {
     }
   }
 
-  authenticateUser(param: any): Observable<any> {
-    console.log(param);
+  authenticateUser(param: any): Observable<any> {    
       let formData: FormData = new FormData();
       formData.append('eMail', param.email);
       formData.append('password', param.password);      

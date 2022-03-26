@@ -30,22 +30,33 @@
 <div class="questionDash"> 
     <div class="container">
         <div class="row">
-            <div class="col-md-8 vl">               
-                <div class="questionBody">
-                  <p>
-                    A problem is given to three students whose chances of solving it are
-                    1/2, 1/3 and 1/4 respectively. What is the probability that the problem
-                     will be solved?</p>
-                  <p>
-                    A) 1/4 <br>
-                    B) 1/2 <br>
-                    C) 3/4 <br>
-                    D) 7/12
-                    </p>
-                  <div class="question-footer">
-                      <button class="questionBtn btn mr-2">Clear Response</button>
-                      <button class="questionBtn btn">Save & Next</button>
-                  </div>
+            <div class="col-md-8">
+              
+                <div class="question-dash">                    
+                    <div class="header">
+                        <h2 class="header1">{{subCategoryName}} <span *ngIf="subCategoryName != ''">></span> {{examName}}</h2>                    
+                    </div>
+                    <div class="question-header">
+                       <h2>{{currentQuestion}}</h2>
+                    </div>
+                    <div class="question-body"> 
+                      <table>
+                        <tr *ngFor="let opt of currentOption; let i = index">
+                          <td>
+                            <input type="checkbox" id="i" (change)="checkValue()">
+                          </td>
+                          <td>
+                            {{opt}}
+                          </td>
+                        </tr>
+                      </table>                       
+                        <!-- <p *ngFor="let opt of currentOption">
+                            {{opt}}                            
+                        </p> -->
+                        <div class="question-footer">
+                            <button class="questionBtn btn mr-2">Clear Response</button>
+                            <button class="questionBtn btn">Save & Next</button>
+                        </div>
                     </div>
                 </div>
             <div class="col-md-4">

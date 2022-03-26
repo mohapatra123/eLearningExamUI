@@ -10,12 +10,17 @@
             </div>
           </div>
           <div class="col-8 col-sm-12 col-md-4">
-            <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">
+            <button mat-button [matMenuTriggerFor]="tabledriven" class="exm-btn">
               <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
             </button>
-              <mat-menu #belowMenu="matMenu" yPosition="below">
+              <!-- <mat-menu #belowMenu="matMenu" yPosition="below" [triggerFor] *ngFor="let data of dataSource">
                 <button mat-menu-item>Item 1</button>
                 <button mat-menu-item>Item 2</button>
+              </mat-menu> -->
+              <mat-menu #tabledriven="matMenu">
+                <ng-container *ngFor="let data of dataSource">
+                  <button mat-menu-item (click)="select(data)">{{ data.name }}</button>                  
+                </ng-container>
               </mat-menu>
               
               

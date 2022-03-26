@@ -34,8 +34,8 @@ const routes: Routes = [{
     { path: 'contactus', component: ContactUsComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'examcategory', component: ExamcategoryComponent },
-    { path: 'examcategoryans', component: ExamcategoryAnsComponent}
+    { path: 'examcategory/:subCategory', component: ExamcategoryComponent },
+    { path: 'examcategoryans/:exam', component: ExamcategoryAnsComponent}
   ]
 }]
 

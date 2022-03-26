@@ -19,6 +19,10 @@ export class CommonService {
     this.header.append('Access-Control-Allow-Headers', '*');
   }  
 
+  list(): Observable<any[]> {
+    return this._http.get<any[]>('/assets/client.json');
+  }  
+
   postContact(param: any): Observable<any>{
     let formData: FormData = new FormData();
     formData.append('name', param.name);
