@@ -20,6 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EventsComponent } from '../../shared/common/events.component';
 import {ExamcategoryComponent} from '../../shared/common/examcategory.component';
 import {ExamcategoryAnsComponent} from '../../shared/common/examcategoryans.component';
+import { TechnologyTrainingComponent } from '../../shared/common/services/technology-training/technology-training.component';
+import { InternshipComponent } from '../../shared/common/services/internship/internship.component';
+import { PlacementMentorshipComponent } from '../../shared/common/services/placement-mentorship/placement-mentorship.component';
+import { ConsultancyComponent } from '../../shared/common/services/consultancy/consultancy.component';
+import { EdtechComponent } from '../../shared/common/services/edtech/edtech.component';
+import { FinancialInclusionComponent } from '../../shared/common/services/financial-inclusion/financial-inclusion.component';
+import { OverseasEducationComponent } from '../../shared/common/services/overseas-education/overseas-education.component';
+import { SocialImpactComponent } from '../../shared/common/services/social-impact/social-impact.component';
+
 
 
 const routes: Routes = [{
@@ -35,7 +44,15 @@ const routes: Routes = [{
     { path: 'services', component: ServicesComponent },
     { path: 'events', component: EventsComponent },
     { path: 'examcategory/:subCategory', component: ExamcategoryComponent },
-    { path: 'examcategoryans/:exam', component: ExamcategoryAnsComponent}
+    { path: 'examcategoryans/:exam', component: ExamcategoryAnsComponent},
+    { path: 'technologyTraining', component: TechnologyTrainingComponent },
+    { path: 'internship', component: InternshipComponent },
+    { path: 'placement', component: PlacementMentorshipComponent },
+    { path: 'fintechConsultancy', component: ConsultancyComponent },
+    { path: 'edtechConsultancy', component: EdtechComponent },
+    { path: 'financialInclusion', component: FinancialInclusionComponent },
+    { path: 'overseasEducation', component: OverseasEducationComponent },
+    { path: 'socialImpact', component: SocialImpactComponent },
   ]
 }]
 
@@ -43,7 +60,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
