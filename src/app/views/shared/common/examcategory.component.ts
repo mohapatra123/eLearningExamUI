@@ -23,6 +23,8 @@ export class ExamcategoryComponent implements OnInit {
       left: 0, 
       behavior: 'smooth' 
     });
+    this._behaviorSubject.setBannerHeading("We Envision World’s Best Category.");
+    this._behaviorSubject.setBannerDescription("Category Description");
     this._behaviorSubject.subCategory.subscribe(o =>{
       this.subCategoryName = o;
       this.getCategoryFromFile();      

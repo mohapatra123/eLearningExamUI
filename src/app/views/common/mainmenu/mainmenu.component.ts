@@ -29,6 +29,7 @@ export class MainmenuComponent implements OnInit {
   select(data: any)
   {    
     this._behaviorSubject.setSubCategory(data.name);
+    this._behaviorSubject.setRoute('');
     this._router.navigate(['/examcategory', data.name]);    
   }
 

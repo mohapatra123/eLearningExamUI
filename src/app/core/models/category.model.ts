@@ -25,6 +25,7 @@ export interface Question{
     isActive: boolean;
     option: string[];
     answer: number[];
+    selectedAnswer: number[];
 }
 
 export interface Option{

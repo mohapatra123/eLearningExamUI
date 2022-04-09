@@ -31,9 +31,15 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.setBanner();
     this._behaviorSubject.setRoute('Home');
     this.getCategoryFromFile();
     //this.getAllExam();
+  }
+
+  setBanner(){
+    this._behaviorSubject.setBannerHeading("We Envision World’s Best Learning Experience.");
+    this._behaviorSubject.setBannerDescription("courses is for every one from different age groups and with various level of skills.");
   }
 
   getCategoryFromFile(){

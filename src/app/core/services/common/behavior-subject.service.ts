@@ -12,7 +12,11 @@ export class BehaviorSubjectService {
   private _subCategory = new BehaviorSubject<any>('');
   subCategory = this._subCategory.asObservable();
 
-  constructor() { }
+  private _bannerHeading = new BehaviorSubject<string>('');
+  bannerHeading = this._bannerHeading.asObservable();
+
+  private _bannerDescription = new BehaviorSubject<string>('');
+  bannerDescription = this._bannerDescription.asObservable();
 
   setRoute(data: string){
     this._routePage.next(data);
@@ -21,4 +25,14 @@ export class BehaviorSubjectService {
   setSubCategory(data: string){
     this._subCategory.next(data);
   }  
+
+  setBannerHeading(data: string){
+    this._bannerHeading.next(data);
+  }
+
+  setBannerDescription(data: string){
+    this._bannerDescription.next(data);
+  }
+
+  constructor() { }  
 }

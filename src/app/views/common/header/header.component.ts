@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,11 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _authService: AuthService, private _router: Router) { }
+  constructor(private _authService: AuthService, private _router: Router, private _behaviorService: BehaviorSubjectService) { }
 
   isAuthenticated: boolean = false;
+  bannerText: string;
+  bannerDescription: string;
 
   ngOnInit(): void {
     if(this._authService.getToken() != undefined){
@@ -24,5 +27,14 @@ export class HeaderComponent implements OnInit {
   logout(){
     this._authService.removeLocalAuth('user_token');
     this.isAuthenticated = false;    
+  }
+
+  setBanner(){
+    this._behaviorService.bannerHeading.subscribe(data => {
+      this.bannerText = data;
+    })
+    this._behaviorService.bannerDescription.subscribe(data => {
+      this.bannerDescription = data;
+    })
   }
 }
