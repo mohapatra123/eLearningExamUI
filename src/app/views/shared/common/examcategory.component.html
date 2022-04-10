@@ -12,8 +12,8 @@
                         </span>
                         <h2 class="header1">Select Your {{subCategoryName}} Exam</h2>
                     </div>
-                    <div class="examCategory-body" *ngFor="let data of dataSource">
-                        <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                    <div class="examCategory-body" >
+                        <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
                             {{data.name}}
                         </button>
                     </div>

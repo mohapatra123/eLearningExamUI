@@ -1,6 +1,11 @@
 @import './src/app/common-styles/variable';
 
 /**************** Tutor css start ************/
+
+.page-top-sec{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(4,33,109,1) 100%);
+}
 .tutor {
     margin: 50px 0px 25px;
     p.line {
