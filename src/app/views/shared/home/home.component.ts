@@ -52,11 +52,11 @@ export class HomeComponent implements OnInit {
   }
 
   getAllExam(){
-      this.examService.getAllExam(0).subscribe(res => {
-      this.examArray = res.list.slice(0, 8);
-      this.examList = res.list;     
+      // this.examService.getAllExam(0).subscribe(res => {
+      // this.examArray = res.list.slice(0, 8);
+      // this.examList = res.list;     
       
-    });
+    
   }
 
   showAll(text: string){

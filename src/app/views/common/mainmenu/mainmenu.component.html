@@ -10,16 +10,16 @@
             </div>
           </div>
           <div class="col-8 col-sm-12 col-md-3">
-            <button mat-button [matMenuTriggerFor]="tabledriven" class="exm-btn">
-              <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
-            </button>
+              <button mat-button [matMenuTriggerFor]="tabledriven" class="exm-btn">
+                <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
+              </button>
               <!-- <mat-menu #belowMenu="matMenu" yPosition="below" [triggerFor] *ngFor="let data of dataSource">
                 <button mat-menu-item>Item 1</button>
                 <button mat-menu-item>Item 2</button>
               </mat-menu> -->
               <mat-menu #tabledriven="matMenu">
                 <ng-container *ngFor="let data of dataSource">
-                  <button mat-menu-item (click)="select(data)">{{ data.name }}</button>                  
+                  <button *ngIf="data.name != null && data.name != ''" mat-menu-item>{{ data.name }}</button>                  
                 </ng-container>
               </mat-menu>
               
@@ -35,8 +35,8 @@
                </mat-menu>
               
 
-            </div>
-            <div class="col-2 col-sm-12 col-md-7">
+             </div>
+            <div class="col-2 col-sm-12 col-md-7 d-flex justify-content-end">
           <nav class="menu">
             <button mat-button mat-button routerLink="/home" routerLinkActive="true">Home</button>
             <button mat-button routerLink="/aboutus" routerLinkActive="true">About Us</button>
@@ -60,7 +60,7 @@
             </mat-menu>
             
             <!-- <button mat-button routerLink="#" routerLinkActive="true">Training</button> -->
-            <button mat-button routerLink="#" routerLinkActive="true">Events</button>
+            <button mat-button routerLink="/events/comingsoon" routerLinkActive="true">Events</button>
             <button mat-button routerLink="/contactus" routerLinkActive="true">Contact</button>
           </nav>     
           

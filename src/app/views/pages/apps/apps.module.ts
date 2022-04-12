@@ -28,6 +28,7 @@ import { EdtechComponent } from '../../shared/common/services/edtech/edtech.comp
 import { FinancialInclusionComponent } from '../../shared/common/services/financial-inclusion/financial-inclusion.component';
 import { OverseasEducationComponent } from '../../shared/common/services/overseas-education/overseas-education.component';
 import { SocialImpactComponent } from '../../shared/common/services/social-impact/social-impact.component';
+import { ComingSoonComponent } from '../../shared/common/coming-soon/coming-soon.component';
 
 
 
@@ -53,6 +54,7 @@ const routes: Routes = [{
     { path: 'financialInclusion', component: FinancialInclusionComponent },
     { path: 'overseasEducation', component: OverseasEducationComponent },
     { path: 'socialImpact', component: SocialImpactComponent },
+    { path: 'events/comingsoon', component: ComingSoonComponent },    
   ]
 }]
 
@@ -60,7 +62,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]

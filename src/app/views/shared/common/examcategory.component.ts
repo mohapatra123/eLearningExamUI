@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SubCategory } from 'src/app/core/models/category.model';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 import { CommonService } from 'src/app/core/services/common/common.service';
+import { ExamService } from 'src/app/core/services/exam/exam.service';
 
 @Component({
   selector: 'app-examcategory',
@@ -11,7 +12,8 @@ import { CommonService } from 'src/app/core/services/common/common.service';
 })
 export class ExamcategoryComponent implements OnInit {
 
-  constructor(private _commonService: CommonService, private _router: Router, private _activatedRoute: ActivatedRoute, private _behaviorSubject: BehaviorSubjectService) { }
+  constructor(private _commonService: CommonService, private _router: Router, private _activatedRoute: ActivatedRoute, 
+    private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService) { }
 
   public clients: SubCategory[];
   dataSource: any;
@@ -27,19 +29,17 @@ export class ExamcategoryComponent implements OnInit {
     this._behaviorSubject.setBannerDescription("Category Description");
     this._behaviorSubject.subCategory.subscribe(o =>{
       this.subCategoryName = o;
-      this.getCategoryFromFile();      
+      this.getSubCategory();      
     })
     this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');
-    this.getCategoryFromFile();    
+    this.getSubCategory();    
   }
 
-  getCategoryFromFile(){
-    this._commonService.list().subscribe(o => {
-      this._commonService.list().subscribe(client => {
-        this.clients = client[1].SubCategory;
-        this.dataSource = this.clients.filter(o => o.categoryName == this.subCategoryName);          
-      });
-    })
+  getSubCategory(){
+    this._examService.getAllSubCategory().subscribe(res => {
+      this.dataSource = res.data.filter(o => o.categoryName == this.subCategoryName); 
+      console.log(res);
+    }) 
   }
 
   redirectExam(data){    

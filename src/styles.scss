@@ -17,8 +17,15 @@ a {
   text-decoration: $none;
 }
 
+.mat-menu-panel{
+  &.ng-trigger-transformMenu{
+    min-width: 230px;
+  }
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

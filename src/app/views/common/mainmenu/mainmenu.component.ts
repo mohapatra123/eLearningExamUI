@@ -4,6 +4,7 @@ import { Category } from 'src/app/core/models/category.model';
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { Router } from '@angular/router';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
+import { ExamService } from 'src/app/core/services/exam/exam.service';
 @Component({
   selector: 'app-mainmenu',
   templateUrl: './mainmenu.component.html',
@@ -12,9 +13,9 @@ import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-su
 })
 export class MainmenuComponent implements OnInit {
 
-  constructor(private _commonService: CommonService, private _router: Router, private _behaviorSubject: BehaviorSubjectService) { }
-
+  constructor(private _commonService: CommonService, private _router: Router, private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService) {
   
+  }  
 
   selected :string;  
   examArray: any[];
@@ -34,15 +35,13 @@ export class MainmenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getCategoryFromFile();
+    this.getAllCategory();
   }
 
-  getCategoryFromFile(){
-    this._commonService.list().subscribe(o => {
-      this._commonService.list().subscribe(client => {
-        this.clients = client[0].Category;
-        this.dataSource = this.clients;       
-      });
+  getAllCategory(){
+    this._examService.getAllCategory().subscribe(res => {
+      this.dataSource = res.data;
+      console.log(res);
     })
   }
 }
