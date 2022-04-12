@@ -1,0 +1,64 @@
+@import './src/app/common-styles/variable';
+
+.exm-btn {
+    background-color: $dark-primary;
+    font-size: 18px;
+    color: #fff;
+    text-transform: $upper-cse;
+    border-radius: 0px;
+    i {
+        font-size: 14px;;
+    }
+}
+.menu {
+    .mat-button {
+    color: #0A2468;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &-base{
+        &.true{
+            background-color: #1A213B;
+            color: #fff;
+        }
+    }
+    }
+}
+
+.mob-menu {
+    display: none!important;
+}
+
+@media (max-width: 576px) {
+    .page-top-sec {
+        .mob-menu {
+            background-color: #1A213B;
+            color: #fff;
+            text-transform: uppercase;
+            min-width: 32px;
+            padding: 0px 10px;
+            float: right;
+        }
+        .exm-btn {
+            font-size: 12px;
+            padding: 0 10px;
+        }
+    }
+    .menu {
+        display: none;
+    }
+    .cdk-overlay-connected-position-bounding-box {
+        left: 0 !important;
+      }
+    .menu-screen {
+        position: fixed;
+        max-width: unset !important;
+        width: 100vw;
+      }
+
+        
+        .mat-icon {
+            color: #fff;
+        }
+    
+}

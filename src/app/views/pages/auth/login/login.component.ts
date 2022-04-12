@@ -27,13 +27,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  validateUser(loginForm){
-    console.log(loginForm);
-    // if(loginForm.value.userId == 'Admin' && loginForm.value.password == 'Admin@123'){
-    //   this._authService.setToken('12345');
-    //   this.redirectAfterAuth();      
-    // }
-    // this.isValid = false;
+  validateUser(loginForm){    
     let loginData = {
       email: this.loginForm.value.userId,
       password: this.loginForm.value.password      
@@ -42,8 +36,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       let authToken: any;
       let result: any;
-      this._authService.authenticateUser(loginData).subscribe(res => {
-        console.log(res);
+      this._authService.authenticateUser(loginData).subscribe(res => {        
         if(res.token != null && res.token != undefined && res.token != ''){
           this.isValid = true;
           authToken = res.token;
@@ -65,6 +58,6 @@ export class LoginComponent implements OnInit {
   }
 
   redirectAfterAuth(){
-    this._router.navigateByUrl('dashboard');
+    this._router.navigateByUrl('home');
   }
 }

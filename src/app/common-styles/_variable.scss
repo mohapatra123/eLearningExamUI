@@ -1,0 +1,100 @@
+/**** variables ****/
+.base-font { font-family: Arial; font-size: 16px; font-weight: 400; line-height: normal };
+
+$base-family: Arial;
+
+$h1: 48px;
+$h2: 36px;
+$h3: 24px;
+$h4: 18px;
+$base: 16px;
+
+$primary: #072263;
+$dark-primary: #1A213B;
+$red: #CB0404;
+$white: #fff;
+$white8: rgba(255, 255, 255, 0.8);
+$white3: rgba(255, 255, 255, 0.3);
+$black: #000;
+$black7: rgba(0, 0, 0, 0.7);
+
+$font-weight-7: 700;
+$font-weight-4: 400;
+
+$upper-cse: uppercase;
+$lower-case: lowercase;
+$capital-case: capitalize;
+
+$auto: auto;
+$none: none;
+$normal: normal;
+$center: center;
+
+$pad0: 0px;
+$marg0: 0px;
+
+.red { color: $red; }
+
+/**** mixins ****/
+
+@mixin bd-radius($x){
+    -webkit-border-radius: $x;
+    -moz-border-radius: $x;
+    border-radius: $x;
+}
+
+@mixin custom-bd($bd-width, $bd-color){
+    border: $bd-width solid $bd-color; 
+}
+
+/**** extends ****/
+
+.custom-btn {
+  font-size: $h4;
+  font-weight: $font-weight-7;
+  text-transform: $upper-cse;
+  padding: 10px 20px;
+  @include bd-radius(50px);
+}
+
+.header {
+    font-size: $h1;
+    font-family: $base-family;
+    font-weight: $font-weight-7;
+    line-height: $normal;
+}
+
+.para {
+  font-size: $h3;
+  font-family: $base-family;
+  font-weight: $font-weight-4;
+  line-height: $normal;
+  color: $black7;
+}
+
+.box {
+    @include custom-bd(1px, $red);
+    @include bd-radius(12px);
+    text-align: $center;
+    box-shadow: $none;    
+}
+
+.header1, .header2, .header3, .header4 { 
+  @extend .header;
+}
+.header1 {font-size: $h1}
+.header2 {font-size: $h2}
+.header3 {font-size: $h3}
+.header4 {font-size: $h4}
+
+@media (max-width: 576px) { 
+  .header1 {font-size: 20px; }
+  .header2 {font-size: 26px; }
+  .header3 {font-size: 14px; }
+  .para { font-size: 18px; }
+  .custom-btn { 
+      font-size: 14px;
+      padding: 6px 15px;
+    }
+    
+}

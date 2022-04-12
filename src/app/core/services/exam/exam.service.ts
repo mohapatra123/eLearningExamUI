@@ -19,11 +19,19 @@ export class ExamService {
     this.header.append('Access-Control-Allow-Headers', '*');
   }  
 
-  getAllExam(param: any): Observable<any> {
-      return this._http.get(this.baseUri + 'f/exam/', { headers: this.header }).pipe(
+  getAllCategory(): Observable<any> {
+      return this._http.get(this.baseUri + 'exam/f/category/retrieve', { headers: this.header }).pipe(
       map((response: Response) => {
         return response;
       })
     )
-  }  
+  } 
+  
+  getAllSubCategory(): Observable<any> {
+    return this._http.get(this.baseUri + 'exam/f/sub-category/retrieve', { headers: this.header }).pipe(
+    map((response: Response) => {
+      return response;
+    })
+  )
+} 
 }

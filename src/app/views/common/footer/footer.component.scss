@@ -1,69 +1,17 @@
+@import './src/app/common-styles/variable';
 
 
-
-.home-footer {
-    background: #1A213B;
-    position: relative;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    .mat-divider {
-        border-top-color: rgba(255, 255, 255, 0.15);
-        margin: 0px;
-    }
-}
-
-.footer-title {
-    color: #fff;
-    font-size: 24px;
-    padding-top: 60px;
-}
-
-.home-footer a {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.footer-menu-list {
-  list-style: none;
-  padding: 0px;
-    li {
-        padding-left: 25px;
-        position: relative;
-        a {
-          text-decoration: none;
-          font-size: 24px;
-          padding: 12px 0px;
-          display: inherit;
-        }
-        &::before {
-         content: " ";
-         height: 3px;
-         width: 15px;
-         display: inherit;
-         background: rgba(255, 255, 255, 0.7);
-         position: absolute;
-         left: 0;
-         top: 50%;
-        }
-    }
-}
-
+/************ News letter start *************/
 
 .news-letter {
     background-color: #CB0404;
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 25px 40px;
     position: relative;
     z-index: 1;
     margin-bottom: -10%;
-    h5 {
-      color: #fff;
-      font-size: 24px;
-    }
-    h2 {
-        font-size: 48px;
-        line-height: 55.2px;
-        margin: 0px;
-        color: #fff;
+    p, h2 {
+      color: $white;
     }
     .subscribe {
         margin-top: 30px;
@@ -75,38 +23,118 @@
         border: 1px solid #bfdcf7;
         margin: 0px;
 
-        input[type=email] {
-            border: 0;
-    padding: 0px;
-    width: calc(100% - 100px);
-    height: 35px;
-    margin: 15px 0px;
-    font-size: 24px;
-    padding: 15px;
+    input[type=email] {
+       border: 0;
+       padding: 0px;
+       width: calc(100% - 100px);
+       margin: 15px 0px;
+       font-size: 24px;
+       padding:  10px 15px;
         }
-        input[type=submit] {
-            position: absolute;
-    top: 15%;
-    right: 10%;
-    /* font-size: 18px; */
-    bottom: 0;
-    border: 0;
-    background: none;
-    font-size: 18px;
-    padding: 0 60px;
-    background: #1A213B;
-    color: #fff;
-    transition: 0.3s;
-    border-radius: 50px;
-    background-image: url(/assets/Email.svg);
-    background-repeat: no-repeat;
-    background-position: 15% 50%;
-    height: 70%;
-        }
+    input[type=submit] {
+       position: absolute;
+       top: 15%;
+       right: 5%;
+       bottom: 0;
+       border: 0;
+       background: none;
+       font-size: 18px;
+       padding: 0 30px 0 60px;
+       background: #1A213B;
+       color: #fff;
+       transition: 0.3s;
+       border-radius: 50px;
+       background-image: url(/assets/Email.svg);
+       background-repeat: no-repeat;
+       background-position: 15% 50%;
+       height: 70%;
+    }
   }
 }
 
-.h2 {
+/************ News letter end *************/
+
+
+/************ Home footer start *************/
+
+.home-footer {
+    background: #1A213B;
+    position: relative;
     color: #fff;
-    font-size: 24px;
+    padding-top: 170px;
+    .mat-divider {
+        border-top-color: rgba(255, 255, 255, 0.15);
+        margin: 0px;
+    }
+    .footer-title {
+        color: #fff;
+        font-size: 24px;
+    }
+
+    .footer-menu-list {
+        list-style: none;
+        padding: 0px;
+          li {
+              position: relative;
+              a {
+                text-decoration: none;
+                font-size: 16px;
+                padding: 6px 0px;
+                color: rgba(255, 255, 255, 0.7);
+                display: flex;
+              }
+          }
+      }
+      .footerLogo {
+        padding-right: 40px;
+        p{
+            line-height: 24px;
+            margin: 0;
+        }
+    }
+    .copyright{
+        color: #fff;
+        border-top: 1px solid #858484;
+        margin-top: 30px;
+        padding: 15px;
+    }
+}
+
+
+/************ Home footer end *************/
+
+@media (max-width: 576px) {  
+    .news-letter {
+        padding: 15px 10px;
+        .subscribe {
+            input[type=email] {
+                font-size: 16px;
+                margin: 5px 0px;
+            }
+            input[type=submit] {
+                font-size: 16px;
+                padding: 0 15px 0 40px;
+                background-size: 18px;
+            }
+        }
+    }
+
+    .home-footer {
+        padding-top: 50px;
+        .footerLogo {
+            padding: 0px;
+            margin-bottom: 15px;
+        }
+        .footer-title {
+            margin-bottom: 10px;
+        }
+        .footer-menu-list {
+            margin-bottom: 10px;
+            li {
+                a {
+                    padding: 2px 0px;
+                }
+            }
+        }
+    }
 }

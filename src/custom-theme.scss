@@ -1,0 +1,87 @@
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+$md-blue: (
+    50 : #e4e4e7,
+    100 : #babcc4,
+    200 : #8d909d,
+    300 : #5f6476,
+    400 : #3c4258,
+    500 : #1a213b,
+    600 : #171d35,
+    700 : #13182d,
+    800 : #0f1426,
+    900 : #080b19,
+    A100 : #5977ff,
+    A200 : #264eff,
+    A400 : #002cf2,
+    A700 : #0027d9,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-red: (
+    50 : #f9e1e1,
+    100 : #efb4b4,
+    200 : #e58282,
+    300 : #db4f4f,
+    400 : #d32a2a,
+    500 : #cb0404,
+    600 : #c60303,
+    700 : #be0303,
+    800 : #b80202,
+    900 : #ac0101,
+    A100 : #ffd5d5,
+    A200 : #ffa2a2,
+    A400 : #ff6f6f,
+    A700 : #ff5656,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$ELearningUI-primary: mat-palette($md-blue);
+$ELearningUI-accent: mat-palette($mat-pink, A200, A100, A400);
+$ELearningUI-warn: mat-palette($md-red);
+
+
+$ELearningUI-theme: mat-light-theme((
+  color: (
+    primary: $ELearningUI-primary,
+    accent: $ELearningUI-accent,
+    warn: $ELearningUI-warn,
+  )
+));
+
+
+@include angular-material-theme($ELearningUI-theme);

@@ -1,1 +1,100 @@
-<p>contact-us works!</p>
+<div class="banner_aboutus"> 
+    <img src ="../../../../assets/contact-min.jpg" alt="contactus"/>
+</div>
+<div class="contactus-box">    
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <div class="header">
+        <h2 class="header1">Contact us</h2>
+        <p class="para">We lov feedback and we're always happy to help !</p>
+    </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card">
+             
+                <div class="row">
+                    <div class="col-7">
+                        <div class="body">
+                        <h3 class="header2">Send us a message</h3>
+                        <p class="para">Send us a message and we'll respond within 24 hour.</p>
+                        <hr>
+
+                        <form [formGroup]="contactForm" (ngSubmit)="postContact(contactForm)">
+                            <div class="row">
+                                 <div class="col-md-6">
+                                     <div class="form-group">
+                                        <input type="text" formControlName="name" class="form-control" placeholder="Your Name *" />
+                                        <small style="color: red;" 
+                                            *ngIf="contactForm.controls.name.touched && contactForm.controls.name.errors?.required">
+                                            Please enter name !
+                                        </small>
+                                     </div>
+                                     <div class="form-group">
+                                        <input type="text" formControlName="phone" class="form-control" placeholder="Your Phone Number *" />
+                                        <small style="color: red;" 
+                                            *ngIf="contactForm.controls.phone.touched && contactForm.controls.phone.errors?.required">
+                                            Please enter phone !
+                                        </small>                                        
+                                     </div>                                     
+                                 </div>  
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" formControlName="email" class="form-control" placeholder="Your Email *" />
+                                        <small style="color: red;" 
+                                            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.required">
+                                            Please enter email !
+                                        </small>
+                                        <small style="color: red;" 
+                                            *ngIf="contactForm.controls.email.touched && contactForm.controls.email.errors?.email">
+                                            Please enter valid email !
+                                        </small>
+                                    </div>
+                                </div>                              
+                           
+                             </div>
+
+                           <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea formControlName="message" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                                </div>
+                            </div>
+                           </div>
+
+                           <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary" value="Send Message" />
+                                </div>
+                                <div [ngStyle]="{'color': getColor(status)}">
+                                    {{statusMessage}}
+                                </div>
+                            </div>
+                            </div>
+
+                         </form>
+
+                    </div>
+
+                    </div>
+                    
+                    <div class="col-5 devider">
+                        <div class="body">
+                        <h3 class="header2">Contact Information</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>

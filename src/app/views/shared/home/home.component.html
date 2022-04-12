@@ -1,61 +1,83 @@
+<!------------ Tutor section start--------->
+<div class="page-top-sec">   
+    <app-pagebanner >
+        image=""
+        titel=""
+        subtitel=""
+    </app-pagebanner>
+  </div>
 <section class="tutor">
-    <div class="container">
-      
-        <div fxLayout="row">
+
+    <div class="container">      
+        <div class="row">
            
-            <div fxFlex=50>
-                <h2 class="sub-heading">We are Fintechedu.
+            <div class="col-12 col-sm-12 col-md-7">
+                <h2 class="header1">We are <span class="logotext">Fintech<em>edu</em></span>.<br/>
                     An online & offline learning 
                     education tech.
                 </h2>
-                 <p class="line">At Fintechedu, we believe everyone should have the opportunity
+                 <p class="line para">At Fintechedu, we believe everyone should have the opportunity
                     to create progress through technology and develop the skills 
                     of tomorrow. With assessments, learning paths and courses
                     authored by industry experts.
                  </p>
             </div>
 
-            <div fxFlex=50>
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="25px">
-              <mat-card class="tutor-box">                  
-                    <span class="tutor-icon course"></span>                
-                  <mat-card-content>
-                      <h4>50+</h4>
-                      <p>Courses</p>
-                  </mat-card-content>
-              </mat-card>
+            <div class="col-12 col-sm-12 col-md-5 align-self-end">
+                <div class="row tutor-box">
 
-              <mat-card class="tutor-box">
-                  <span class="tutor-icon mocktest"></span>
-                <mat-card-content>
-                    <h4>100+</h4>
-                    <p>Mock Test</p>
-                </mat-card-content>
-            </mat-card>
+                <div class="col-12 col-sm-12 col-md-4">
+                  <mat-card class="box">                 
+                     <i title="course" class="icon-course"></i>                  
+                    <mat-card-content>
+                        <h4>50+</h4>
+                        <p>Courses</p>
+                    </mat-card-content>
+                 </mat-card>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4">
+                 <mat-card class="box">  
+                    <i title="courses" class="icon-courses"></i>              
+                    <mat-card-content>
+                      <h4>100+</h4>
+                      <p>Mock Test</p>
+                    </mat-card-content>
+                 </mat-card>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4">
+                <mat-card class="box"> 
+                  <i title="student1" class="icon-student1"></i>               
+                    <mat-card-content>
+                      <h4>600+</h4>
+                      <p>Students</p>
+                    </mat-card-content>
+                </mat-card>
+                </div>
+              </div>
+           </div>
 
-            <mat-card class="tutor-box">
-                  <span class="tutor-icon student"></span>
-                <mat-card-content>
-                    <h4>600+</h4>
-                    <p>Students</p>
-                </mat-card-content>
-            </mat-card>
         </div>
-            </div>
+    </div>
+</section>
+<!------------ Tutor section end--------->
 
-        </div>
+<!------------ Categories section start--------->
+ <section class="categories">
 
+    <div class="container">
 
-        <div class="categories">
+               <div class="row text-center">
+                   <div class="col-12">
+                    <p class="para">#Top categories</p>
+                    <h2 class="header1">Exam Categories</h2> 
+               </div>
+             </div> 
+           
+                    
 
-            <div fxLayout="column" class="tex-center">
-              <p>#Top categories</p>
-              <h2 class="sub-heading">Exam Categories</h2> 
-            </div>         
+            <div class="item-wrapper categories-box row">
 
-            <div fxLayout="row wrap" fxLayoutGap="3%">
-
-                <div fxFlex="22" *ngFor="let item of examArray; let i = index">
+                <!-- <div fxFlex="22" *ngFor="let item of examArray; let i = index">
                     <mat-card class="tutor-box categories-box">
                         <span class="categories-icon">
                             <img src="/assets/banking.svg" alt="banking">
@@ -65,22 +87,22 @@
                           <p>{{item.description}}</p>
                       </mat-card-content>
                   </mat-card>
-                </div>
+                </div> -->
 
 
-                <!-- <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item" *ngFor="let cat of dataSource">
+                    <mat-card class="box">
                         <span class="categories-icon">
-                            <img src="/assets/banking.svg" alt="banking">
+                            <img [src]="cat.imageUrl" alt="banking" (click)="selectCategory(cat)">
                         </span>
                       <mat-card-content>
-                          <h4>Banking</h4>
+                          <h4>{{cat.name}}</h4>
                           <p>Mock Test</p>
                       </mat-card-content>
                   </mat-card>
                 </div>
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <!-- <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/ssc.svg" alt="banking">
                         </span>
@@ -90,8 +112,8 @@
                       </mat-card-content>
                   </mat-card>
                 </div>
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/teaching.svg" alt="banking">
                         </span>
@@ -101,8 +123,8 @@
                       </mat-card-content>
                   </mat-card>
                 </div>
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/gate.svg" alt="banking">
                         </span>
@@ -113,8 +135,8 @@
                   </mat-card>
                 </div>
 
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/upsc.svg" alt="banking">
                         </span>
@@ -125,8 +147,8 @@
                   </mat-card>
                 </div>
 
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/defence.svg" alt="banking">
                         </span>
@@ -137,8 +159,8 @@
                   </mat-card>
                 </div>
 
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/state-exam.svg" alt="banking">
                         </span>
@@ -149,8 +171,8 @@
                   </mat-card>
                 </div>
 
-                <div fxFlex=22>
-                    <mat-card class="tutor-box categories-box">
+                <div class="col-12 col-sm-12 col-md-3 item">
+                    <mat-card class="box">
                         <span class="categories-icon">
                             <img src="/assets/aeje.svg" alt="banking">
                         </span>
@@ -163,126 +185,146 @@
 
             </div>
 
-            <div fxLayout="row" fxLayoutAlign="center center">                
+            <div class="row text-center">                
+                <div class="col-12">
                 <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">{{buttonText}}</button>
+              </div>
             </div>
-
-        </div>
 
     </div>
 </section>
 
+<!------------ Categories section end--------->
+
+
+<!------------ feature-course section start --------->
 <section class="feature-course">
   <div class="container">
 
-        <div fxLayout="column" class="tex-center">
-           <p>#Courses</p>
-           <h2 class="sub-heading">Featured Courses</h2> 
-        </div>  
+        <div class="row text-center">
+            <div class="col-12">
+           <p class="para">#Courses</p>
+           <h2 class="header1">Featured Courses</h2> 
+        </div> 
+    </div>
 
 
-    <div fxLayout="row wrap" fxLayoutGap="3%">
-        <div fxFlex=30.33>
-            <mat-card class="feature-box">
+    <div class="feature-box">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-4 item">
+            <div class="card">
               <img src="/assets/engineering.svg" alt="banking">
-              <mat-card-content>
-                  <p class="para">Engineering</p>
-                  <h4 class="sub-header">Antiquities Trafficking
+              <div class="card-body">
+                  <p>Engineering</p>
+                  <h4>Antiquities Trafficking
                     and Art Crime</h4>
-              </mat-card-content>
-          </mat-card>
+              </div>
+          </div>
         </div>
 
-        <div fxFlex=30.33>
-            <mat-card class="feature-box">
+        <div class="col-12 col-sm-12 col-md-4 item">
+            <div class="card">
               <img src="/assets/engineering.svg" alt="banking">
-              <mat-card-content>
-                  <p class="para">Web development</p>
-                  <h4 class="sub-header">Making Music with Other People</h4>
-              </mat-card-content>
-          </mat-card>
+              <div class="card-body">
+                  <p>Web development</p>
+                  <h4>Making Music with Other People</h4>
+              </div>
+          </div>
         </div>
 
-        <div fxFlex=30.33>
-            <mat-card class="feature-box">
+        <div class="col-12 col-sm-12 col-md-4 item">
+            <div class="card">
               <img src="/assets/data-science.svg" alt="banking">
-              <mat-card-content>
-                  <p class="para">Data Science</p>
-                  <h4 class="sub-header">Inside Opera: Why Does It Matter?</h4>
-              </mat-card-content>
-          </mat-card>
+              <div class="card-body">
+                  <p>Data Science</p>
+                  <h4>Inside Opera: Why Does It Matter?</h4>
+              </div>
+              </div>
         </div>
    
 
-    <div fxFlex=30.33>
-        <mat-card class="feature-box">
+    <div class="col-12 col-sm-12 col-md-4 item">
+        <div class="card">
           <img src="/assets/computer-science.svg" alt="banking">
-          <mat-card-content>
-              <p class="para">Computer Science</p>
-              <h4 class="sub-header">Using Creative Problem Solving</h4>
-          </mat-card-content>
-      </mat-card>
+          <div class="card-body">
+              <p>Computer Science</p>
+              <h4>Using Creative Problem Solving</h4>
+          </div>
+        </div>
     </div>
 
-    <div fxFlex=30.33>
-        <mat-card class="feature-box">
+    <div class="col-12 col-sm-12 col-md-4 item">
+        <div class="card">
           <img src="/assets/art-design.svg" alt="banking">
-          <mat-card-content>
-              <p class="para">Architecture</p>
-              <h4 class="sub-header">Understanding Luxury Fashion in a Changing</h4>
-          </mat-card-content>
-      </mat-card>
+          <div class="card-body">
+              <p>Architecture</p>
+              <h4>Understanding Luxury Fashion in a Changing</h4>
+          </div>
+        </div>
     </div>
 
-    <div fxFlex=30.33>
-        <mat-card class="feature-box">
+    <div class="col-12 col-sm-12 col-md-4 item">
+        <div class="card">
           <img src="/assets/engineering.svg" alt="banking">
-          <mat-card-content>
-              <p class="para">Art & Desing</p>
-              <h4 class="sub-header">Sustainability Understanding Luxury</h4>
-          </mat-card-content>
-      </mat-card>
+          <div class="card-body">
+              <p>Art & Desing</p>
+              <h4>Sustainability Understanding Luxury</h4>
+          </div>
+        </div>
     </div>
 
 </div>
+</div>
 
-<div fxLayout="row" fxLayoutAlign="center center">                
-    <button mat-stroked-button class="own-btn">Browse All</button>
+<div class="row text-center">                
+    <div class="col-12">
+    <button mat-stroked-button class="own-btn blue-btn">Browse All</button>
+</div>
 </div>
 
   </div>
 </section>
 
+<!------------ feature-course section end--------->
+
+
+<!------------ testimonial section start--------->
 
 <section class="testimonial">
   <div class="container">
     
-    <div class="top-testimonial">
-        <div fxLayout="row">
-            <div fxFlex=50>
-            <p class="sub-para">#Testimonial</p>
-            <h2 class="sub-heading">What Students Says</h2>
+<!------------ testimonial Top section start --------->
+
+    <div class="testimonial-header"> 
+         <div class="row">             
+            <div class="col-12 col-sm-12 col-md-4">
+              <p class="para">#Testimonial</p>
+              <h2 class="header1">What Students Says</h2>
             </div>
-            <div fxFlex=50>
-              <div class="testimonial-comment">
-                  <span class="space"></span>
-                  <p class="sub-para">Discover how to anticipate and adapt to the latest 
+            <div class="col-12 col-sm-12 col-md-6">
+              <div class="testimonial-para">
+                  <p class="line para">Discover how to anticipate and adapt to the latest 
                   trends and digital</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="bottom-testimonial">
-        <div fxLayout="row" fxLayoutGap="50px">
-           
+    <!------------ testimonial Top section end --------->
+
+    <!------------ testimonial bottom section start--------->
+    
+    <div class="testimonial-comments">
+        <div class="row">
+
+            <div class="col-12 col-sm-12 col-md-4">
             <div class="testimonial-sec">
                <p>Differe Using skills and behaviors 
                 People program enabled me to 
                 be a fuller me,... </p>
                 <div class="testimonial-man">
                     <span class="icon">
-                        <img src="/assets/man.svg" alt="man">
+                        <img src="/assets/man.svg" alt="man" class="img-fluid">
                     </span>
                     <span class="comment">
                       <h2>Blaise Matuidi</h2>
@@ -290,14 +332,16 @@
                     </span>
                 </div>
             </div>
+            </div>
 
+            <div class="col-12 col-sm-12 col-md-4">
             <div class="testimonial-sec">
                 <p>People program enabled me to 
                     be a fuller me, using differe skills 
                     and behaviors...</p>
                  <div class="testimonial-man">
                      <span class="icon">
-                        <img src="/assets/man.svg" alt="man">
+                        <img src="/assets/man.svg" alt="man" class="img-fluid">
                      </span>
                      <span class="comment">
                        <h2>Lucas Vazquez</h2>
@@ -305,14 +349,16 @@
                     </span>
                  </div>
              </div>
+             </div>
 
+             <div class="col-12 col-sm-12 col-md-4">
              <div class="testimonial-sec">
                 <p>Using differe skills and behaviors 
                     People program enabled me to 
                     be a fuller me,...</p>
                  <div class="testimonial-man">
                      <span class="icon">
-                        <img src="/assets/man.svg" alt="man">
+                        <img src="/assets/man.svg" alt="man" class="img-fluid">
                      </span>
                      <span class="comment">
                        <h2>Mario Mandzukic</h2>
@@ -320,72 +366,80 @@
                     </span>
                  </div>
              </div>
+             </div>
 
         </div>
     </div>
+<!------------ testimonial bottom section end--------->
 
+<!------------ testimonial top section start--------->
 
-    <div class="top-testimonial">
-        <div fxLayout="row">
-            <div fxFlex=50>
-            <p class="sub-para">#News</p>
-            <h2 class="sub-heading">News & Events</h2>
+    <div class="testimonial-header">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-4">
+            <p class="para">#News</p>
+            <h2 class="header1">News & Events</h2>
             </div>
-            <div fxFlex=50>
-              <div class="testimonial-comment">
-                  <span class="space"></span>
-                  <p class="sub-para">Discover how to anticipate and adapt to the latest 
+            <div class="col-12 col-sm-12 col-md-6">
+              <div class="testimonial-para">
+                  <p class="line para">Discover how to anticipate and adapt to the latest 
                     trends and digital</p>
                 </div>
             </div>
         </div>
     </div>
 
-
+<!------------ testimonial top section end--------->
   </div>
 </section>
 
+<!------------ testimonial section end--------->
+
+
+<!------------ testimonial section end--------->
 
 <section class="bottom-testimonial">
     <div class="container">
 
-        <div fxLayout="row">
-         <div fxFlex=70>
-            <div class="last" fxLayout="row">
-                <div fxflex="100">
-                <mat-card class="readBox">
-                    <img src="/assets/engineering.svg" alt="banking">
-                    <mat-card-content class="mat-card-content">
-                        <h4 _ngcontent-enl-c267="" class="sub-header">
+        <div class="row">
+
+         <div class="col-12 col-sm-12 col-md-8">
+            <div class="row last">
+                <div class="col-12 col-sm-12 col-md-6">
+                <div class="readBox card">
+                    <img src="/assets/engineering.svg" alt="banking" class="img-fluid">
+                    <div class="card-body">
+                        <h4>
                             Python and JS Course may be online
                         </h4>
-                        <h3 class="para">
+                        <p class="para">
                             Creating software tailored to my 
-                            games development gaming is a</h3>                        
+                            games development gaming is a</p>                        
                         <a hre="#" class="readmore">
-                            <span class="plusblack"></span> Read more</a>
-                    </mat-card-content>
-                </mat-card>
+                         <span class="plusblack"></span> Read more</a>
+                    </div>
+                </div>
             </div>
-            <div fxflex="100">
-                <mat-card class="readBox">
-                    <img src="/assets/engineering.svg" alt="banking">
-                    <mat-card-content class="mat-card-content">
-                        <h4 _ngcontent-enl-c267="" class="sub-header">
+            <div class="col-12 col-sm-12 col-md-6">
+                <div class="readBox card">
+                    <img src="/assets/engineering.svg" alt="banking" class="img-fluid">
+                    <div class="card-body">
+                        <h4>
                             Python and JS Course may be online
                         </h4>
-                        <h3 class="para">
+                        <p class="para">
                             Creating software tailored to my 
-                            games development gaming is a</h3>                        
+                            games development gaming is a</p>                        
                         <a hre="#" class="readmore">
                             <span class="plusblack"></span> Read more</a>
-                    </mat-card-content>
-                </mat-card>
+                    </div>
+                </div>
             </div>      
             </div>
          </div>
-         <div fxFlex=30>
-             <div class="last" fxLayout="column" fxLayoutGap="25px">
+
+         <div class="col-12 col-sm-12 col-md-4">
+             <div class="last">
                 <mat-card class="time-box"> 
                     <div class="last" fxLayout="row">
                  <div class="year">
@@ -449,6 +503,6 @@
 
 
 
-<div class="move-to-top">
+<a class="scroll-to-top" [ngClass]="{'show-scrollTop': windowScrolled }" (click)="scrollToTop()">
     <img src="/assets/move-to-top.svg" alt="move-to-top">
-</div>
+</a>

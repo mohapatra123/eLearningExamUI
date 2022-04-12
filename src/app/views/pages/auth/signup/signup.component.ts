@@ -37,8 +37,7 @@ export class SignupComponent implements OnInit {
       return;
     }
     if(this.signupForm.valid){
-      this._authService.userRegistration(this.signupForm.value).subscribe(res => {
-        console.log(res);        
+      this._authService.userRegistration(this.signupForm.value).subscribe(res => {             
         this.statusMessage = res.message;        
       })
     }

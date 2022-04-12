@@ -1,0 +1,110 @@
+<!------------ Tutor section start--------->
+<section class="Bank_po">
+  <form [formGroup]="questionForm" (ngSubmit)="SubmitAnswer(questionForm)">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 vl">
+          <h2 class="header2">Bank Po</h2>
+        </div>
+        <div class="col-md-4">
+          <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="questionSubHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 vl">
+            <h2 class="header3"><span class="green">QUESTION 01</span></h2>
+          </div>
+          <div class="col-md-4">
+            <h2 class="header3">Question Pallet :</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="questionDash">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="question-dash">
+              <div class="header">
+                <h2 class="header1">{{subCategoryName}} <span *ngIf="subCategoryName != ''">></span> {{examName}}</h2>
+              </div>
+              <div class="question-header">
+                <h2>{{currentQuestion}}</h2>
+              </div>
+              <div class="question-body">
+                <table>
+                  <tr *ngFor="let opt of currentOption; let i = index">
+                    <td>
+                      <div formArrayName="SelectedAnswer">
+                        <input type="checkbox" class="form-control" [formControlName]="i">
+                      </div>
+                      <!-- <input type="checkbox" id="i" (change)="checkValue(i)"> -->
+                    </td>
+                    <td>
+                      {{opt}}
+                    </td>
+                  </tr>
+                </table>
+                <!-- <p *ngFor="let opt of currentOption">
+                            {{opt}}                            
+                        </p> -->
+                <div class="question-footer">
+                  <button class="questionBtn btn mr-2">Clear Response</button>
+                  <button (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
+                  <button (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="timeDash">
+
+                <div class="quesPallet">
+                  <div class="question-body">
+
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr *ngFor="let num of numArr1">
+                            <td>
+                              <table>
+                                <tr>
+                                  <td style="background-color: burlywood;" *ngFor="let n of num">{{n}}</td>
+                                </tr>
+                              </table>
+                            </td>
+
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+
+                  <div class="question-footer">
+                    <div class="row">
+                      <div class="col-6">
+                        <button class="quesPalletBtn btn">Intruction</button>
+                      </div>
+                      <div class="col-6">
+                        <button class="quesPalletBtn btn">List View</button>
+                      </div>
+                    </div>
+
+                    <button class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</section>

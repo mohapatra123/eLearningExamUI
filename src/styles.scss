@@ -1,3 +1,6 @@
+@import './src/app/common-styles/variable';
+@import './custom-theme';
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -7,23 +10,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0px;
     padding: 0px;
   }
-  
-  .container {
-      max-width: 1440px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
+
+  .container { max-width: 1280px!important; }
+
+a {
+  text-decoration: $none;
+}
+
+.mat-menu-panel{
+  &.ng-trigger-transformMenu{
+    min-width: 230px;
   }
-
-  
-  .sub-heading {
-    font-size: 48px!important;
-    color: #1A213B!important;
-    font-family: arial!important;
-    font-weight: 700!important;
-    line-height: initial!important;
 }
 
-.tex-center {
-  text-align: center;
-}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

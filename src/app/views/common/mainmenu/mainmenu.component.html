@@ -1,0 +1,71 @@
+
+    <div class="container">     
+      <div class="row align-items-center">    
+
+        <div class="col-4 col-sm-12 col-md-2">
+            <div class="logo">
+              <a href="/">
+                <img src="/assets/logo.png" alt="loto" class="img-fluid" >
+              </a>
+            </div>
+          </div>
+          <div class="col-8 col-sm-12 col-md-3">
+              <button mat-button [matMenuTriggerFor]="tabledriven" class="exm-btn">
+                <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
+              </button>
+              <!-- <mat-menu #belowMenu="matMenu" yPosition="below" [triggerFor] *ngFor="let data of dataSource">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+              </mat-menu> -->
+              <mat-menu #tabledriven="matMenu">
+                <ng-container *ngFor="let data of dataSource">
+                  <button *ngIf="data.name != null && data.name != ''" mat-menu-item>{{ data.name }}</button>                  
+                </ng-container>
+              </mat-menu>
+              
+              
+                <button mat-button [matMenuTriggerFor]="menu" class="mob-menu"><mat-icon>menu</mat-icon></button>
+                <mat-menu #menu="matMenu" class="menu-screen">
+                  <button mat-menu-item>Home</button>
+                  <button mat-menu-item>About Us</button>
+                  <button mat-menu-item>Services</button>
+                  <button mat-menu-item>Training</button>
+                  <button mat-menu-item>Events</button>
+                  <button mat-menu-item>Contact Us</button>
+               </mat-menu>
+              
+
+             </div>
+            <div class="col-2 col-sm-12 col-md-7 d-flex justify-content-end">
+          <nav class="menu">
+            <button mat-button mat-button routerLink="/home" routerLinkActive="true">Home</button>
+            <button mat-button routerLink="/aboutus" routerLinkActive="true">About Us</button>
+            <!-- <button mat-button routerLink="/services" routerLinkActive="true">Services</button> -->
+            <button mat-button routerLink="/services" routerLinkActive="true" [matMenuTriggerFor]="services">Services <mat-icon>arrow_drop_down</mat-icon></button>
+            <mat-menu #services="matMenu">
+              <button mat-menu-item routerLink="#">Technology Training</button>
+              <button mat-menu-item routerLink="#">Internship and Insustrial training</button>
+              <button mat-menu-item routerLink="#">Placement mentorship
+              </button>
+              <button mat-menu-item routerLink="#">Fintech Consultancy</button>
+              <button mat-menu-item routerLink="#">EdTech Consultancy
+              </button>
+              <button mat-menu-item routerLink="#">Financial Inclusion
+
+              </button>
+              <button mat-menu-item routerLink="#">Overseas education assistance
+              </button>
+              <button mat-menu-item routerLink="#">Social Impact
+              </button>
+            </mat-menu>
+            
+            <!-- <button mat-button routerLink="#" routerLinkActive="true">Training</button> -->
+            <button mat-button routerLink="/events/comingsoon" routerLinkActive="true">Events</button>
+            <button mat-button routerLink="/contactus" routerLinkActive="true">Contact</button>
+          </nav>     
+          
+          
+
+        </div>
+      </div>  
+    </div>

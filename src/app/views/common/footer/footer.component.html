@@ -1,30 +1,43 @@
 
-  <div class="container">
-    <div class="news-letter">
-     <div fxLayout="row" fxLayoutAlign="center center"> 
+<!--------------- News-letter start----------------->
 
-    <div fxFlex=50 fxLayout="column">
-      <h5>#Newslettter</h5>
-      <h2>Join our community of students</h2>
-    </div>
+  <div *ngIf="fromRoute == 'Home'" class="container">
+     <div class="row news-letter"> 
+        <div class="col-12 col-sm-12 col-md-6">
+          <p class="para">#Newslettter</p>
+          <h2 class="header1">Join our community of students</h2>
+        </div>
 
-    <div fxFlex=50 fxLayout="row">
-      <form class="subscribe" fxFlex>
-        <input type="email" placeholder="Enter your email" >
-        <input type="submit" value="Subscribe">
-      </form>
-    </div>
+        <div class="col-12 col-sm-12 col-md-6 align-self-center">
+          <form class="subscribe">
+            <input type="email" placeholder="Enter your email" >
+            <input type="submit" value="Subscribe">
+          </form>
+        </div>
+     </div>
+ </div>
 
-    </div>
-  </div>
-</div>
+<!--------------- News-letter end----------------->
+
+<!--------------- Home Footer start----------------->
 
 <div class="home-footer">
   <div class="container">
 
-    <div fxLayout="row">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4">
+      <div class="footerLogo">
+        <a href="#">
+          <img src="/assets/logo.png" alt="logo" >
+        </a>
+        <p class="footerText">At Fintechedu, we believe everyone should have the opportunity to create progress through technology and develop the skills of tomorrow. With assessments,</p>
+      </div>
+      </div>
+   
 
-      <div fxFlex=25>
+      <div class="col-12 col-sm-6 col-md-8">
+        <div class="row">
+      <div class="col-12 col-sm-6 col-md-3">
         <h2 class="footer-title">Company</h2>
         <ul class="footer-menu-list">
           <li><a href="#">About</a></li>
@@ -34,7 +47,7 @@
         </ul>
       </div>
 
-      <div fxFlex=25>
+      <div class="col-12 col-sm-6 col-md-3">
         <h2 class="footer-title">Categories</h2>
         <ul class="footer-menu-list">
           <li><a href="#">All Courses</a></li>
@@ -44,7 +57,7 @@
         </ul>
       </div>
 
-      <div fxFlex=25>
+      <div class="col-12 col-sm-6 col-md-3">
         <h2 class="footer-title">Support</h2>
         <ul class="footer-menu-list">
           <li><a href="#">Contact Us</a></li>
@@ -54,7 +67,7 @@
         </ul>
       </div>
 
-      <div fxFlex=25>
+      <div class="col-12 col-sm-6 col-md-3">
       <h2 class="footer-title">Get in Touch</h2>
         <ul class="footer-menu-list">
           <li><a href="#">Contact Support</a></li>
@@ -63,24 +76,18 @@
       </div>
 
     </div>
+  </div>
+</div>
 
-    <div fxLayout="row">
-      <div fxFlex>
-        <mat-divider></mat-divider>
+    <div class="row">
+      <div class="col-12">
+        <div class="copyright text-center">
+        <p>Copyright © 2021 DSW. All Right Reserved.</p>
       </div>
     </div>
-
-    <div fxLayout="row" fxLayoutAlign="center center">
-      
-        <a href="#">
-          <img src="/assets/logo.png" alt="logo" >
-        </a>
-  
-   
-        <h2 class="h2">Copyright © 2021 DSW. All Right Reserved.</h2>
-
     </div>
 
   </div>
 </div>
 
+<!--------------- Home Footer end----------------->

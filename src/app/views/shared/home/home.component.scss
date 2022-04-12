@@ -1,14 +1,16 @@
-.tutor {
-    padding: 25px 0px;
-    p.line {
-        color: rgba(0, 0, 0, 0.7);
-        font-size: 24px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 400;
-        position: relative;
-        padding-left: 26px;
-        line-height: initial;
+@import './src/app/common-styles/variable';
 
+/**************** Tutor css start ************/
+
+.page-top-sec{
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 17%, rgba(4,33,109,1) 100%);
+}
+.tutor {
+    margin: 50px 0px 25px;
+    p.line {
+        position: relative;
+        padding-left: 25px;
         &::before {
             content: "";
             height: 100%;
@@ -19,188 +21,211 @@
             left: 0;
         }
     }
+    .tutor-box {
+
+    .box {
+        min-width: 140px;
+        margin: 0 0 12px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+      i {
+       font-size: 80px;
+       color: $red;
+       }
+     .mat-card-content {
+        margin-top: 25px;
+     }
+     h4 {
+        color: $red;
+        @extend .header2;
+     }
+     p {
+        font-size: $h3;
+        color: $black;
+     }
+  }
 }
-
-.tutor-box {
-    text-align: center;
-    border: 1px solid #CB0404;
-    box-shadow: none;
-    padding: 30px 20px;
-    .mat-card-content {
-        margin-top: 15px;
-    }
-
-    h4 {
-        color: #cb0404;
-        font-size: 36px;
-        font-size: 36px;
-        font-family: arial;
-        font-weight: 700;
-    }
-    p {
-        font-size: 24px;
-        color: #000;
-    }
-    .tutor-icon {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        margin: auto;
-    }
-    .course {
-        background-image: url(/assets/course.svg);
-        background-size: 100% 100%;
-    }
-    .mocktest{
-        background-image: url(/assets/mocktest.svg);
-        background-size: cover;
-    }
-    .student{
-        background-image: url(/assets/students.svg);
-        background-size: cover;
-    }
 
 }
 
+/**************** Tutor css end  ************/
+
+/**************** Categoreis css start ************/
 
 .categories {
-    h4 {
-        font-size: 24px;
-        color: #000;
-        font-weight: 700;
+    margin: 50px 0px 25px;
+    .categories-box {
+        margin-top: 25px;
+    }
+    .box {
+        padding: 30px 0px;
+        margin-bottom: 50px;
+        min-height: 225px;
     }
     .categories-icon {
-        display: inherit;
-        width: 30%;
+        display: flex;
+        width: 120px;
         margin: auto;
         background-color: #ddd;
         border-radius: 50%;
         padding: 30px;
+        height: 120px;
+        align-items: center;
+        justify-content: center;
     }
-}
+    h4 {
+        font-size: $h3;
+        color: $black;
+        font-weight: $font-weight-7;
+        margin: 15px 0px;
+    }
+    P {
+        font-size: $h4;
+        color: $black7;
+        font-weight: $font-weight-7;
+    }
 
-.categories-box {
-    text-align: center;
-border: 1px solid #CB0404;
-box-shadow: none;
-padding: 30px 20px;
-border-radius: 15px;
-margin-bottom: 25px;
-min-height: 230px;
 }
 
 .own-btn {
-text-transform: uppercase;
-    color: #CB0404;
-    font-size: 18px;
-    font-weight: 700;
-    padding: 10px 25px 10px 50px;
-    border-radius: 50px;
-    border-width: 2px;
-    border: 2px solid #CB0404;
+    @extend .custom-btn;
+    @include custom-bd(2px, $red); 
+}
+.brown-btn {
     background: rgba(241, 99, 58, 0.08);
+    color: $red;
+    padding-left: 50px;
+    &::before {
+        background-image: url(/assets/plus.svg);
+        content: "";
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        left: 10%;
+        top: 30%;
+    }
 }
-.own-btn::before {
-    background-image: url(/assets/plus.svg);
-    content: "";
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    left: 10%;
-    top: 30%;
+
+
+/**************** Categoreis css end  ************/
+
+
+/**************** feature-course css start  ************/
+
+.logotext{
+    color: #072263;
+    em{
+        font-style: normal;
+       color: #CB0404;
+    }
 }
-.sub-header {
-  font-size: 24px;
-  color: #000;
-  font-weight: 700;
-  line-height: initial;
-}
+
+
 
 .feature-course {
     background: linear-gradient(180deg, #1A213B 0%, #072263 100%);
     padding: 50px 0px;
     margin: 15px 0px;
-    .own-btn {
+    .para, .header1 {
+         color: $white;
+        }
+    .blue-btn {
         background: rgba(255, 255, 255, 0.08);
         border-color: #fff;
-        color: #fff;
+        color: $white;
+        padding-left: 50px;
         &::before {
-            background-image: url(/assets/plus-white.svg);
+        background-image: url(/assets/plus-white.svg);
+        content: "";
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        left: 10%;
+        top: 11px;
+            }
         }
-    }
-    .sub-heading {
-        color: #fff !important;
-        line-height: initial;
-    }
-    p {
-        color: #fff;
-        font-size: 24px;
-        font-weight: 400;
-        line-height: initial;
-    }
 }
 .feature-box {
-    min-height: 500px;
-    margin: 35px 0px;
-    border-radius: 20px;
-   .para {
-    font-size: 18px;
-  color: rgba(0, 0, 0, 0.7);
-  font-weight: 700;
-  position: relative;
-  padding-left: 15px;
-  &::before {
-      content: "";
-      background-image: url(/assets/dot.svg);
-      background-size: 100% 100%;
-      width: 10px;
-      height: 10px;
-      left: 0px;
-      top: 25%;
-      position: absolute;
+    margin-top: 25px;
+    .card {
+      border-radius: 20px;
+      margin-bottom: 50px;
+      padding: 30px 25px;
+      max-height: 550px;
+      min-height: 550px;
+    } 
+    .mat-card-content {
+        margin: 15px 0px;
+    }
+    h4 {
+        font-size: $h3;
+        color: $black;
+        font-weight: $font-weight-7;
+        margin: 15px 0px;
+    }  
+    p {
+        position: relative;
+        padding-left: 20px;
+        font-size: $h4;
+        color: $black7;
+        font-weight: $font-weight-7;
+        &::before {
+            content: "";
+            background-image: url(/assets/dot.svg);
+            background-size: 100% 100%;
+            width: 10px;
+            height: 10px;
+            left: 0px;
+            top: 25%;
+            position: absolute;
+      
+        }
+    } 
 
-  }
 }
-}
+
+/**************** feature-course css end  ************/
+
+
+/**************** testimonial css start  ************/
 
 .testimonial {
     color: rgba(0, 0, 0);
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 400;
     line-height: initial;
+    padding: 30px 0;
 }
 
-.sub-para {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.7);
-    font-weight: 400;
-}
-.top-testimonial {
-    margin: 25px auto;
-    width: 70%;
+.testimonial-header {
+    margin-top: 40px;
 
-    .testimonial-comment {
-        display: flex;
-        .space {
-          background: rgba(0, 0, 0, 0.7);
-          width:2px;
-          height: auto;
-          margin-right: 25px;
-        }
-       p {
-        padding: 25px 0px;
-        margin: 0px;
-        line-height: initial;
-       }
+    .testimonial-para {
+
+        .line {
+        position: relative;
+            padding: 30px 0px 30px 25px;
+            &::before {
+                content: "";
+                height: 100%;
+                width: 2px;
+                background: #000;
+                position: absolute;
+                top: 0;
+                left: 0;
+              } 
+            }
     }
 }
-.bottom-testimonial {
+.testimonial-comments {
     margin: 50px 0px;
 }
 .testimonial-man {
-    display: inline-block;
+    display: flex;
     margin: 25px 0px;
     h2 {
         margin: 0px;
@@ -211,16 +236,19 @@ text-transform: uppercase;
         }
 .icon { 
     display: inherit;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 74px;
     height: 74px;
     text-align: center;
-    line-height: 94px;
-    margin: auto;
     background-color: #ddd;
     border-radius: 50%;
+    img {
+        max-width: 50%;
+    }
 }
-.comment {   display: inline-block; padding-left: 25px; }
+.comment { padding-left: 25px; }
 }
 
 .bottom-testimonial {
@@ -274,7 +302,7 @@ text-transform: uppercase;
     }
     .readmore {
         position:relative;
-        font-size: 18px;
+        font-size: 14px;
     color: 0;
     font-weight: 700;
     line-height: 20px;
@@ -292,19 +320,144 @@ text-transform: uppercase;
     }
 }
 .readBox {
-    padding: 0px 30px 40px;
+    padding: 25px;
     box-shadow: none;
     border: 1px solid #C4C4C4;
     border-radius: 0px;
-    margin-right: 30px;
 }
-.move-to-top {
+.scroll-to-top {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    z-index: 1;
-}
+    opacity: 0;
+    transition: all .2s ease-in-out;
+   }
+   .show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+   }
 
 .mat-form-field {
   display: block;    
+}
+
+@media (max-width: 576px) {
+    
+    .tutor {
+        margin: 25px 0px 25px;
+       .tutor-box {
+        .box {          
+          i { font-size: 70px; }
+          .mat-card-content { margin-top: 15px; 
+            p{ font-size: 20px; }
+          }
+         }
+       }
+      }
+
+      .categories { margin: 25px 0px 25px;
+        .box {
+            margin-bottom: 12px;
+            padding: 15px 0px;
+            min-height: auto;
+            .categories-icon {
+                width: 100px;
+                height: 100px;
+                img {
+                    width: 50px;
+                }
+            }
+        }
+      }
+
+      p {
+          font-size: 16px !important;
+      }
+      h3, h4 {
+        font-size: 18px !important;
+      }
+      
+
+
+      .feature-box {
+        margin-top: 15px;
+        .card {
+            margin-bottom: 15px;
+            padding: 15px 15px;
+            max-height: 100%;
+            min-height: auto;
+            img {
+                width: 50%
+            }
+            .card-body {
+                h4 {
+                    font-size: 18px;                    
+                }
+            }
+        }
+      }
+
+      .testimonial {
+        padding: 15px 0;
+        .testimonial-header {
+            padding: 0px;
+            margin-top: 15px;
+        }
+        .testimonial-comments {
+            .testimonial-sec {
+                margin: 5px 0px;
+            }
+        }
+        .testimonial-para {
+            margin-top: 15px;
+            .line {
+                padding: 15px 0px 15px 15px;
+            }
+        }
+        .testimonial-comments {
+            margin: 15px 0px;
+        }
+      }
+
+      .readBox {
+          img {
+              width: 75%;
+          }
+          padding: 15px 10px;
+          margin-bottom: 15px;
+      }
+
+      .bottom-testimonial {
+        margin: 15px 0px;
+        .time-box {
+            margin: 10px 0px;
+            .year {
+                margin: 0px;
+                p {
+                 margin-bottom: 2px
+                }
+                .sub-header {
+                    font-size: 26px;
+                    margin-bottom: 2px;
+                }
+            }
+         }
+     }
+
+     .track {        
+        h2 { font-size: 18px; }
+        p {  margin-bottom: 2px; }
+      }
+
+
+  
+}
+
+
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .feature-box .card {
+        max-height: 100%;
+        min-height: 100%;
+    }
 }

@@ -1,96 +1,49 @@
 <div class="top-header">
   <div class="container">
 
-    <div fxLayout="row">
-      <div fxFlex=50>
-        <div class="social" fxLayout="row">
-           <a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a>
-           <a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a>
-           <a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a>
-           <a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="headerLeft">
+        <ul class="social">
+           <li><a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a></li>
+           <li><a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a></li>
+           <li><a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a></li>
+           <li><a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a></li>
+        </ul>
            <span class="v-divider"></span>
-           <a class="info">
+           <span class="info">
             <i title="linkedin" class="elIcon icon-email"></i>
-            info@xample.com
-           </a>
+            contact@fintechedu.com
+           </span>
+      </div>
+    </div>
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="headerRight">
+            <span class="search">
+              <i title="search" class="elIcon icon-search"></i>What do you want to learn ?
+             </span>
+              <span *ngIf="!isAuthenticated" class="login">
+                <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login / Register</a>            
+              </span>
+              <span *ngIf="isAuthenticated" class="login">
+                <i title="user" class="elIcon icon-user2"></i>
+                <a class="logout white" (click)="logout()" >Logout</a>            
+              </span>
+              <!-- <span class="login">/</span> -->
+               <!-- <span class="login">
+                <a style="color:white; text-decoration: none;" routerLink='/signup' routerLinkActive='active'>Register</a>            
+               </span> -->
         </div>
       </div>
-      <div fxFlex=50>
-        <div fxLayout="row" fxLayoutAlign="end center">
-         <div class="search">
-          What do you want to learn ?
-         </div>
-         <div class="login">
-          <a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login</a>            
-         </div>
-         <div class="login">
-          <a style="color:white; text-decoration: none;" routerLink='/signup' routerLinkActive='active'>Register</a>            
-         </div>
-        </div>
+    
        </div>
   </div>
 
   </div>
+
+<div class="page-top-sec">
+  <app-mainmenu></app-mainmenu>
+  <!-- <app-pagebanner></app-pagebanner> -->
 </div>
 
-
-<!-- <div class="toolbar" role="banner">  
-    <span style="margin-left: 45%; font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to E-Learning</span>
-      <div class="spacer"></div>
-      <a routerLink='/home' routerLinkActive='active'>Home</a>      
-      <a routerLink='/services' routerLinkActive='active'>Services</a>
-      <a routerLink='/aboutus' routerLinkActive='active'>About us</a>
-      <a routerLink='/contactus' routerLinkActive='active'>Contact</a>
-      <a routerLink='/login' routerLinkActive='active'>Login</a>
-</div> -->
-
-<div class="home-intro-section">
-  <div class="container">
-   
-    <div fxLayout="row">
-      <div fxFlex=50>
-
-        <div fxLayout="column">
-         
-          <div fxLayout="row">
-          <div class="logo">
-            <a href="#">
-              <img src="/assets/logo.png" alt="loto" >
-            </a>
-          </div>
-          <button mat-button [matMenuTriggerFor]="belowMenu" class="exm-btn">Exam categories</button>
-            <mat-menu #belowMenu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
-            </mat-menu>
-          </div>
-
-        <h2 class="sub-heading">We Envision World’s Best 
-          Learning Experience.</h2>
-          <p>Fintechedu courses is for every one from different age groups 
-            and with various level of skills.</p>
-            <div fxLayout="row" fxLayoutAlign="start center">                
-              <button mat-stroked-button class="own-btn icon white-btn">View courses</button>
-              <button mat-stroked-button class="own-btn gray-btn">Start Free Mock</button>
-          </div>
-        </div>
-      </div>
-
-      <div fxFlex=50>
-        <nav class="menu">
-          <button mat-button routerLink='/home' routerLinkActive='active'>Home</button>
-          <button mat-button routerLink='/aboutus' routerLinkActive='active'>About Us</button>
-          <button mat-button routerLink='/services' routerLinkActive='active'>Services</button>
-          <button mat-button routerLink='/dashboard' routerLinkActive='active'>Training</button>
-          <button mat-button>Events</button>
-          <button mat-button routerLink='/contactus' routerLinkActive='active'>Contact</button>
-        </nav>
-        
-          <img src="/assets/study-png-clipart.png" alt="study-png-clipart">
-        
-      </div>
-    </div>
-
-  </div>
-</div>
 
