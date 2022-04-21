@@ -62,6 +62,9 @@
     position: relative;
     color: #fff;
     padding-top: 170px;
+    &.noNews{
+        padding-top: 40px;
+    }
     .mat-divider {
         border-top-color: rgba(255, 255, 255, 0.15);
         margin: 0px;
