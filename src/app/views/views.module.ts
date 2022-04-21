@@ -4,11 +4,12 @@ import { AuthModule } from './pages/auth/auth.module';
 import { AppsModule } from './pages/apps/apps.module';
 import { AppAuthModule } from './pages/apps/app-auth.module';
 import { EventsComponent } from './shared/common/events.component';
+import { ExamcourseComponent } from './shared/common/examcourse.component';
 
 
 
 @NgModule({
-  declarations: [EventsComponent],
+  declarations: [EventsComponent, ExamcourseComponent],
   imports: [
     CommonModule, AuthModule, AppsModule, AppAuthModule
   ]

@@ -16,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 vl">
-            <h2 class="header3"><span class="green">QUESTION 01</span></h2>
+            <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}}</span></h2>
           </div>
           <div class="col-md-4">
             <h2 class="header3">Question Pallet :</h2>
@@ -30,24 +30,20 @@
         <div class="row">
           <div class="col-md-8">
 
-            <div class="question-dash">
+            <div class="question-dash col-md-8">
               <div class="header">
-                <h2 class="header1">{{subCategoryName}} <span *ngIf="subCategoryName != ''">></span> {{examName}}</h2>
+                <h2 class="header1">{{categoryName}} > {{subCategoryName}} > {{examName}}</h2>
               </div>
               <div class="question-header">
-                <h2>{{currentQuestion}}</h2>
+                <h2>{{questionIndex + 1}}. {{currentQuestion}}</h2>
               </div>
               <div class="question-body">
                 <table>
                   <tr *ngFor="let opt of currentOption; let i = index">
                     <td>
-                      <div formArrayName="SelectedAnswer">
-                        <input type="checkbox" class="form-control" [formControlName]="i">
-                      </div>
-                      <!-- <input type="checkbox" id="i" (change)="checkValue(i)"> -->
-                    </td>
-                    <td>
-                      {{opt}}
+                      <mat-checkbox [checked]="checkOption(i)" (change)="checkAnswer(i, $event)">
+                        {{opt}}
+                      </mat-checkbox>
                     </td>
                   </tr>
                 </table>
@@ -55,7 +51,7 @@
                             {{opt}}                            
                         </p> -->
                 <div class="question-footer">
-                  <button class="questionBtn btn mr-2">Clear Response</button>
+                  <button type="button" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
                   <button (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
                   <button (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
                 </div>
@@ -74,7 +70,7 @@
                             <td>
                               <table>
                                 <tr>
-                                  <td style="background-color: burlywood;" *ngFor="let n of num">{{n}}</td>
+                                  <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>
                                 </tr>
                               </table>
                             </td>
@@ -96,7 +92,7 @@
                       </div>
                     </div>
 
-                    <button class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
+                    <button type="submit" class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
                   </div>
                 </div>
               </div>
@@ -106,5 +102,12 @@
       </div>
     </div>
   </form>
+  <div *ngIf="isSubmitted && dataSource && dataSource.length > 0 && answerArr && answerArr.length > 0">
+    Total Questions: {{dataSource.length}}
+    Total Attended: {{answerArr.length}}
+    Total Correct Ans: {{totalCorrectAnswer}}
+    Total Wrong Ans: {{totalWrongAnswer}}
+    Percentage:   {{(totalCorrectAnswer / dataSource.length) * 100}}
+  </div>
 
 </section>

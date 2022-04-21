@@ -29,6 +29,7 @@ import { FinancialInclusionComponent } from '../../shared/common/services/financ
 import { OverseasEducationComponent } from '../../shared/common/services/overseas-education/overseas-education.component';
 import { SocialImpactComponent } from '../../shared/common/services/social-impact/social-impact.component';
 import { ComingSoonComponent } from '../../shared/common/coming-soon/coming-soon.component';
+import { ExamcourseComponent } from '../../shared/common/examcourse.component';
 
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [{
     { path: 'services', component: ServicesComponent },
     { path: 'events', component: EventsComponent },
     { path: 'examcategory/:subCategory', component: ExamcategoryComponent },
-    { path: 'examcategoryans/:exam', component: ExamcategoryAnsComponent},
+    { path: 'examcategoryans/:category/:subCategory/:subCategoryId/:exam/:id', component: ExamcategoryAnsComponent},
+    { path: 'examcourse/:category/:subCategory/:subCategoryId', component: ExamcourseComponent},
     { path: 'technologyTraining', component: TechnologyTrainingComponent },
     { path: 'internship', component: InternshipComponent },
     { path: 'placement', component: PlacementMentorshipComponent },

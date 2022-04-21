@@ -6,19 +6,20 @@ import { CommonService } from 'src/app/core/services/common/common.service';
 import { ExamService } from 'src/app/core/services/exam/exam.service';
 
 @Component({
-  selector: 'app-examcategory',
-  templateUrl: './examcategory.component.html',
-  styleUrls: ['./examcategory.component.scss']
+  selector: 'app-examcourse',
+  templateUrl: './examcourse.component.html',
+  styleUrls: ['./examcourse.component.scss']
 })
-export class ExamcategoryComponent implements OnInit {
+export class ExamcourseComponent implements OnInit {
 
   constructor(private _commonService: CommonService, private _router: Router, private _activatedRoute: ActivatedRoute, 
     private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService) { }
 
   public clients: SubCategory[];
   dataSource: any;
+  categoryName: string;
   subCategoryName: string;
-  examCourseName: string;
+  subCategoryId: number;
 
   ngOnInit(): void {    
     window.scroll({ 
@@ -30,21 +31,25 @@ export class ExamcategoryComponent implements OnInit {
     this._behaviorSubject.setBannerDescription("Category Description");
     // this._behaviorSubject.subCategory.subscribe(o =>{
     //   this.subCategoryName = o;
-    //   this.getExamCourse();      
+    //   this.getSubCategory();      
     // })
-    this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');    
+    this.categoryName = this._activatedRoute.snapshot.paramMap.get('category');
+    this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');
+    this.subCategoryId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('subCategoryId'));
+    
     this.getExamCourse();    
   }
 
   getExamCourse(){
-    this._examService.getAllSubCategory().subscribe(res => {
-      this.dataSource = res.data.filter(o => o.categoryName == this.subCategoryName); 
+    this._examService.getAllExamCourse().subscribe(res => {
+      this.dataSource = res.data.filter(o => o.subcategoryId == this.subCategoryId); 
       console.log(res);
     }) 
   }
 
   redirectExam(data){ 
-    this._router.navigate(['/examcourse', data.categoryName, data.name, data.id]);     
-    //this._router.navigate(['/examcategoryans', data.name]);
+    console.log(data);
+    //this._router.navigate(['/examcourse', data.name]);   
+    this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id]);
   }  
 }

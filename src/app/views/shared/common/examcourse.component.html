@@ -1,0 +1,26 @@
+<!------------ Tutor section start--------->
+<section class="examCourse">
+
+    <div class="container">
+
+        <div class="row">
+              
+                <div class="examCategory-dash">                                                            
+                    <div class="question-header text-center">
+                        <span _ngcontent-wkc-c218="" class="icon">
+                            <img _ngcontent-wkc-c218="" src="/assets/man.svg" alt="man" class="img-fluid">
+                        </span>
+                        <h2 class="header1">Select Your {{subCategoryName}} Exam</h2>
+                    </div>
+                    <div class="examCategory-body" >
+                        <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                            {{data.name}}
+                        </button>
+                    </div>
+                </div>
+
+        </div>
+
+    </div>
+
+</section>
