@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 vl">
-          <h2 class="header2">Bank Po</h2>
+          <h2 class="header2">Mock test of {{examName}}</h2>
         </div>
         <div class="col-md-4">
           <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
@@ -28,8 +28,6 @@
     <div class="questionDash">
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
-
             <div class="question-dash col-md-8">
               <div class="header">
                 <h2 class="header1">{{categoryName}} > {{subCategoryName}} > {{examName}}</h2>
@@ -58,6 +56,13 @@
               </div>
             </div>
             <div class="col-md-4">
+              <div *ngIf="isSubmitted && dataSource && dataSource.length > 0 && answerArr && answerArr.length > 0">
+                Total Questions: {{dataSource.length}}
+                Total Attended: {{answerArr.length}}
+                Total Correct Ans: {{totalCorrectAnswer}}
+                Total Wrong Ans: {{totalWrongAnswer}}
+                Percentage:   {{(totalCorrectAnswer / dataSource.length) * 100}}
+              </div>
               <div class="timeDash">
 
                 <div class="quesPallet">
@@ -97,17 +102,10 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </form>
-  <div *ngIf="isSubmitted && dataSource && dataSource.length > 0 && answerArr && answerArr.length > 0">
-    Total Questions: {{dataSource.length}}
-    Total Attended: {{answerArr.length}}
-    Total Correct Ans: {{totalCorrectAnswer}}
-    Total Wrong Ans: {{totalWrongAnswer}}
-    Percentage:   {{(totalCorrectAnswer / dataSource.length) * 100}}
-  </div>
+  
 
 </section>
