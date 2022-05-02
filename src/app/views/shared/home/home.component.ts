@@ -28,13 +28,14 @@ export class HomeComponent implements OnInit {
 
   categoryData: Category;
   dataSource: any;
+  imgBaseName: '/assets/';
+  imgExtension: '.svg'
   
 
   ngOnInit(): void {
     this.setBanner();
-    this._behaviorSubject.setRoute('Home');
-    this.getCategoryFromFile();
-    //this.getAllExam();
+    this._behaviorSubject.setRoute('Home');    
+    this.getAllExam();
   }
 
   setBanner(){
@@ -42,21 +43,16 @@ export class HomeComponent implements OnInit {
     this._behaviorSubject.setBannerDescription("courses is for every one from different age groups and with various level of skills.");
   }
 
-  getCategoryFromFile(){
-    this._commonService.list().subscribe(o => {
-      this._commonService.list().subscribe(client => {
-        this.clients = client[0].Category;
-        this.dataSource = this.clients;        
-      });
-    })
-  }
-
   getAllExam(){
-      // this.examService.getAllExam(0).subscribe(res => {
-      // this.examArray = res.list.slice(0, 8);
-      // this.examList = res.list;     
-      
-    
+    this.examService.getAllCategory().subscribe(res => {
+      if(res != null){
+        res.data.forEach(element => {
+          element.tag_name = '/assets/' + element.tag_name + '.svg'
+        });
+        this.dataSource = res.data;
+        console.log(res);
+      }      
+    })
   }
 
   showAll(text: string){

@@ -1,54 +1,19 @@
 [
   {
     "Category": [
-      {"id": 1, "name": "Bank", "isActive": true, "imageUrl": "/assets/banking.svg"},
-      {"id": 2, "name": "Railway", "isActive": false, "imageUrl": "/assets/ssc.svg"},
-      {"id": 3, "name": "NTPC", "isActive": true, "imageUrl": "/assets/teaching.svg"},
-      {"id": 4, "name": "OSSC", "isActive": false, "imageUrl": "/assets/gate.svg"},
-      {"id": 5, "name": "UPSC", "isActive": true, "imageUrl": "/assets/upsc.svg"},
-      {"id": 6, "name": "OPSC", "isActive": true, "imageUrl": "/assets/defence.svg"},
-      {"id": 7, "name": "LIC", "isActive": true, "imageUrl": "/assets/state-exam.svg"},
-      {"id": 7, "name": "GATE", "isActive": true, "imageUrl": "/assets/aeje.svg"}
+      {"id": 1, "name": "Bank", "isActive": true, "imageUrl": "/assets/banking.svg"}      
     ]   
   },
   {
     "SubCategory": [
-      {"id": 1, "name": "IBPS PO", "categoryId": 1, "categoryName": "Bank", "duration": 180, "isActive": true},
-      {"id": 2, "name": "Clerical", "categoryId": 1, "categoryName": "Bank", "duration": 0, "isActive": true},
-      {"id": 3, "name": "Manager", "categoryId": 1, "categoryName": "Bank", "duration": 240, "isActive": false},
-      {"id": 4, "name": "Specialist", "categoryId": 1, "categoryName": "Bank", "duration": 0, "isActive": true},
-      {"id": 5, "name": "Group-D", "categoryId": 2, "categoryName": "Railway", "duration": 0, "isActive": false},
-      {"id": 6, "name": "Loco Pilot", "categoryId": 2, "categoryName": "Railway", "duration": 0, "isActive": true},
-      {"id": 7, "name": "Clerical", "categoryId": 3, "categoryName": "NTPC", "duration": 120, "isActive": true},
-      {"id": 8, "name": "Technician", "categoryId": 3, "categoryName": "NTPC", "duration": 180, "isActive": true},
-      {"id": 9, "name": "RI", "categoryId": 4, "categoryName": "OSSC", "duration": 0, "isActive": true},
-      {"id": 10, "name": "Excise Commissioner", "categoryId": 4, "categoryName": "OSSC", "duration": 0, "isActive": true},
-      {"id": 11, "name": "Medical Specialist", "categoryId": 4, "categoryName": "OSSC", "duration": 60, "isActive": true},
-      {"id": 12, "name": "Junior Clerk", "categoryId": 4, "categoryName": "OSSC", "duration": 180, "isActive": false},
-      {"id": 13, "name": "Civil Service", "categoryId": 5, "categoryName": "UPSC", "duration": 300, "isActive": true},
-      {"id": 14, "name": "ASO", "categoryId": 6, "categoryName": "OPSC", "duration": 0, "isActive": true},
-      {"id": 15, "name": "Civil Service", "categoryId": 6, "categoryName": "OPSC", "duration": 300, "isActive": true},
-      {"id": 16, "name": "CSE", "categoryId": 7, "categoryName": "GATE", "duration": 300, "isActive": true},
-      {"id": 17, "name": "EEE", "categoryId": 7, "categoryName": "GATE", "duration": 300, "isActive": true}
+      {"id": 1, "name": "IBPS PO", "categoryId": 1, "categoryName": "Bank", "duration": 180, "isActive": true}      
     ]
   },
   {
     "Question":[
       { "id": 1, "subCategoryId": 1, "content": "When India got independent ?",        
         "option": ["1945", "1950", "1947", "1942"], 
-        "answer": [0,0,1,0], "isActive": true },
-      { "id": 2, "subCategoryId": 1, "content": "Which is the largest bank of India ?", 
-        "option": ["SBI", "RBI", "PNB", "IOB"], 
-        "answer": [0,1,0,0], "isActive": true },
-      { "id": 3, "subCategoryId": 2, "content": "Which country will host FIFA 2024 ?", 
-        "option": ["India", "Germany", "Italy", "Netherland"], 
-        "answer": [1,0,1,0], "isActive": true },
-      { "id": 4, "subCategoryId": 2, "content": "What is full form of GDP ?", 
-        "option": ["Gross Digital Product", "Gross Dynamic Product", "Gross Domestic Product", "Gross Double Product"], 
-        "answer": [0,0,1,0], "isActive": true },
-      { "id": 5, "subCategoryId": 2, "content": "The ratio of literature in India is ?", 
-        "option": ["1:2", "3:8", "9:12", "4:5"], 
-        "answer": [0,1,0,0], "isActive": true }
+        "answer": [0,0,1,0], "isActive": true }
     ]
   }
 ]
