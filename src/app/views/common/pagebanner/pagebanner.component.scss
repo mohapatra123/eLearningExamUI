@@ -3,8 +3,8 @@
 .banner {
  overflow: hidden;
    h2 { 
-       margin-bottom: 40px;
-       margin-top: 40px; }
+       margin: 20px 0;
+     }
    p { 
     margin-bottom: 40px;
     span {
@@ -46,6 +46,11 @@
             max-height: 450px;            
         }
     
+    }
+    .bannarIn{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 

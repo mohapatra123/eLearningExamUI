@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
 
   setBanner(){
     this._behaviorSubject.setBannerHeading("We Envision World’s Best Learning Experience.");
-    this._behaviorSubject.setBannerDescription("courses is for every one from different age groups and with various level of skills.");
+    this._behaviorSubject.setBannerDescription("we believe that learning is for everyone. Our expertise lies in Finance and Technology education for all.");
   }
 
   getAllExam(){
