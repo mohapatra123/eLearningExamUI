@@ -30,6 +30,7 @@ import { OverseasEducationComponent } from '../../shared/common/services/oversea
 import { SocialImpactComponent } from '../../shared/common/services/social-impact/social-impact.component';
 import { ComingSoonComponent } from '../../shared/common/coming-soon/coming-soon.component';
 import { ExamcourseComponent } from '../../shared/common/examcourse.component';
+import { MyAccountComponent } from '../../shared/common/account/my-account/my-account.component';
 
 
 
@@ -56,7 +57,8 @@ const routes: Routes = [{
     { path: 'financialInclusion', component: FinancialInclusionComponent },
     { path: 'overseasEducation', component: OverseasEducationComponent },
     { path: 'socialImpact', component: SocialImpactComponent },
-    { path: 'events/comingsoon', component: ComingSoonComponent },    
+    { path: 'events/comingsoon', component: ComingSoonComponent }, 
+    { path: 'myaccount', component: MyAccountComponent },    
   ]
 }]
 

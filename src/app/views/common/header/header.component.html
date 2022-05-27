@@ -24,10 +24,11 @@
              </span>
               <span *ngIf="!isAuthenticated" class="login">
                 <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login / Register</a>            
+                <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/myaccount' routerLinkActive='active'>My Account</a>                
               </span>
               <span *ngIf="isAuthenticated" class="login">
                 <i title="user" class="elIcon icon-user2"></i>
-                <a class="logout white" (click)="logout()" >Logout</a>            
+                <a class="logout white" (click)="logout()" >Logout</a>
               </span>
               <!-- <span class="login">/</span> -->
                <!-- <span class="login">
