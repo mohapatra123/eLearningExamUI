@@ -156,16 +156,15 @@
       border-radius: 20px;
       margin-bottom: 50px;
       padding: 30px 25px;
-      max-height: 550px;
-      min-height: 550px;
+      max-height: 580px;
+      min-height: 580px;
     } 
     .mat-card-content {
         margin: 15px 0px;
     }
     h4 {
-        font-size: $h3;
+        font-size: 18px;
         color: $black;
-        font-weight: $font-weight-7;
         margin: 15px 0px;
     }  
     p {
@@ -174,6 +173,9 @@
         font-size: $h4;
         color: $black7;
         font-weight: $font-weight-7;
+        display: flex;
+        justify-content: space-between;
+        
         &::before {
             content: "";
             background-image: url(/assets/dot.svg);
@@ -186,7 +188,13 @@
       
         }
     } 
-
+.price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
 }
 
 /**************** feature-course css end  ************/

@@ -2,16 +2,16 @@
     <div class="container">     
       <div class="row align-items-center">    
 
-        <div class="col-4 col-sm-12 col-md-2">
+        <div class="col-3 col-sm-12 col-md-2 logocol">
             <div class="logo">
               <a href="/">
-                <img src="/assets/logo.png" alt="loto" class="img-fluid" >
+                <img src="/assets/logo.jpg" alt="loto" class="img-fluid" >
               </a>
             </div>
           </div>
-          <div class="col-8 col-sm-12 col-md-3">
+          <div class="col-9 col-sm-12 col-md-3">
               <button mat-button [matMenuTriggerFor]="tabledriven" class="exm-btn">
-                <i title="grid" class="icon-grid"></i> Exam categories <i title="arrowDown" class="icon-arrowDown"></i>
+                <i title="grid" class="icon-grid"></i> Mock Test Categories <i title="arrowDown" class="icon-arrowDown"></i>
               </button>
               <!-- <mat-menu #belowMenu="matMenu" yPosition="below" [triggerFor] *ngFor="let data of dataSource">
                 <button mat-menu-item>Item 1</button>
@@ -19,7 +19,7 @@
               </mat-menu> -->
               <mat-menu #tabledriven="matMenu">
                 <ng-container *ngFor="let data of dataSource">
-                  <button *ngIf="data.name != null && data.name != ''" (click)="select(data)" mat-menu-item>{{ data.name }}</button>                  
+                  <button *ngIf="data.name != null && data.name != ''"  mat-menu-item>{{ data.name }}</button>                  
                 </ng-container>
               </mat-menu>
               

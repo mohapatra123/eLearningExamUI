@@ -28,7 +28,14 @@
 .mob-menu {
     display: none!important;
 }
-
+@media (max-width: 739px) {
+    .mob-menu {
+        display: block!important;
+    }
+    .logocol{
+        padding-right: 0;
+    }
+}
 @media (max-width: 576px) {
     .page-top-sec {
         .mob-menu {
