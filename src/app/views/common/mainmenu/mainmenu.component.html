@@ -19,7 +19,7 @@
               </mat-menu> -->
               <mat-menu #tabledriven="matMenu">
                 <ng-container *ngFor="let data of dataSource">
-                  <button *ngIf="data.name != null && data.name != ''"  mat-menu-item>{{ data.name }}</button>                  
+                  <button *ngIf="data.name != null && data.name != ''" (click)="select(data)" mat-menu-item>{{ data.name }}</button>                  
                 </ng-container>
               </mat-menu>
               

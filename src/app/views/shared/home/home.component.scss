@@ -124,78 +124,8 @@
 
 
 
-.feature-course {
-    background: linear-gradient(180deg, #1A213B 0%, #072263 100%);
-    padding: 50px 0px;
-    margin: 15px 0px;
-    .para, .header1 {
-         color: $white;
-         
-        }
-    .blue-btn {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: #fff;
-        color: $white;
-        padding-left: 50px;
-        &::before {
-        background-image: url(/assets/plus-white.svg);
-        content: "";
-        width: 22px;
-        height: 22px;
-        position: absolute;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        left: 10%;
-        top: 11px;
-            }
-        }
-}
-.feature-box {
-    margin-top: 25px;
-    .card {
-      border-radius: 20px;
-      margin-bottom: 50px;
-      padding: 30px 25px;
-      max-height: 580px;
-      min-height: 580px;
-    } 
-    .mat-card-content {
-        margin: 15px 0px;
-    }
-    h4 {
-        font-size: 18px;
-        color: $black;
-        margin: 15px 0px;
-    }  
-    p {
-        position: relative;
-        padding-left: 20px;
-        font-size: $h4;
-        color: $black7;
-        font-weight: $font-weight-7;
-        display: flex;
-        justify-content: space-between;
-        
-        &::before {
-            content: "";
-            background-image: url(/assets/dot.svg);
-            background-size: 100% 100%;
-            width: 10px;
-            height: 10px;
-            left: 0px;
-            top: 25%;
-            position: absolute;
-      
-        }
-    } 
-.price{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 18px;
-}
-}
+
+
 
 /**************** feature-course css end  ************/
 

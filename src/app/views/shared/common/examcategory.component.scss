@@ -1,7 +1,25 @@
 @import './src/app/common-styles/variable';
-
+.inner-banner{
+    background-image: url(../../../../assets/innerBanner.png);
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .header1{
+            color: #fff;
+            
+        }
+    }
+   
+   
+}
 .question-header {
     padding: 30px 0px;
+
     .icon {
         margin: 15px 0px;
         display: flex;

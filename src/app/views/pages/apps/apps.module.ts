@@ -31,6 +31,8 @@ import { SocialImpactComponent } from '../../shared/common/services/social-impac
 import { ComingSoonComponent } from '../../shared/common/coming-soon/coming-soon.component';
 import { ExamcourseComponent } from '../../shared/common/examcourse.component';
 import { MyAccountComponent } from '../../shared/common/account/my-account/my-account.component';
+import {FeatureCourseComponent} from '../../shared/common/courses/feature-course/feature-course.component'
+import { CourseComponentComponent } from '../../shared/common/courses/course-component/course-component.component';
 
 
 
@@ -58,7 +60,8 @@ const routes: Routes = [{
     { path: 'overseasEducation', component: OverseasEducationComponent },
     { path: 'socialImpact', component: SocialImpactComponent },
     { path: 'events/comingsoon', component: ComingSoonComponent }, 
-    { path: 'myaccount', component: MyAccountComponent },    
+    { path: 'myaccount', component: MyAccountComponent }, 
+    { path: 'feature-course', component: FeatureCourseComponent},   
   ]
 }]
 
@@ -66,7 +69,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
