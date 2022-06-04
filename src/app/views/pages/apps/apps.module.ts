@@ -36,6 +36,7 @@ import { CourseComponentComponent } from '../../shared/common/courses/course-com
 
 
 
+
 const routes: Routes = [{
   path: '',
   component: ContentComponent,
