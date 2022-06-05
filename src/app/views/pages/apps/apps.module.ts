@@ -48,7 +48,7 @@ const routes: Routes = [{
     { path: 'contactus', component: ContactUsComponent },
     { path: 'services', component: ServicesComponent },
     { path: 'events', component: EventsComponent },
-    { path: 'examcategory/:subCategory', component: ExamcategoryComponent },
+    { path: 'examcategory/:examCategory', component: ExamcategoryComponent },
     { path: 'examcategoryans/:category/:subCategory/:subCategoryId/:exam/:id', component: ExamcategoryAnsComponent},
     { path: 'examcourse/:category/:subCategory/:subCategoryId', component: ExamcourseComponent},
     { path: 'technologyTraining', component: TechnologyTrainingComponent },

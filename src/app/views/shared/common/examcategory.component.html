@@ -2,25 +2,21 @@
 <section class="examCategory">
     <div class="inner-banner">
         <div class="container">
-            <h2 class="header1">{{subCategoryName}} Exam</h2>
+            <h2 class="header1">{{categoryName}} Exam</h2>
+            <button type="button" (click)="openDialog()">Enroll Now</button>
         </div>
        
     </div>
 
     <div class="container">
-
-        <div class="row">
-              
-                <div class="examCategory-dash">                                                            
-                    <div class="examCategory-body" >
-                        <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
-                            {{data.name}}
-                        </button>
-                    </div>
+        <div class="row">              
+            <div class="examCategory-dash">                                                            
+                <div class="examCategory-body" >
+                    <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                        {{data.name}}
+                    </button>
                 </div>
-
+            </div>
         </div>
-
     </div>
-
 </section>

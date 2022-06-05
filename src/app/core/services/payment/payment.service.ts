@@ -7,8 +7,7 @@ import { map, catchError } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class ExamService {
-
+export class PaymentService {
   private readonly baseUri: string = environment.baseUri;
   private header: HttpHeaders;  
   errorMsg: string = '';
@@ -20,49 +19,50 @@ export class ExamService {
     this.header.append('Access-Control-Allow-Headers', '*');
   }  
 
-  getAllCategory(): Observable<any> {
-      return this._http.get(this.baseUri + 'exam/f/category/retrieve', { headers: this.header }).pipe(
+  getPayments(): Observable<any> {
+      return this._http.get(this.baseUri + 'exam/cms/payment/retrieve', { headers: this.header }).pipe(
       map((response: Response) => {
         return response;
       })
     )
   } 
 
-  getCategoryById(id: number): Observable<any>{
-    return this._http.get(this.baseUri + 'exam/cms/category/retrieve/' + id, { headers: this.header }).pipe(
-      map((response: Response) => {
-        return response;
+  getAccountByEmail(formData: any): Observable<any> {
+    return this._http.post(this.baseUri + 'user/f/myAccount', formData, { headers: this.header }).pipe(
+      map((response: any) => {
+          return response;
+      }), 
+      catchError(err => {
+        let errorMsg: string;
+        if (err.error instanceof ErrorEvent) {
+            this.errorMsg = `Error: ${err.error.message}`;
+        } else {
+            this.errorMsg = this.getServerErrorMessage(err);
+        }
+        return throwError(this.errorMsg);
       })
-    )
-  }
-  
-  
-  getAllSubCategory(): Observable<any> {
-    return this._http.get(this.baseUri + 'exam/f/sub-category/retrieve', { headers: this.header }).pipe(
-    map((response: Response) => {
-      return response;
-    })
-  )  
- }
-
- getAllExamCourse(): Observable<any> {
-    return this._http.get(this.baseUri + 'exam/f/courses/retrieve', { headers: this.header }).pipe(
-    map((response: Response) => {
-      return response;
-    })
-   )  
+    );
   }
 
-  getQuestionList(): Observable<any> {
-    return this._http.get(this.baseUri + 'exam/f/exam_questions/retrieve', { headers: this.header }).pipe(
-    map((response: Response) => {
-      return response;
-    })
-   )  
+  createPayment(formData: any): Observable<any> {
+    return this._http.post(this.baseUri + 'exam/f/payment/create', formData, { headers: this.header }).pipe(
+      map((response: any) => {
+          return response;
+      }), 
+      catchError(err => {
+        let errorMsg: string;
+        if (err.error instanceof ErrorEvent) {
+            this.errorMsg = `Error: ${err.error.message}`;
+        } else {
+            this.errorMsg = this.getServerErrorMessage(err);
+        }
+        return throwError(this.errorMsg);
+      })
+    );
   }
 
-  submitAnswer(formData: any): Observable<any> {
-    return this._http.post(this.baseUri + 'exam/f/exam_questions/submit', formData, { headers: this.header }).pipe(
+  updatePayment(formData: any): Observable<any> {
+    return this._http.post(this.baseUri + 'exam/cms/payment/update/' + formData.id, formData, { headers: this.header }).pipe(
       map((response: any) => {
           return response;
       }), 

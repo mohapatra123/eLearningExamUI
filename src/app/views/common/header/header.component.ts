@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
   logout(){
     this._authService.removeLocalAuth('user_token');
     this.isAuthenticated = false;    
+    this._router.navigate(['/login']);
   }
 
   setBanner(){

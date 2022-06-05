@@ -116,6 +116,7 @@
                     <mat-card class="box">
                         <span class="categories-icon">
                             <img [src]="cat.tag_name" alt="banking">
+                            <img style="cursor: pointer" [src]="cat.tag_name" alt="banking" (click)="selectCategory(cat)">
                         </span>
                       <mat-card-content>
                           <h4>{{cat.name}}</h4>
