@@ -44,12 +44,12 @@ export class ExamcategoryComponent implements OnInit {
       console.log(res);
       console.log(this.categoryName);
       if(res != undefined){
-        // this.dataSource = res.data.filter(o => o.categoryName == this.categoryName); 
-        // this._examService.getCategoryById(this.dataSource[0].categoryId).subscribe(catResponse => {
-        //   this.categoryData = catResponse.data[0];
-        //   console.log(catResponse);
-        // })
-        // console.log(this.dataSource);
+        this.dataSource = res.data.filter(o => o.categoryName == this.categoryName); 
+        this._examService.getCategoryById(this.dataSource[0].categoryId).subscribe(catResponse => {
+          this.categoryData = catResponse.data[0];
+          console.log(catResponse);
+        })
+        console.log(this.dataSource);
       }
       
     }) 
