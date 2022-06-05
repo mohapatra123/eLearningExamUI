@@ -40,9 +40,11 @@ export class LoginComponent implements OnInit {
         if(res.token != null && res.token != undefined && res.token != ''){
           this.isValid = true;
           authToken = res.token;
-          this._authService.setToken(authToken);
-          this.redirectAfterAuth();
-
+          if(authToken){
+            this._authService.setToken(authToken); 
+            this.getUserInformation(loginData.email);
+            this.redirectAfterAuth();
+          }
           //this._authService.removeLocalAuth(authToken);
         }
         else{
@@ -59,5 +61,30 @@ export class LoginComponent implements OnInit {
 
   redirectAfterAuth(){
     this._router.navigateByUrl('home');
+  }
+
+  getUserInformation(email: string){
+    var formData = {
+      email: email
+    }
+    this._authService.getUser(formData).subscribe((res: any) => {
+      console.log(res);
+      let userDetail: any;
+      if(res != undefined){
+        userDetail = {
+          eMail: res.data.my_details.eMail,
+          firstName: res.data.my_details.firstName,
+          gender: res.data.my_details.gender,
+          lastName: res.data.my_details.lastName,
+          middleName: res.data.my_details.middleName,
+          mobile: res.data.my_details.mobile,
+          roleId: res.data.my_details.roleId,
+          status: res.data.my_details.status,
+          userId: res.data.my_details.userId,
+          userName: res.data.my_details.userName
+        }
+      }      
+      this._authService.setLocalStorage('userInfo', JSON.stringify(userDetail));
+    })
   }
 }

@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Hi {{userData.firstName}}</h1>
+
+  <p>Category: {{data.categoryName}}</p>
+  <p>Retail Price: {{data.retailPrice}}</p>
+  <p>Selling Price: {{data.sellingPrice}}</p>  
+  <form [formGroup]="paymentForm" (ngSubmit)="SavePayment(paymentForm)"> 
+    <mat-form-field appearance="outline"  class="mr-3">                    
+      <mat-label>Transaction Id:</mat-label>
+      <input matInput placeholder="TransactionId" formControlName="TransactionId" [(ngModel)]="paymentData.transaction_id">      
+    </mat-form-field>        
+    <span style="color:red">{{message}}</span>
+<div>
+    <img _ngcontent-wkc-c218="" src="/assets/QR_Code.jpeg" alt="man" class="img-fluid">
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button type="submit">Submit</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>
+</form>

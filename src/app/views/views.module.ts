@@ -7,14 +7,16 @@ import { EventsComponent } from './shared/common/events.component';
 import { ExamcourseComponent } from './shared/common/examcourse.component';
 import { MyAccountComponent } from './shared/common/account/my-account/my-account.component';
 import { MatModule } from '../mat-module/mat.module';
+import { PaymentDialogComponent } from './shared/common/dialog/payment-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 
 @NgModule({
-  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent],
+  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent],
   imports: [
-    CommonModule, AuthModule, AppsModule, AppAuthModule, MatModule
+    CommonModule, AuthModule, AppsModule, AppAuthModule, MatModule, FormsModule, ReactiveFormsModule
   ]
 })
 export class ViewsModule { }

@@ -10,6 +10,7 @@ import { map, catchError } from 'rxjs/operators'
 export class AuthService {
 
   private readonly baseUri: string = environment.baseUri;
+  private readonly baseLoginUri: string = environment.baseLoginUri;
   private header: HttpHeaders;
 
   constructor(private _http: HttpClient) {
@@ -32,7 +33,7 @@ export class AuthService {
       let formData: FormData = new FormData();
       formData.append('eMail', param.email);
       formData.append('password', param.password);      
-      return this._http.post(this.baseUri + 'cms/user/login', formData, { headers: this.header }).pipe(
+      return this._http.post(this.baseLoginUri + 'cms/user/login', formData, { headers: this.header }).pipe(
       map((response: Response) => {
         return response;
       })
@@ -55,6 +56,14 @@ export class AuthService {
     )   
   }
 
+  getUser(formData: any){
+      return this._http.post(this.baseUri + 'user/f/myAccount', formData, { headers: this.header }).pipe(
+      map((response: Response) => {
+        return response;
+      })
+    )
+  }
+
   getToken(){
     return localStorage.getItem('user_token');
   }
@@ -65,5 +74,17 @@ export class AuthService {
 
   removeLocalAuth(key: string): void{
     localStorage.removeItem('user_token');    
+  }
+
+  getLocalStorage(key: string){
+    return localStorage.getItem(key);
+  }
+
+  setLocalStorage(key: string, value: any){
+    localStorage.setItem(key, value);
+  }
+
+  removeLocalStorage(key: string){
+    localStorage.removeItem(key);
   }
 }
