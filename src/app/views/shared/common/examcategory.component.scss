@@ -1,13 +1,13 @@
 @import './src/app/common-styles/variable';
 .inner-banner{
     background-image: url(../../../../assets/innerBanner.png);
-    min-height: 300px;
+    min-height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     .container{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         .header1{
             color: #fff;
@@ -15,7 +15,15 @@
         }
     }
    
-   
+   .enrolButton{
+       font-size: 28px;
+       width: 200px;
+       height: 80px;
+   }
+}
+.titell{
+    font-size: 20px;
+    margin: 20px 0;
 }
 .question-header {
     padding: 30px 0px;
@@ -32,7 +40,7 @@
 }
 .examBtn {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
-    width: calc(33.33% - 30px);
+   // width: calc(33.33% - 30px);
     font-size: 24px;
     padding: 25px;
     margin: 30px 15px;

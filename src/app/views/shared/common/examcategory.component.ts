@@ -61,7 +61,7 @@ export class ExamcategoryComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(PaymentDialogComponent, {
-      width: '250px',
+      width: '400px',
       data: {
         categoryId: this.categoryData.id, 
         categoryName: this.categoryData.name,

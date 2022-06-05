@@ -3,20 +3,22 @@
     <div class="inner-banner">
         <div class="container">
             <h2 class="header1">{{categoryName}} Exam</h2>
-            <button type="button" (click)="openDialog()">Enroll Now</button>
+            <button type="button" class="btn btn-success enrolButton" (click)="openDialog()">Enroll Now</button>
         </div>
        
     </div>
 
     <div class="container">
-        <div class="row">              
-            <div class="examCategory-dash">                                                            
-                <div class="examCategory-body" >
-                    <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
-                        {{data.name}}
-                    </button>
+<h1 class="titell">List of {{categoryName}} Exam </h1>
+        <div class="row">
+              
+                <div class="examCategory-dash">                                                            
+                    <div class="examCategory-body" >
+                        <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                            {{data.name}}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>

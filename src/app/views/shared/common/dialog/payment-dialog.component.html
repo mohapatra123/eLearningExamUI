@@ -1,10 +1,11 @@
 <h1 mat-dialog-title>Hi {{userData.firstName}}</h1>
 
-  <p>Category: {{data.categoryName}}</p>
-  <p>Retail Price: {{data.retailPrice}}</p>
-  <p>Selling Price: {{data.sellingPrice}}</p>  
+  <p class="listinfo"><span>Package:</span><strong>{{data.categoryName}}</strong> </p>
+  <p class="listinfo"><span>Retail Price: </span> <strong>{{data.retailPrice}}</strong></p>
+  <p class="listinfo"><span>Selling Price:</span> <strong>{{data.sellingPrice}}</strong></p>  
+  <h4>Please add payment details</h4>
   <form [formGroup]="paymentForm" (ngSubmit)="SavePayment(paymentForm)"> 
-    <mat-form-field appearance="outline"  class="mr-3">                    
+    <mat-form-field appearance="outline"  class="mr-3 width100">                    
       <mat-label>Transaction Id:</mat-label>
       <input matInput placeholder="TransactionId" formControlName="TransactionId" [(ngModel)]="paymentData.transaction_id">      
     </mat-form-field>        
@@ -12,9 +13,9 @@
 <div>
     <img _ngcontent-wkc-c218="" src="/assets/QR_Code.jpeg" alt="man" class="img-fluid">
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button type="submit">Submit</button>
+<div mat-dialog-actions class="popupButton justify-content-between">
+  <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
+  <button class="btn btn-primary"  type="submit">Submit</button>
   <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
 </div>
 </form>
