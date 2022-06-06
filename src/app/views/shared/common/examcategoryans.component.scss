@@ -1,5 +1,26 @@
 @import './src/app/common-styles/variable';
-
+.inner-banner{
+    background-image: url(../../../../assets/innerBanner.png);
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        .header1{
+            color: #fff;
+            
+        }
+    }
+   
+   
+}
+.width100{
+    width:100%;
+}
 .questionHeader {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
@@ -38,7 +59,7 @@
 
 .table {
     border-collapse: separate;
-    border-spacing: 10px;
+    //border-spacing: 10px;
     td {
         padding: 10px;
     /* vertical-align: top; */

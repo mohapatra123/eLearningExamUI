@@ -67,8 +67,8 @@
 }
 .blue-btn {
     background: rgba(255, 255, 255, 0.08);
-    border-color: #fff;
-    color: $white;
+    // border-color: #fff;
+    // color: $white;
     padding-left: 50px;
     &::before {
     background-image: url(/assets/plus-white.svg);
@@ -79,6 +79,7 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     left: 10%;
-    top: 11px;
+    top: 50%;
+    margin-top: -11px;
         }
     }

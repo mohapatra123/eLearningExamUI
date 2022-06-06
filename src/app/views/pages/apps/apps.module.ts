@@ -37,6 +37,7 @@ import { SampleComponent } from '../../shared/common/sample.component';
 
 
 
+
 const routes: Routes = [{
   path: '',
   component: ContentComponent,

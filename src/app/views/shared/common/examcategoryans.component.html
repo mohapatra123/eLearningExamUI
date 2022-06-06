@@ -1,19 +1,30 @@
 <!------------ Tutor section start--------->
 <section class="Bank_po">
   <form [formGroup]="questionForm" (ngSubmit)="SubmitAnswer(questionForm)">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 vl">
-          <h2 class="header2">Mock test of {{examName}}</h2>
+
+    <div class="inner-banner">
+      <div class="container">
+        <div class="row width100">
+          <div class="col-md-8">
+            <h2 class="header2">Mock test of {{examName}}</h2>
+          </div>
+          <div class="col-md-4">
+            <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
+          </div>
         </div>
-        <div class="col-md-4">
-          <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
+        <div class="row width100">
+          <div class="col-md-8">
+          <div>{{categoryName}} > {{subCategoryName}} > {{examName}}</div>
+          </div>
         </div>
       </div>
-    </div>
+     
+  </div>
+
 
     <div class="questionSubHeader">
       <div class="container">
+       
         <div class="row">
           <div class="col-md-8 vl">
             <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}}</span></h2>
@@ -28,10 +39,8 @@
     <div class="questionDash">
       <div class="container">
         <div class="row">
-            <div class="question-dash col-md-8">
-              <div class="header">
-                <h2 class="header1">{{categoryName}} > {{subCategoryName}} > {{examName}}</h2>
-              </div>
+            <div class="question-dash col-md-8 pt-1 pb-5">
+            
               <div class="question-header">
                 <h2>{{questionIndex + 1}}. {{currentQuestion}}</h2>
               </div>
@@ -72,13 +81,7 @@
                       <table class="table">
                         <tbody>
                           <tr *ngFor="let num of numArr1">
-                            <td>
-                              <table>
-                                <tr>
-                                  <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>
-                                </tr>
-                              </table>
-                            </td>
+                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>
 
                           </tr>
                         </tbody>

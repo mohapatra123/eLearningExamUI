@@ -127,7 +127,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
         }
         if(this.numArr.length > 0){
           this.numArr.forEach((ele, index) => {      
-            if(index > 0 && index % 5 == 0){  
+            if(index > 0 && index % 10 == 0){  
               this.numArr1.push(this.numArr2);
               this.numArr2 = [{id: ele, isAttempted: false}];              
             }      
@@ -144,7 +144,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   }
   
   ngAfterViewInit(): void {
-    for(let i = 0; i < 4; i++){
+    for(let i = 0; i < 9; i++){
       this.addQuestions('', false);
     } 
   }

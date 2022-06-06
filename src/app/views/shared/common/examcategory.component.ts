@@ -61,6 +61,7 @@ export class ExamcategoryComponent implements OnInit {
   }  
 
   openDialog(): void {
+<<<<<<< HEAD
     if(this._authService.getToken() != undefined){
       const dialogRef = this.dialog.open(PaymentDialogComponent, {
         width: '250px',
@@ -82,5 +83,24 @@ export class ExamcategoryComponent implements OnInit {
     }
     else
      this._router.navigate(['/login']);    
+=======
+    const dialogRef = this.dialog.open(PaymentDialogComponent, {
+      width: '400px',
+      data: {
+        categoryId: this.categoryData.id, 
+        categoryName: this.categoryData.name,
+        retailPrice: this.categoryData.retail_price,
+        sellingPrice: this.categoryData.selling_price
+      }, disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed ' + this.result);
+      this.result = result;
+      if(this.result.status == 1){
+        this._router.navigate(['/myaccount'])
+      }      
+    });
+>>>>>>> 1c965ecbdeb8a7427eeade749722a414679a217e
   }
 }
