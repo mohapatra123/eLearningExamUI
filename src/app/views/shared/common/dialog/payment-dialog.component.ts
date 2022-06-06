@@ -97,9 +97,12 @@ export class PaymentDialogComponent implements OnInit {
     else{
       this._paymentService.createPayment(this.paymentData).subscribe((res) => {
         if(res.status == true){
-          setTimeout(() => { this.message = res.message; }, 1000)          
-          setTimeout(() => { this.message = '' }, 5000)          
           this.dialogResult = { status: 1, message: res.message }
+          setTimeout(() => { this.message = res.message; }, 1000)          
+          setTimeout(() => { 
+            this.message = '';
+            this.dialogRef.close(this.dialogResult);
+          }, 2000)          
       }
     })
     }

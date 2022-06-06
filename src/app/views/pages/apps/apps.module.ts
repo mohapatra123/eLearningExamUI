@@ -33,6 +33,7 @@ import { ExamcourseComponent } from '../../shared/common/examcourse.component';
 import { MyAccountComponent } from '../../shared/common/account/my-account/my-account.component';
 import {FeatureCourseComponent} from '../../shared/common/courses/feature-course/feature-course.component'
 import { CourseComponentComponent } from '../../shared/common/courses/course-component/course-component.component';
+import { SampleComponent } from '../../shared/common/sample.component';
 
 
 
@@ -61,7 +62,8 @@ const routes: Routes = [{
     { path: 'socialImpact', component: SocialImpactComponent },
     { path: 'events/comingsoon', component: ComingSoonComponent }, 
     { path: 'myaccount', component: MyAccountComponent }, 
-    { path: 'feature-course', component: FeatureCourseComponent},   
+    { path: 'feature-course', component: FeatureCourseComponent},  
+    { path: 'sample/:name', component: SampleComponent},   
   ]
 }]
 
@@ -69,9 +71,9 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
+    CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
 })
 export class AppsModule { }

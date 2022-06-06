@@ -31,9 +31,9 @@ export class MainmenuComponent implements OnInit {
   { 
     this._behaviorSubject.setCategoryId(data.id);   
     this._behaviorSubject.setSubCategory(data.name);
-    this._behaviorSubject.setRoute('');
-    this._router.navigate(['#']);
-    this._router.navigate(['/examcategory', data.name]);    
+    this._behaviorSubject.setRoute('');    
+    //this._router.navigate(['/examcategory', data.name]);    
+    this._router.navigate(['/sample', data.name]);    
   }
 
   ngOnInit(): void {

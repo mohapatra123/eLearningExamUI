@@ -9,7 +9,7 @@ import { ViewsModule } from './views/views.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ViewsModule, FormsModule, ReactiveFormsModule,
     HttpClientModule, NgbModule
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

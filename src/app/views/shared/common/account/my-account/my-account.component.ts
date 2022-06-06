@@ -21,7 +21,7 @@ export class MyAccountComponent implements OnInit {
   dataSource: MatTableDataSource<Category>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['TransactionId', 'Date', 'Category', 'SubCategory', 'Course', 'Price', 'Status'];  
+  displayedColumns: string[] = ['TransactionId', 'Date', 'Category', 'SubCategory', 'Course', 'Price', 'Status', 'Action'];  
 
   constructor(private _authService: AuthService, private _paymentService: PaymentService) { }
 
@@ -40,6 +40,10 @@ export class MyAccountComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       console.log(this.accountData);
     })
+  }
+
+  GetCourse(){
+    
   }
 
   getClass(statusId){
