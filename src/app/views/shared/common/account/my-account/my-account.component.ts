@@ -5,6 +5,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { observable, Observable, of } from 'rxjs';
 import { Category } from 'src/app/core/models/category.model';
+import { Router } from '@angular/router';
+import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 
 
 @Component({
@@ -23,7 +25,7 @@ export class MyAccountComponent implements OnInit {
 
   displayedColumns: string[] = ['TransactionId', 'Date', 'Category', 'SubCategory', 'Course', 'Price', 'Status', 'Action'];  
 
-  constructor(private _authService: AuthService, private _paymentService: PaymentService) { }
+  constructor(private _authService: AuthService, private _paymentService: PaymentService, private _router: Router, private _behaviorSubject: BehaviorSubjectService) { }
 
   ngOnInit(): void {
     this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));
@@ -42,8 +44,12 @@ export class MyAccountComponent implements OnInit {
     })
   }
 
-  GetCourse(){
-    
+  GetCourse(element){
+    console.log(element);
+    if(element.category_name != ''){
+      this._behaviorSubject.setSubCategory(element.category_name);
+      this._router.navigate(['/examcategory', element.category_name]); 
+    }
   }
 
   getClass(statusId){

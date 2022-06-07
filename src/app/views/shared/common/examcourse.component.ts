@@ -29,7 +29,8 @@ export class ExamcourseComponent implements OnInit {
   userData: any;
   accountData: any;
 
-  ngOnInit(): void {    
+  ngOnInit(): void {  
+    this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));     
     window.scroll({ 
       top: 0, 
       left: 0, 
@@ -70,7 +71,7 @@ export class ExamcourseComponent implements OnInit {
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
       this.accountData = res.data.my_courses; 
       if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString()) > -1){
-        
+
       }
       console.log(this.accountData);     
     })
