@@ -3,7 +3,7 @@
     <div class="inner-banner">
         <div class="container">
             <h2 class="header1">{{categoryName}} Exam</h2>
-            <button type="button" class="btn btn-success enrolButton" (click)="openDialog()">Enroll Now</button>
+            <button [disabled]="dataSource == undefined || dataSource.length == 0" type="button" class="btn btn-success enrolButton" (click)="openDialog()">Enroll Now</button>
         </div>
        
     </div>
@@ -13,10 +13,11 @@
         <div class="row">
               
                 <div class="examCategory-dash">                                                            
-                    <div class="examCategory-body" >
-                        <button *ngFor="let data of dataSource" mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                    <div *ngFor="let data of dataSource">
+                        <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
                             {{data.name}}
-                        </button>
+                        </button> 
+                        <button [disabled]="checkEnrolledCourse(data)" type="button" (click)="openDialogSubCategory(data)">{{btnText}}</button>                                               
                     </div>
                 </div>
             </div>

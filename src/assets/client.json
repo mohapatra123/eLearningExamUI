@@ -15,5 +15,21 @@
         "option": ["1945", "1950", "1947", "1942"], 
         "answer": [0,0,1,0], "isActive": true }
     ]
+  },
+  {
+    "FeaturedCourse":[
+      {"id": 1, "courseName": "Data Science", "description": "Data Science Foundation-Recorded", 
+        "module": ["Introduction", "Python", "AI"], "duration": "4 Weeks", "price": 4000},
+      {"id": 2, "courseName": "Java", "description": "Core and Advanced Java", 
+        "module": ["Core Java", "Servlet", "Advanced Java"], "duration": "7 Week", "price": 5000},
+      {"id": 3, "courseName": "Full stack Development", "description": "Data Science and Artificial Intelligence", 
+        "module": ["Module-1", "Module-2", "Module-3"], "duration": "4 Week", "price": 3600},
+      {"id": 4, "courseName": "Web Development", "description": "Web Design & Development", 
+        "module": ["HTML", "CSS", "Angular"], "duration": "4 Week", "price": 4000},
+      {"id": 5, "courseName": "Java Programming", "description": "Essentials Java SE Programming", 
+        "module": ["Module-1", "Module-2", "Module-3"], "duration": "6 Week", "price": 4500},
+      {"id":6, "courseName": "Python Programming", "description": "Essentials of Python", 
+        "module": ["Django", "Machine Learning", "MongoDB"], "duration": "4 Week", "price":4200 }
+    ]
   }
 ]

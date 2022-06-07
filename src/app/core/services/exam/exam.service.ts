@@ -45,6 +45,14 @@ export class ExamService {
   )  
  }
 
+ getSubCategoryById(id: number): Observable<any>{
+  return this._http.get(this.baseUri + 'exam/cms/sub-category/retrieve/' + id, { headers: this.header }).pipe(
+    map((response: Response) => {
+      return response;
+    })
+  )
+}
+
  getAllExamCourse(): Observable<any> {
     return this._http.get(this.baseUri + 'exam/f/courses/retrieve', { headers: this.header }).pipe(
     map((response: Response) => {

@@ -1,0 +1,12 @@
+  <p class="listinfo"><span>Package:</span><strong>{{data.courseName}}</strong> </p>
+  <p class="listinfo"><span>Module:</span></p>  
+  <div *ngFor="let m of data.module">
+    <strong>{{m}}</strong>
+  </div>
+  <p class="listinfo"><span>Info:</span><strong>{{data.description}}</strong> </p>
+  <p class="listinfo"><span>Duration:</span><strong>{{data.duration}}</strong> </p>
+  <p class="listinfo"><span>Price:</span><strong>{{data.price}}</strong> </p>  
+  <div mat-dialog-actions class="popupButton justify-content-between">
+    <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
+    <button class="btn btn-primary" type="button" (click)="Submit()">Submit</button>  
+  </div>

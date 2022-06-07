@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Hi {{userData.firstName}}</h1>
 
-  <p class="listinfo"><span>Package:</span><strong>{{data.categoryName}}</strong> </p>
-  <p class="listinfo"><span>Retail Price: </span> <strong>{{data.retailPrice}}</strong></p>
+  <p class="listinfo"><span>Package:</span><strong>{{packageName}}</strong> </p>
+  <p class="listinfo"><span>Retail Price: </span> <strong><s>{{data.retailPrice}}</s></strong></p>
   <p class="listinfo"><span>Selling Price:</span> <strong>{{data.sellingPrice}}</strong></p>  
   <h4>Please add payment details</h4>
   <form [formGroup]="paymentForm" (ngSubmit)="SavePayment(paymentForm)"> 
@@ -15,7 +15,7 @@
 </div>
 <div mat-dialog-actions class="popupButton justify-content-between">
   <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
-  <button class="btn btn-primary"  type="submit">Submit</button>
+  <button [disabled]="!data.sellingPrice || data.sellingPrice <= 0" class="btn btn-primary"  type="submit">Submit</button>
   <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
 </div>
 </form>

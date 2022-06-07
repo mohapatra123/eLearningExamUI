@@ -8,13 +8,13 @@
           <div class="col-md-8">
             <h2 class="header2">Mock test of {{examName}}</h2>
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
-          </div>
+          </div> -->
         </div>
         <div class="row width100">
           <div class="col-md-8">
-          <div>{{categoryName}} > {{subCategoryName}} > {{examName}}</div>
+          <!-- <div>{{categoryName}} > {{subCategoryName}} > {{examName}}</div> -->
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
        
         <div class="row">
           <div class="col-md-8 vl">
-            <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}}</span></h2>
+            <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}} of {{this.dataSource.length}}</span></h2>
           </div>
           <div class="col-md-4">
             <h2 class="header3">Question Pallet :</h2>
@@ -59,8 +59,8 @@
                         </p> -->
                 <div class="question-footer">
                   <button type="button" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
-                  <button (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
-                  <button (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
+                  <button [disabled]="questionIndex == 0" (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
+                  <button [disabled]="dataSource && dataSource.length == questionIndex + 1" (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
                 </div>
               </div>
             </div>

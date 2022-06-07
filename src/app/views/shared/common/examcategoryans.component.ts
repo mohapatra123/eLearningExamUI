@@ -168,8 +168,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
 
   Next(){
     if(this.ans.indexOf('1') >= 0){
-      let numIndex = (this.questionIndex) / 5;
-      let numColIndex = (this.questionIndex) % 5;
+      let numIndex = (this.questionIndex) / 10;
+      let numColIndex = (this.questionIndex) % 10;
       this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
         this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
@@ -189,8 +189,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
 
   Previous(){
     if(this.ans.indexOf('1') >= 0){
-      let numIndex = (this.questionIndex) / 5;
-      let numColIndex = (this.questionIndex) % 5;
+      let numIndex = (this.questionIndex) / 10;
+      let numColIndex = (this.questionIndex) % 10;
       this.numArr1[numIndex.toFixed()][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
         this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
@@ -226,8 +226,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
 
   SubmitAnswer(questionForm){
     if(this.ans.indexOf('1') >= 0){
-      let numIndex = (this.questionIndex) / 5;
-      let numColIndex = (this.questionIndex) % 5;
+      let numIndex = (this.questionIndex) / 10;
+      let numColIndex = (this.questionIndex) % 10;
       this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
         this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
@@ -264,6 +264,11 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   }
 
   clearResponse(){
-    
+    this.answerArr = [{id: 0, answer: [], isCorrect: false}];
+    this.numArr = [];
+    this.numArr1 = [{id: 0, isAttempted: false}];
+    this.numArr2 = [{id: 0, isAttempted: false}];
+    this.questionIndex = 0;
+    this.getQuestionList();
   }
 }

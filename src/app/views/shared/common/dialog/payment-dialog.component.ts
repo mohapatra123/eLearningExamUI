@@ -32,6 +32,8 @@ export class PaymentDialogComponent implements OnInit {
   userData: any;
   isPaymentDone: boolean = false;
   message: string = '';
+  packageName: string = ''
+  packageId: number = 0;
 
   constructor(
     public dialogRef: MatDialogRef<PaymentDialogComponent>,
@@ -43,9 +45,20 @@ export class PaymentDialogComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-
-
-
+    if(this.data.categoryName && this.data.categoryName != ''){
+      this.packageName = this.data.categoryName; 
+      this.packageId = this.data.categoryId;     
+    }
+    else if(this.data.subCategoryName && this.data.subCategoryName != ''){
+      this.packageName = this.data.subCategoryName
+      this.packageId = this.data.subCategoryId;
+    }
+    else{
+      this.packageName = this.data.courseName;
+      this.packageId = this.data.courseId;
+    }
+      
+    console.log(this.packageName);
     this.paymentData = { 
       transaction_id: '',
       email_id: '',
@@ -71,12 +84,12 @@ export class PaymentDialogComponent implements OnInit {
       email_id: this.userData.eMail,
       status: 21,
       amount: this.data.sellingPrice,      
-      category_selected: this.data.categoryId,
-      sub_category_selected: this.data.subCategoryId == null ? 'ALL' : this.data.subCategoryId.toString(),
-      courses_selected: this.data.courseId == null ? 'ALL' : this.data.courseId.toString(),
-      category_name: this.data.categoryName == undefined ? '' : this.data.categoryName,
-      sub_category_name: this.data.subCategoryName == undefined ? '' : this.data.subCategoryName,
-      courses_name: this.data.courseName == undefined ? '' : this.data.courseName,
+      category_selected: this.data.categoryId ? this.data.categoryId.toString() : null,
+      sub_category_selected: this.data.subCategoryId ? this.data.subCategoryId.toString() : null,
+      courses_selected: this.data.courseId ? this.data.courseId.toString() : null,
+      category_name: this.data.categoryName ? this.data.categoryName : null,
+      sub_category_name: this.data.subCategoryName ? this.data.subCategoryName : null,
+      courses_name: this.data.courseName ? this.data.courseName : null,
       name: this.userData.firstName + ' ' + this.userData.lastName,
       contact_num: this.userData.mobile
     }
