@@ -42,8 +42,7 @@ export class MainmenuComponent implements OnInit {
 
   getAllCategory(){
     this._examService.getAllCategory().subscribe(res => {
-      this.dataSource = res.data;
-      console.log(res);
+      this.dataSource = res.data;      
     })
   }
 }
