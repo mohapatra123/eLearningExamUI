@@ -3,7 +3,7 @@
     <div class="inner-banner">
         <div class="container">
             <h2 class="header1">{{categoryName}} Exam</h2>
-            <button [disabled]="dataSource == undefined || dataSource.length == 0" type="button" class="btn btn-success enrolButton" (click)="openDialog()">Enroll Now</button>
+            <button *ngIf="!(dataSource == undefined || dataSource.length == 0) && btnCategoryText != ''" type="button" class="btn btn-success enrolButton" (click)="openDialog()">{{btnCategoryText}}</button>
         </div>
        
     </div>
@@ -17,7 +17,7 @@
                         <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
                             {{data.name}}
                         </button> 
-                        <button [disabled]="checkEnrolledCourse(data)" type="button" (click)="openDialogSubCategory(data)">{{btnText}}</button>                                               
+                        <button *ngIf="data.btnText != ''" [disabled]="data.isEnrolled" type="button" (click)="openDialogSubCategory(data)">{{data.btnText}}</button>                                               
                     </div>
                 </div>
             </div>

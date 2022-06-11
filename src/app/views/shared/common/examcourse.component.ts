@@ -21,6 +21,7 @@ export class ExamcourseComponent implements OnInit {
 
   public clients: SubCategory[];
   dataSource: any;
+  categoryId: number;
   categoryName: string;
   subCategoryName: string;
   subCategoryId: number;
@@ -28,6 +29,8 @@ export class ExamcourseComponent implements OnInit {
   result: any;
   userData: any;
   accountData: any;
+  btnHeaderText: string = 'Enroll'
+  isEnrolledSubCategory: boolean;
 
   ngOnInit(): void {  
     this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));     
@@ -42,6 +45,7 @@ export class ExamcourseComponent implements OnInit {
     //   this.subCategoryName = o;
     //   this.getSubCategory();      
     // })
+    this.categoryId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('categoryId'));
     this.categoryName = this._activatedRoute.snapshot.paramMap.get('category');
     this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');
     this.subCategoryId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('subCategoryId'));
@@ -70,8 +74,27 @@ export class ExamcourseComponent implements OnInit {
     }
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
       this.accountData = res.data.my_courses; 
-      if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString()) > -1){
-
+      if(this.accountData && this.accountData.findIndex(o => o.category_selected == this.categoryId.toString()) > -1){
+        this.btnHeaderText = '';
+      }
+      else if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString()) > -1){
+        this.btnHeaderText = 'Enrolled';
+      }
+      else{
+        this.dataSource.forEach(element => {
+          if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
+            element.isEnrolled = true;
+            element.btnText = "Enrolled";
+          }
+          else{
+            element.isEnrolled = false;
+            element.btnText = "Enroll";
+          }
+        });
+        if(this.dataSource.findIndex(o => o.isEnrolled == false) == -1){
+          this.isEnrolledSubCategory = true;
+          this.btnHeaderText = "Enrolled";
+        }
       }
       console.log(this.accountData);     
     })
@@ -103,7 +126,7 @@ export class ExamcourseComponent implements OnInit {
 
   redirectExam(data){ 
     console.log(data);    
-    this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id]);
+    this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0]);
   }  
 
   openDialogExam(data){

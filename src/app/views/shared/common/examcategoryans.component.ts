@@ -1,23 +1,26 @@
 import { ThrowStmt } from '@angular/compiler';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, OnDestroy } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { TileStyler } from '@angular/material/grid-list/tile-styler';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Question, SubCategory } from 'src/app/core/models/category.model';
 import { Exam } from 'src/app/core/models/exam';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { ExamService } from 'src/app/core/services/exam/exam.service';
 import { map } from 'rxjs/operators'
+import { interval, Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { CommonDialogComponent } from './dialog/common-dialog.component';
 
 @Component({
   selector: 'app-examcategory',
   templateUrl: './examcategoryans.component.html',
   styleUrls: ['./examcategoryans.component.scss']
 })
-export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
+export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService) { }
+  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private dialog: MatDialog, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService, private _router: Router) { }
 
   examName: string;
   categoryName: string;
@@ -25,6 +28,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   subCategoryId: number;
   examId: number;
   statusMessage: string = ''
+  examDuration: number;
 
   public clients: Question[];
   public subCatList: SubCategory[];
@@ -37,11 +41,11 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   currentQuestionId: number = 0;
 
   questionForm: FormGroup;
-  answerArr = [{id: 0, answer: [], isCorrect: false}];
+  answerArr = [{id: 0, answer: [], isCorrect: false, questionIndex: 0}];
   ans = ['0', '0', '0', '0'];
 
   numArr: number[] = [0];
-  numArr1: any[] = [{id: 0, isAttempted: false}];
+  numArr1: any[] = [{id: 0, isAttempted: false, isCorrect: false}];
   numArr2 = [{id: 0, isAttempted: false}];
 
   totalQuestion: number = 0;
@@ -53,6 +57,27 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   
   isSubmitted: boolean = false;
 
+  private subscription: Subscription;
+  
+  public dateNow = new Date();
+  public dDay = new Date();
+  milliSecondsInASecond = 1000;
+  hoursInADay = 24;
+  minutesInAnHour = 60;
+  SecondsInAMinute  = 60;
+
+  public timeDifference;
+  public secondsToDday;
+  public minutesToDday;
+  public hoursToDday;
+  public daysToDday;
+
+  result: any;
+
+  alertHour: number;
+  alertMinute: number;
+  alertSecond: number;
+
   get answers(){
     return this.questionForm.get('SelectedAnswer') as FormArray;
   }
@@ -63,7 +88,9 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.numArr = [];   
+    this.numArr = [];  
+    
+    
     
     console.log(this.numArr1);
 
@@ -76,6 +103,16 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
     this.examName = this._activatedRoute.snapshot.paramMap.get('exam');
     this.examId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
     this.subCategoryId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('subCategoryId'));
+    this.examDuration = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('duration'));
+    this.alertSecond = this.examDuration * 60;
+
+    this.subscription = interval(1000)
+      .subscribe(x => { 
+      this.getTimeDifference(); 
+      this.alertSecond -= 1
+      console.log(this.alertSecond);
+    }); 
+
     //this.getCategoryFromFile();
     this.getQuestionList();    
 
@@ -88,6 +125,22 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
       Answer: this._formBuilder.array([]),
       SelectedAnswer: this._formBuilder.array([])
     });
+  }
+
+  private getTimeDifference () {
+    this.timeDifference = new  Date().getTime() - this.dDay.getTime();
+    if(this.alertSecond == 15){
+      //this.subscription.unsubscribe();
+      this.openDialog();
+    }
+    this.allocateTimeUnits(this.timeDifference);
+  }
+
+  private allocateTimeUnits (timeDifference) {
+    this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
+    this.minutesToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
+    this.hoursToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
+    this.daysToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
   }
 
   checkAnswer(id, evt){    
@@ -107,6 +160,22 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
       }
     }        
     console.log(this.ans);
+  }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(CommonDialogComponent, {
+      width: '400px',
+      data: {
+        alertDuration: 10
+      }, disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {        
+      this.result = result;
+      if(this.result.status == 1){
+        this.SubmitAnswer(this.questionForm);
+      }      
+    });
   }
 
   getQuestionList(){
@@ -149,6 +218,10 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
     } 
   }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
   getCategoryFromFile(){
     this._commonService.list().subscribe(o => {
       this._commonService.list().subscribe(client => { 
@@ -172,10 +245,12 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
       let numColIndex = (this.questionIndex) % 10;
       this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = true;
       }
       else{
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = false;
       }
     }
     if(this.questionIndex <= this.dataSource.length - 2){
@@ -193,10 +268,12 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
       let numColIndex = (this.questionIndex) % 10;
       this.numArr1[numIndex.toFixed()][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = true;
       }
       else{
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = false;
       }
     }    
     if(this.questionIndex > 0){
@@ -209,8 +286,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
   }
 
   checkOption(i){
-    let a = this.answerArr.filter(o => o.id == this.dataSource[this.questionIndex].id)[0];
-    console.log(a);
+    let a = this.answerArr.filter(o => o.id == this.dataSource[this.questionIndex].id)[0];    
     if(a && a.answer[i] == '1')
       return true;    
     return false;
@@ -230,10 +306,12 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
       let numColIndex = (this.questionIndex) % 10;
       this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isAttempted = true;
       if(JSON.stringify(this.dataSource[this.questionIndex].answer) == JSON.stringify(this.ans)){
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: true, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = true;
       }
       else{
-        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false});
+        this.answerArr.push({id: this.dataSource[this.questionIndex].id, answer: this.ans, isCorrect: false, questionIndex: this.questionIndex});
+        this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = false;
       }
     }
     this.ans = ['0', '0', '0', '0'];
@@ -258,17 +336,35 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit {
     this._examService.submitAnswer(requestBody).subscribe((res) => {
       if(res.status == true){
         this.statusMessage = res.message;
+        this.subscription.unsubscribe();
         setTimeout(() => { alert(this.statusMessage) }, 2000)        
       }
     })
   }
 
+  navigateCourse(){
+    this._router.navigate(['/examcategory', this.categoryName]);
+  }
+
+  navigateSubCategory(){
+    this._router.navigate(['/examcourse', this.categoryName, this.subCategoryName, this.subCategoryId]);
+  }
+
   clearResponse(){
-    this.answerArr = [{id: 0, answer: [], isCorrect: false}];
+    this.answerArr = [{id: 0, answer: [], isCorrect: false, questionIndex: 0}];
     this.numArr = [];
     this.numArr1 = [{id: 0, isAttempted: false}];
     this.numArr2 = [{id: 0, isAttempted: false}];
     this.questionIndex = 0;
+    this.alertSecond = this.examDuration * 60;
+    this.subscription.unsubscribe();
+    this.dDay = new Date();
+    this.subscription = interval(1000)
+      .subscribe(x => { 
+      this.getTimeDifference(); 
+      this.alertSecond -= 1
+      console.log(this.alertSecond);
+    }); 
     this.getQuestionList();
   }
 }

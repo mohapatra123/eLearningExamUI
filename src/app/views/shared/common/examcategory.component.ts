@@ -28,8 +28,9 @@ export class ExamcategoryComponent implements OnInit {
   examCourseName: string; 
   userData: any;
   accountData: any;
-  isEnrolledCourse: boolean = false;
+  isEnrolledCategory: boolean = true;
   btnText: string = '';
+  btnCategoryText: string = '';
 
   result: any;
 
@@ -50,10 +51,13 @@ export class ExamcategoryComponent implements OnInit {
     this._examService.getAllSubCategory().subscribe(res => {            
       if(res != undefined){
         this.dataSource = res.data.filter(o => o.categoryName == this.categoryName);         
-        if(this.dataSource && this.dataSource.length > 0){
-          this.getAccountDetail();
+        if(this.dataSource && this.dataSource.length > 0){            
+          this.dataSource.isEnroll = false;        
           this._examService.getCategoryById(this.dataSource[0].categoryId).subscribe(catResponse => {
-            this.categoryData = catResponse.data[0];
+            if(catResponse){
+              this.categoryData = catResponse.data[0];
+              this.getAccountDetail();
+            }            
           })
         }        
       }      
@@ -61,7 +65,7 @@ export class ExamcategoryComponent implements OnInit {
   }
 
   redirectExam(data){ 
-    this._router.navigate(['/examcourse', data.categoryName, data.name, data.id]);
+    this._router.navigate(['/examcourse', data.categoryName, data.categoryId, data.name, data.id]);
   }  
 
   openDialog(): void {
@@ -91,8 +95,35 @@ export class ExamcategoryComponent implements OnInit {
     var formData = {
       email: this.userData.eMail
     }
+    this.isEnrolledCategory = false;
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
-      this.accountData = res.data.my_courses;
+      this.accountData = res.data.my_courses;      
+      if(this.accountData.findIndex(o => o.category_selected == this.categoryData.id) == -1){
+        this.isEnrolledCategory = false;
+        this.btnCategoryText = "Enroll";
+      }
+      else{
+        this.dataSource.forEach(element => {
+          if(!this.isEnrolledCategory){
+            element.isEnrolled = true;
+            element.btnText = "";
+          }
+          else{
+            if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
+              element.isEnrolled = true;
+              element.btnText = "";
+            }
+            else{
+              element.isEnrolled = false;
+              element.btnText = "Enroll";
+            }
+          }          
+        });
+        if(this.dataSource.findIndex(o => o.isEnrolled == false) == -1){
+          this.isEnrolledCategory = true;
+          this.btnCategoryText = "";
+        }
+      }
     })
   }
 
@@ -101,8 +132,8 @@ export class ExamcategoryComponent implements OnInit {
       const dialogRef = this.dialog.open(PaymentDialogComponent, {
         width: '400px',
         data: {
-          courseId: data.id, 
-          courseName: data.name,
+          subCategoryId: data.id, 
+          subCategoryName: data.name,
           retailPrice: data.retail_price,
           sellingPrice: data.selling_price
         }, disableClose: true
@@ -121,7 +152,7 @@ export class ExamcategoryComponent implements OnInit {
 
   checkEnrolledCourse(data){
     if(this.accountData && this.accountData.findIndex(o => o.courses_selected == data.id.toString()) > -1){
-      this.btnText = "Enrolled";
+      this.btnText = "";
       return true;
     }
     this.btnText = "Enroll";

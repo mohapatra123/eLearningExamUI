@@ -8,13 +8,17 @@
           <div class="col-md-8">
             <h2 class="header2">Mock test of {{examName}}</h2>
           </div>
-          <!-- <div class="col-md-4">
-            <h2 class="header2">Time Left : <span class="red">01::02:37</span></h2>
-          </div> -->
+          <div *ngIf="examDuration > 0" class="timer">
+            <h4> Total Time: {{examDuration}} Min </h4>
+            <span id="hours"> {{hoursToDday}} </span>: 
+            <span id="minutes"> {{minutesToDday}} </span>:
+            <span id="seconds"> {{secondsToDday}} </span>
+        </div>
         </div>
         <div class="row width100">
           <div class="col-md-8">
-          <!-- <div>{{categoryName}} > {{subCategoryName}} > {{examName}}</div> -->
+          <div> <a style="cursor:pointer" (click)="navigateCourse()">{{categoryName}}</a>  
+            > <a style="cursor:pointer" (click)="navigateSubCategory()">{{subCategoryName}}</a> > {{examName}}</div>
           </div>
         </div>
       </div>
@@ -27,11 +31,11 @@
        
         <div class="row">
           <div class="col-md-8 vl">
-            <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}} of {{this.dataSource.length}}</span></h2>
+            <h2 class="header3"><span class="green">QUESTION {{questionIndex + 1}} of {{dataSource.length}}</span></h2>
           </div>
           <div class="col-md-4">
             <h2 class="header3">Question Pallet :</h2>
-          </div>
+          </div>          
         </div>
       </div>
     </div>
@@ -77,18 +81,27 @@
                 <div class="quesPallet">
                   <div class="question-body">
 
-                    <div class="table-responsive">
+                    <div *ngIf="!isSubmitted" class="table-responsive">
                       <table class="table">
                         <tbody>
                           <tr *ngFor="let num of numArr1">
-                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>
-
+                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
                           </tr>
                         </tbody>
                       </table>
-
                     </div>
+                    <div *ngIf="isSubmitted" class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <tr *ngFor="let num of numArr1">
+                            <td class="questionIndex" [style.background-color]="n.isCorrect ? '#34D12F' : n.isCorrect == false ? '#D14A2F' : '#D5D8DC'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
                   </div>
+                  
 
                   <div class="question-footer">
                     <div class="row">
