@@ -18,11 +18,11 @@
   },
   {
     "FeaturedCourse":[
-      {"id": 1, "courseName": "Data Science", "description": "Data Science Foundation-Recorded", 
-        "module": ["Introduction", "Python", "AI"], "duration": "4 Weeks", "price": 4000},
-      {"id": 2, "courseName": "Java", "description": "Core and Advanced Java", 
-        "module": ["Core Java", "Servlet", "Advanced Java"], "duration": "7 Week", "price": 5000},
-      {"id": 3, "courseName": "Full stack Development", "description": "Data Science and Artificial Intelligence", 
+      {"id": 1, "courseName": "Java", "description": "Essential Java SE Programming", 
+        "module": ["Java Environment and Tools", "Hello Java", "Java Language"," Hello Again","Statements and Expressions, Again","Objects in Java", "etc"], "duration": "4 Weeks", "price": 4000},
+      {"id": 2, "courseName": "JS Programming", "description": "Essential JavaScript Programming", 
+        "module": ["Basic HTM", "Basic CSS", "Programming basics", "JavaScript Data Types", "Event listeners", "etc"], "duration": "7 Week", "price": 5000},
+      {"id": 3, "courseName": "Web Development", "description": "Essentials of Front-end Web Development", 
         "module": ["Module-1", "Module-2", "Module-3"], "duration": "4 Week", "price": 3600},
       {"id": 4, "courseName": "Web Development", "description": "Web Design & Development", 
         "module": ["HTML", "CSS", "Angular"], "duration": "4 Week", "price": 4000},

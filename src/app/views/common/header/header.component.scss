@@ -58,7 +58,11 @@
     display: flex;
 }
 
-
+.accountmenu{
+    &.mat-button, .mat-icon-button, &.mat-stroked-button, &.mat-flat-button{
+        line-height: normal;
+    }
+}
 
 @media (max-width: 576px) { 
     .top-header {

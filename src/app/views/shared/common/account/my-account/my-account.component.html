@@ -4,13 +4,13 @@
   
     <mat-tab label="Profile">
       
-      <div class="container">
+      <div class="container p-0 pt-3 pb-3">
       <div *ngIf="accountData" class="row">
         <div class="col-2">
           <div class="frofileimage">
             <img src="../../../../../../assets/sample-profile.png">
           </div>
-          <h3>{{accountData.firstName}} {{accountData.lastName}}</h3>
+          <h3 class="userName">{{accountData.firstName}} {{accountData.lastName}}</h3>
         </div>
         <div class="col-8 pofileDetails">
           <div class="row">
@@ -65,7 +65,7 @@
     </mat-paginator>
     </div>
     </mat-tab>
-    <mat-tab label="Reset Password">Reset password</mat-tab>
+    <!-- <mat-tab label="Reset Password">Reset password</mat-tab> -->
   </mat-tab-group>
 
 
