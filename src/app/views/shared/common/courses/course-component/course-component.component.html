@@ -7,8 +7,8 @@
             <div class="card-body">
                 <p>{{course.courseName}} </p>
                 <h4>{{course.description}} </h4>
-                <div class="price"> <span>{{course.duration}}</span> <span>{{course.price}}</span></div>
-                <button type="button" (click)="EnrollCourse(course)">Enroll</button>
+                <div class="price"> <div><span>{{course.duration}}</span> : <span>{{course.price}}.00</span></div> <button mat-raised-button color="primary" type="button" (click)="EnrollCourse(course)">Request Now</button></div>
+                
             </div>
         </div>
       </div>

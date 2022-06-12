@@ -3,13 +3,31 @@
         width: 100%;
     }
 }
+.mat-tab-body-content{
+    .container{
+        padding: 20px 0;
+    }
+}
 h3{
     font-size: 22px;
     text-align: center;
     margin: 10px 0;
+    &.userName{
+        color: #0A2468;  
+        font-size: 16px;
+        font-weight: bold;
+    }
 }
 h4{
     font-size: 18px;
+}
+.titel{
+    color: #0A2468;
+    justify-content: flex-start;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    padding: 10px 0;
+    margin-bottom: 10px;
 }
 .pofileDetails{
     padding-top: 40px;

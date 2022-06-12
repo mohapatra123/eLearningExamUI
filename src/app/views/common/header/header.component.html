@@ -24,11 +24,27 @@
              </span>
               <span *ngIf="!isAuthenticated" class="login">
                 <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/login' routerLinkActive='active'>Login / Register</a>            
-                <i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;" routerLink='/myaccount' routerLinkActive='active'>My Account</a>                
+                               
               </span>
               <span *ngIf="isAuthenticated" class="login">
-                <i title="user" class="elIcon icon-user2"></i>
-                <a class="logout white" (click)="logout()" >Logout</a>
+               
+                
+                <button class="accountmenu" mat-button [matMenuTriggerFor]="menu"><i title="user" class="elIcon icon-user2"></i><a style="color:white; text-decoration: none;">My Account</a></button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink='/myaccount' routerLinkActive='active'><i title="user" class="elIcon icon-Gate"></i> My learning</button>
+                  <button mat-menu-item (click)="logout()"><i title="user" class="elIcon icon-logout"></i> Logout</button>
+                </mat-menu>
+              <!-- <ul class="accountMenu">
+                <li>
+                  <i title="user" class="elIcon icon-user2"></i>
+                  <a class="logout white"  routerLink='/myaccount' routerLinkActive='active'>My learning</a>
+                </li>
+                <li>
+                  <i title="user" class="elIcon icon-user2"></i>
+                  <a class="logout white" (click)="logout()" >Logout</a>
+                </li>
+              </ul> -->
+              
               </span>
               <!-- <span class="login">/</span> -->
                <!-- <span class="login">

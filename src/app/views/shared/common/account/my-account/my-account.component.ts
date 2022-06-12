@@ -27,7 +27,7 @@ export class MyAccountComponent implements OnInit {
   dataSource: MatTableDataSource<Category>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['TransactionId', 'Date', 'Package', 'Price', 'Status', 'Action'];  
+  displayedColumns: string[] = ['Package','TransactionId', 'Date',  'Price', 'Status', 'Action'];  
 
   constructor(private _authService: AuthService, private _paymentService: PaymentService, private _router: Router, private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService) { }
 
