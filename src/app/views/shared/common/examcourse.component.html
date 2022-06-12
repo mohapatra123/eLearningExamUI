@@ -21,7 +21,7 @@
                     <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
                         {{data.name}}
                     </button>
-                    <button *ngIf="data && data.btnText != ''" type="button" (click)="openDialogExam(data)">{{data.btnText}}</button>
+                    <button *ngIf="data.btnText && data.btnText != ''" type="button" (click)="openDialogExam(data)">{{data.btnText}}</button>
                 </div>
             </div>
         </div>

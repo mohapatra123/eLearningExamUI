@@ -78,22 +78,29 @@ export class ExamcourseComponent implements OnInit {
         this.btnHeaderText = '';
       }
       else if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString()) > -1){
-        this.btnHeaderText = 'Enrolled';
+        this.btnHeaderText = '';
       }
       else{
         this.dataSource.forEach(element => {
           if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
             element.isEnrolled = true;
-            element.btnText = "Enrolled";
+            element.btnText = "";
           }
           else{
-            element.isEnrolled = false;
-            element.btnText = "Enroll";
+            if(this.accountData.findIndex(o => o.courses_selected == element.id) >= 0){
+              element.isEnrolled = true;
+              element.btnText = "";
+            }
+            else{
+              element.isEnrolled = false;
+              element.btnText = "Enroll";
+            }
           }
+          
         });
         if(this.dataSource.findIndex(o => o.isEnrolled == false) == -1){
           this.isEnrolledSubCategory = true;
-          this.btnHeaderText = "Enrolled";
+          this.btnHeaderText = "";
         }
       }
       console.log(this.accountData);     

@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   isValid: boolean = true;
   statusMessage: string;
+  isError: boolean = false;
   confirmPasswordMessage: string;
 
   ngOnInit(): void {
@@ -37,7 +38,11 @@ export class SignupComponent implements OnInit {
       return;
     }
     if(this.signupForm.valid){
-      this._authService.userRegistration(this.signupForm.value).subscribe(res => {             
+      this._authService.userRegistration(this.signupForm.value).subscribe(res => {  
+        if(res.error)
+          this.isError = true;
+        else
+          this.isError = false;           
         this.statusMessage = res.message;        
       })
     }

@@ -101,6 +101,12 @@ export class ExamcategoryComponent implements OnInit {
       if(this.accountData.findIndex(o => o.category_selected == this.categoryData.id) == -1){
         this.isEnrolledCategory = false;
         this.btnCategoryText = "Enroll";
+        this.dataSource.forEach(element => {
+          if(!this.isEnrolledCategory){
+            element.isEnrolled = false;
+            element.btnText = "Enroll";
+          }               
+        });
       }
       else{
         this.dataSource.forEach(element => {

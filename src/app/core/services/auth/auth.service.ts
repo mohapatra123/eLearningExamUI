@@ -49,7 +49,7 @@ export class AuthService {
     formData.append('password', param.password); 
     formData.append('roleId', "1"); 
     formData.append('status', "1"); 
-    return this._http.post(this.baseUri + 'cms/user/register', formData, { headers: this.header }).pipe(
+    return this._http.post(this.baseLoginUri + 'cms/user/register', formData, { headers: this.header }).pipe(
       map((response: Response) => {
         return response;
       })
