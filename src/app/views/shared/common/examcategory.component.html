@@ -5,7 +5,7 @@
             <h2 class="header1">{{categoryName}} Exam</h2>
             <button *ngIf="!(dataSource == undefined || dataSource.length == 0) && btnCategoryText != ''" type="button" class="btn btn-success enrolButton" (click)="openDialog()">{{btnCategoryText}}</button>
         </div>
-       
+        
     </div>
 
     <div class="container">
@@ -17,7 +17,7 @@
                         <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
                             {{data.name}}
                         </button> 
-                        <!-- <button *ngIf="data.btnText && data.btnText != ''" type="button" (click)="openDialogSubCategory(data)">{{data.btnText}}</button>                                                -->
+                       
                     </div>
                 </div>
             </div>

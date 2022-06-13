@@ -19,17 +19,17 @@
   {
     "FeaturedCourse":[
       {"id": 1, "courseName": "Java", "description": "Essential Java SE Programming", 
-        "module": ["Java Environment and Tools", "Hello Java", "Java Language"," Hello Again","Statements and Expressions, Again","Objects in Java", "etc"], "duration": "4 Weeks", "price": 4000},
+        "module": ["Java Environment and Tools", "Hello Java", "Java Language"," Hello Again","Statements and Expressions, Again","Objects in Java", "etc..."], "duration": "4 Weeks", "price": 4000},
       {"id": 2, "courseName": "JS Programming", "description": "Essential JavaScript Programming", 
-        "module": ["Basic HTM", "Basic CSS", "Programming basics", "JavaScript Data Types", "Event listeners", "etc"], "duration": "7 Week", "price": 5000},
+        "module": ["Basic HTM", "Basic CSS", "Programming basics", "JavaScript Data Types", "Event listeners", "etc..."], "duration": "7 Week", "price": 5000},
       {"id": 3, "courseName": "Web Development", "description": "Essentials of Front-end Web Development", 
-        "module": ["Module-1", "Module-2", "Module-3"], "duration": "4 Week", "price": 3600},
-      {"id": 4, "courseName": "Web Development", "description": "Web Design & Development", 
-        "module": ["HTML", "CSS", "Angular"], "duration": "4 Week", "price": 4000},
-      {"id": 5, "courseName": "Java Programming", "description": "Essentials Java SE Programming", 
-        "module": ["Module-1", "Module-2", "Module-3"], "duration": "6 Week", "price": 4500},
-      {"id":6, "courseName": "Python Programming", "description": "Essentials of Python", 
-        "module": ["Django", "Machine Learning", "MongoDB"], "duration": "4 Week", "price":4200 }
+        "module": ["Initial HTML", "Cascading Stylesheets", "Introduction to JavaScript", "Understanding Document Object Model (DOM)", "Applications of JavaScript in Web apps", "etc..."], "duration": "4 Week", "price": 3600},
+      {"id": 4, "courseName": "Python Programming", "description": "Essential Python Programming", 
+        "module": ["Introduction to Python", "Data types", "Program control flow", "Python data structures", "Functions", "etc..."], "duration": "4 Week", "price": 4000},
+      {"id": 5, "courseName": "Data Structure and Algorithms", "description": "Essential Data Structure and Algorithms ", 
+        "module": ["Introduction", "Searching and Sorting", "Lists, Stacks and Queues", "Trees and their applications","Hashing", "etc..."], "duration": "6 Week", "price": 4500},
+      {"id":6, "courseName": "Data Science", "description": "Data Science Foundation with Python", 
+        "module": ["Introduction to Data Science", "Fundamentals and Basics of Python", "Data Structures and Control Structures in Python", "Functions and Libraries","etc..."], "duration": "4 Week", "price":4200 }
     ]
   }
 ]

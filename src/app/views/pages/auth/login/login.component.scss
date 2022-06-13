@@ -16,7 +16,13 @@
     color: #a6b0bd;
   }
 }
-
+ .formblock{
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: #fff;
+ } 
 .loginLayout{
   display: flex;
 }
@@ -25,13 +31,23 @@
 }
 .rightBox{
   padding: 40px;
-  .para {
-    font-size: 16px;
-    font-weight: $font-weight-7;
-  }
+  
 }
-  
-  
+  .ng-invalid{
+    +.form-text{
+      &.text-muted{
+        color: red !important;
+      }
+     
+    }
+  }
+.para {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  font-weight: $font-weight-7;
+}
 
   /* Add a hover effect for buttons */
   button:hover {
@@ -68,11 +84,14 @@
     .social {
       display: flex;
       align-items: center;
+      justify-content: center;
       ul {        
         display: flex;
         list-style: none;    
         margin: 0px;  
         padding-left: 25px; 
+        align-items: center;
+        justify-content: center;
       li {        
         a {
           display: flex;

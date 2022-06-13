@@ -1,7 +1,7 @@
 @import './src/app/common-styles/variable';
 .inner-banner{
     background-image: url(../../../../assets/innerBanner.png);
-    min-height: 300px;
+    min-height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +16,10 @@
     }
    
    
+}
+.examCategory-dash{
+    display: flex;
+    flex-wrap: wrap;
 }
 .question-header {
     padding: 30px 0px;

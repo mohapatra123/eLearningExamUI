@@ -1,4 +1,4 @@
-<form class="registerform" [formGroup]="signupForm" (ngSubmit)="userRegistration(signupForm)">
+<form class="registerform formblock" [formGroup]="signupForm" (ngSubmit)="userRegistration(signupForm)">
     <div class="form-group">
        
             <label for="firstName"><b>First Name</b></label>
@@ -47,10 +47,13 @@
                 {{confirmPasswordMessage}}
         </small>
         </div>
-        <div class="form-group text-right width100">
-            <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Submit</button>  
+        <div class="form-group text-right w-100">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!signupForm.valid">Submit</button>  
         </div>        
-        <div *ngIf="statusMessage && statusMessage != ''" class="alert width100" role="alert" [ngClass]="isError ? 'alert-danger' : 'alert-success'">
+        <div *ngIf="statusMessage && statusMessage != ''" class="alert w-100" role="alert" [ngClass]="isError ? 'alert-danger' : 'alert-success'">
             {{statusMessage}}
-        </div>   
+        </div> 
+
+      
+   
 </form>

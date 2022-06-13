@@ -113,15 +113,17 @@
 
 
                 <div class="col-12 col-sm-12 col-md-3 item" *ngFor="let cat of dataSource">
-                    <mat-card class="box">
+                    <mat-card class="box" (click)="selectCategory(cat)">
                         <span class="categories-icon">
-                            <img style="cursor: pointer" [src]="cat.tag_name" alt="banking" (click)="selectCategory(cat)">
+                            <img style="cursor: pointer" [src]="cat.tag_name" alt="banking" >
                         </span>
                       <mat-card-content>
                           <h4>{{cat.name}}</h4>
                           <p>Mock Test</p>
                       </mat-card-content>
+                      <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">Enrol Now</button>
                   </mat-card>
+                  
                 </div>
             </div>
 

@@ -19,8 +19,7 @@ h2{
 }
 .buttonblock{
     display: flex;
-    justify-content: flex-end;
-    margin-top: 30px;
+    justify-content: space-between;
     border-top: 1px solid #ccc;
     padding-top: 20px;
     .btn{

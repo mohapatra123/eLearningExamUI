@@ -1,101 +1,117 @@
-
 <section class="logIn">
   <div class="container">
 
 
-    <div class="row loginLayout">        
+    <div class="row loginLayout">
 
-       <div class="col-6">
-         <div class="loginForm">           
-                         
+      <div class="col-6">
+        <div class="loginForm">
+
           <div class="text-center">
             <a href="#">
               <img src="/assets/logo.png" alt="logo">
             </a>
           </div>
-           
-            
+
+
           <mat-tab-group mat-align-tabs="start">
 
             <!----------------Login Page Start ------------>
 
             <mat-tab label="Login">
- 
-              <form [formGroup]="loginForm" (ngSubmit)="validateUser(loginForm)">
 
-                <div class="form-group">  
-                  <span class="input-icons"><i title="email" class="elIcon icon-email"></i></span>                    
-                  <input type="text" formControlName="userId" class="form-control" placeholder="Enter UserId" formControlName="userId" required>
-                    <small class="form-text text-muted" 
-                        *ngIf="loginForm.controls.userId.touched && loginForm.controls.userId.errors?.required">
-                          Please enter userid !
-                    </small>
-                    <small class="form-text text-muted"
-                         *ngIf="loginForm.controls.userId.touched && loginForm.controls.userId.errors?.email">
-                           Email address not valid !
-                    </small>
+              <form [formGroup]="loginForm" class="formblock" (ngSubmit)="validateUser(loginForm)">
+
+                <div class="form-group">
+                  <span class="input-icons"><i title="email" class="elIcon icon-email"></i></span>
+                  <input type="text" formControlName="userId" class="form-control" placeholder="Enter UserId"
+                    formControlName="userId" required>
+                  <small class="form-text text-muted"
+                    *ngIf="loginForm.controls.userId.touched && loginForm.controls.userId.errors?.required">
+                    Please enter userid !
+                  </small>
+                  <small class="form-text text-muted"
+                    *ngIf="loginForm.controls.userId.touched && loginForm.controls.userId.errors?.email">
+                    Email address not valid !
+                  </small>
                 </div>
-           
-                <div class="form-group"> 
-                  <span class="input-icons"><i title="engineering" class="elIcon icon-engineering"></i></span>                                       
-                  <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"  formControlName="password" required>
+
+                <div class="form-group">
+                  <span class="input-icons"><i title="engineering" class="elIcon icon-engineering"></i></span>
+                  <input type="password" formControlName="password" class="form-control" placeholder="Enter Password"
+                    formControlName="password" required>
                 </div>
+                <div class="row m-0">
+                  <div class="col p-0">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row m-0">
+                    <div class="col p-0 text-center">
+                      <span class="para">Login With</span>
+                      </div>
+                      </div>
+                  <div class="row m-0">
+                  <div class="col p-0 text-center">
+                    <div class="social">
+                      
+                      <ul>
+                        <li><a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a></li>
+                        <li><a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a></li>
+                        <li><a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a></li>
+                        <li><a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
                     
-                <div class="form-group"> 
-                  <button type="submit" class="btn btn-primary">Login</button>  
-                </div>
-                        
-                <div class="form-group text-right"> 
+                  </div>
+                 
+                  
+                
+                <div class="form-group text-right">
                   <a href="#" class="primary">Forgot Password ?</a>
                 </div>
-                                                
               </form>
-              
-              <div class="social">
-                <span class="para">Or login with</span>
-                <ul>
-                  <li><a href="#"><i title="Facebook" class="elIcon icon-facebook"></i></a></li>
-                  <li><a href="#"><i title="Twitter" class="elIcon icon-twitter"></i></a></li>
-                  <li><a href="#"><i title="instagram" class="elIcon icon-instagram"></i></a></li>
-                  <li><a href="#"><i title="linkedin" class="elIcon icon-linkedin"></i></a></li>
-                </ul>
-              </div>
-              
-              
+
+             
+
+
             </mat-tab>
             <!----------------Login Page End ------------>
 
             <!----------------Register Page Start ------------>
-            <mat-tab label="Register">  
+            <mat-tab label="Register">
               <ng-template matTabContent>
                 <app-signup></app-signup>
-              </ng-template>     
-                                                  
+              </ng-template>
+
             </mat-tab>
             <!----------------Register Page End ------------>
 
           </mat-tab-group>
-                         
+
         </div>
       </div>
 
 
 
-    <!----------------rightBox Start------- -->
-    <div class="col-6">            
-      <div class="rightBox text-center">
+      <!----------------rightBox Start------- -->
+      <div class="col-6">
+        <div class="rightBox text-center">
           <h2 class="header1">Learn From <span class="red">Anywhere</span></h2>
           <p class="para">Technology is bring a massive wave of evolution on learning things on different ways.</p>
           <a href="#">
             <img src="\assets\login.PNG" alt="logo" class="img-fluid">
           </a>
-       </div>
+        </div>
+      </div>
+      <!----------------rightBox End ------->
+
+
     </div>
-    <!----------------rightBox End ------->
 
 
-</div>
-
-
-   </div>
+  </div>
 </section>

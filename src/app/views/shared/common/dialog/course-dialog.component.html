@@ -1,13 +1,31 @@
   <h2>Request your Coueses</h2>
-  <p class="listinfo"><span>Package:</span><strong>{{data.courseName}}</strong> </p>
-  <p class="listinfo"><span>Module:</span></p>  
-  <div *ngFor="let m of data.module">
-    <strong>{{m}}</strong>
+  <div class="row">
+    <div class="col-3"><p class="listinfo"><span>Package:</span></p>  </div>
+    <div class="col-9"> <h3 class="listinfo"><strong>{{data.courseName}}</strong> </h3></div>
   </div>
-  <p class="listinfo"><span>Info:</span><strong>{{data.description}}</strong> </p>
-  <p class="listinfo"><span>Duration:</span><strong>{{data.duration}}</strong> </p>
-  <p class="listinfo"><span>Price:</span><strong>{{data.price}}</strong> </p>  
+    <div class="row">
+      <div class="col-3"><p class="listinfo"><span>Module:</span></p>  </div>
+      <div class="col-9"><p class="listinfo"> <div *ngFor="let m of data.module">
+        <strong>{{m}}</strong>
+      </div>  </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-3"><p class="listinfo"><span>Info:</span></p>  </div>
+      <div class="col-9"> <h3 class="listinfo"><strong>{{data.description}}</strong> </h3></div>
+    </div>
+    <div class="row">
+      <div class="col-3"><p class="listinfo"><span>Duration:</span></p>  </div>
+      <div class="col-9"> <h3 class="listinfo"><strong>{{data.duration}}</strong> </h3></div>
+    </div>
+    <div class="row">
+      <div class="col-3"><p class="listinfo"><span>Price:</span></p>  </div>
+      <div class="col-9"> <h3 class="listinfo"><strong>{{data.price}}</strong> </h3></div>
+    </div>
+    <div class="alert alert-primary" role="alert">
+     Please request us to know more.
+    </div>
   <div class="buttonblock">
     <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
-    <button class="btn btn-primary" type="button" (click)="Submit()">Submit</button>  
+    <button class="btn btn-primary" type="button" (click)="Submit()">Request Now</button>  
   </div>

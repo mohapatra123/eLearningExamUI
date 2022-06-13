@@ -85,7 +85,7 @@
                       <table class="table">
                         <tbody>
                           <tr *ngFor="let num of numArr1">
-                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : '#F1948A'" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
+                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : ''" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
                           </tr>
                         </tbody>
                       </table>
