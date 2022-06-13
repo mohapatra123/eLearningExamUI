@@ -92,45 +92,51 @@ export class ExamcategoryComponent implements OnInit {
   }
 
   getAccountDetail(){
-    var formData = {
-      email: this.userData.eMail
+    if(!this.userData){
+      this.isEnrolledCategory = false;
+      this.btnCategoryText = "Enroll";
     }
-    this.isEnrolledCategory = false;
-    this._paymentService.getAccountByEmail(formData).subscribe(res => {
-      this.accountData = res.data.my_courses;      
-      if(this.accountData.findIndex(o => o.category_selected == this.categoryData.id) == -1){
-        this.isEnrolledCategory = false;
-        this.btnCategoryText = "Enroll";
-        this.dataSource.forEach(element => {
-          if(!this.isEnrolledCategory){
-            element.isEnrolled = false;
-            element.btnText = "Enroll";
-          }               
-        });
+    else{
+      var formData = {
+        email: this.userData.eMail
       }
-      else{
-        this.dataSource.forEach(element => {
-          if(!this.isEnrolledCategory){
-            element.isEnrolled = true;
-            element.btnText = "";
-          }
-          else{
-            if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
+      this.isEnrolledCategory = false;
+      this._paymentService.getAccountByEmail(formData).subscribe(res => {
+        this.accountData = res.data.my_courses;      
+        if(this.accountData.findIndex(o => o.category_selected == this.categoryData.id) == -1){
+          this.isEnrolledCategory = false;
+          this.btnCategoryText = "Enroll";
+          this.dataSource.forEach(element => {
+            if(!this.isEnrolledCategory){
+              element.isEnrolled = false;
+              element.btnText = "Enroll";
+            }               
+          });
+        }
+        else{
+          this.dataSource.forEach(element => {
+            if(!this.isEnrolledCategory){
               element.isEnrolled = true;
               element.btnText = "";
             }
             else{
-              element.isEnrolled = false;
-              element.btnText = "Enroll";
-            }
-          }          
-        });
-        if(this.dataSource.findIndex(o => o.isEnrolled == false) == -1){
-          this.isEnrolledCategory = true;
-          this.btnCategoryText = "";
+              if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
+                element.isEnrolled = true;
+                element.btnText = "";
+              }
+              else{
+                element.isEnrolled = false;
+                element.btnText = "Enroll";
+              }
+            }          
+          });
+          if(this.dataSource.findIndex(o => o.isEnrolled == false) == -1){
+            this.isEnrolledCategory = true;
+            this.btnCategoryText = "";
+          }
         }
-      }
-    })
+      })
+    }    
   }
 
   openDialogSubCategory(data){

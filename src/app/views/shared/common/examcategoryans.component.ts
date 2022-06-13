@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators'
 import { interval, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonDialogComponent } from './dialog/common-dialog.component';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-examcategory',
@@ -20,7 +21,7 @@ import { CommonDialogComponent } from './dialog/common-dialog.component';
 })
 export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private dialog: MatDialog, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService, private _router: Router) { }
+  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private dialog: MatDialog, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService, private _router: Router, private _authService: AuthService) { }
 
   examName: string;
   categoryName: string;
@@ -53,6 +54,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   totalAttempted: number = 0;
   totalCorrectAnswer: number = 0;
   totalWrongAnswer: number = 0;
+  isValidUser: boolean = false;
   
   
   isSubmitted: boolean = false;
@@ -78,6 +80,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   alertMinute: number;
   alertSecond: number;
 
+  userData: any;
+
   get answers(){
     return this.questionForm.get('SelectedAnswer') as FormArray;
   }
@@ -90,7 +94,10 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   ngOnInit(): void {
     this.numArr = [];  
     
-    
+    this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));
+    if(this.userData != undefined){
+      this.isValidUser = true;
+    }
     
     console.log(this.numArr1);
 

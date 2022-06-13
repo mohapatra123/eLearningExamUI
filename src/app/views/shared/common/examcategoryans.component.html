@@ -62,9 +62,9 @@
                             {{opt}}                            
                         </p> -->
                 <div class="question-footer">
-                  <button type="button" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
-                  <button [disabled]="questionIndex == 0" (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
-                  <button [disabled]="dataSource && dataSource.length == questionIndex + 1" (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
+                  <button type="button" [disabled]="!isValidUser" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
+                  <button [disabled]="!isValidUser || questionIndex == 0" (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
+                  <button [disabled]="!isValidUser || dataSource && dataSource.length == questionIndex + 1" (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@
                       </div>
                     </div>
 
-                    <button type="submit" class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
+                    <button [disabled]="!isValidUser" type="submit" class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
                   </div>
                 </div>
               </div>

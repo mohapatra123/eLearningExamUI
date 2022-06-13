@@ -59,16 +59,17 @@ export class ExamcourseComponent implements OnInit {
       if(this.dataSource && this.dataSource.length > 0){
         this.getAccountDetail();
         this._examService.getSubCategoryById(this.subCategoryId).subscribe(subCatResponse => {
-          this.subCategoryData = subCatResponse.data[0];
-          console.log(subCatResponse);
-        })
-        console.log(this.dataSource);
-      }  
-      console.log(res);
+          this.subCategoryData = subCatResponse.data[0];          
+        })        
+      }      
     }) 
   }
 
   getAccountDetail(){
+    if(!this.userData){
+      this.isEnrolledSubCategory = false;
+      this.btnHeaderText = "Enroll";
+    }
     var formData = {
       email: this.userData.eMail
     }
@@ -102,8 +103,7 @@ export class ExamcourseComponent implements OnInit {
           this.isEnrolledSubCategory = true;
           this.btnHeaderText = "";
         }
-      }
-      console.log(this.accountData);     
+      }      
     })
   }
 
@@ -119,8 +119,7 @@ export class ExamcourseComponent implements OnInit {
         }, disableClose: true
       });
   
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed ' + this.result);
+      dialogRef.afterClosed().subscribe(result => {        
         this.result = result;
         if(this.result.status == 1){
           this._router.navigate(['/myaccount'])
@@ -132,12 +131,10 @@ export class ExamcourseComponent implements OnInit {
   }
 
   redirectExam(data){ 
-    console.log(data);    
     this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0]);
   }  
 
-  openDialogExam(data){
-    console.log(data);
+  openDialogExam(data){    
     if(this._authService.getToken() != undefined){
       const dialogRef = this.dialog.open(PaymentDialogComponent, {
         width: '400px',
@@ -149,8 +146,7 @@ export class ExamcourseComponent implements OnInit {
         }, disableClose: true
       });
   
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed ' + this.result);
+      dialogRef.afterClosed().subscribe(result => {        
         this.result = result;
         if(this.result.status == 1){
           this._router.navigate(['/myaccount'])
