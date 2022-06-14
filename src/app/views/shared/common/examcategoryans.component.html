@@ -4,21 +4,28 @@
 
     <div class="inner-banner">
       <div class="container">
-        <div class="row width100">
-          <div class="col-md-8">
+        <div class="row w-100">
+          <div class="col-md-8 pageInfo">
             <h2 class="header2">Mock test of {{examName}}</h2>
           </div>
-          <div *ngIf="examDuration > 0" class="timer">
-            <h4> Total Time: {{examDuration}} Min </h4>
-            <span id="hours"> {{hoursToDday}} </span>: 
-            <span id="minutes"> {{minutesToDday}} </span>:
-            <span id="seconds"> {{secondsToDday}} </span>
+          <div class="col-md-4 time-block">
+            <div *ngIf="examDuration > 0" class="timer">
+              <h4> Total Time: {{examDuration}} Min </h4>
+              <div class="timeDetails">
+                <span id="hours"> {{hoursToDday}} </span>: 
+                <span id="minutes"> {{minutesToDday}} </span>:
+                <span id="seconds"> {{secondsToDday}} </span>
+              </div>
+             
+          </div>
+
+          </div>
+         
         </div>
-        </div>
-        <div class="row width100">
-          <div class="col-md-8">
+        <div class="row w-100">
+          <div class="col-md-8 breadcrumbs">
           <div> <a style="cursor:pointer" (click)="navigateCourse()">{{categoryName}}</a>  
-            > <a style="cursor:pointer" (click)="navigateSubCategory()">{{subCategoryName}}</a> > {{examName}}</div>
+            > <a style="cursor:pointer" (click)="navigateSubCategory()">{{subCategoryName}}</a> > &nbsp;&nbsp;{{examName}}</div>
           </div>
         </div>
       </div>
@@ -85,7 +92,7 @@
                       <table class="table">
                         <tbody>
                           <tr *ngFor="let num of numArr1">
-                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ABEBC6' : ''" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
+                            <td class="questionIndex" [style.background-color]="n.isAttempted ? '#ccc' : ''" (click)="tdClick(n.id)" *ngFor="let n of num">{{n.id}}</td>                            
                           </tr>
                         </tbody>
                       </table>

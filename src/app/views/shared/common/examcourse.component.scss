@@ -33,9 +33,21 @@
 .examCategory-body {
     margin: 0px 0px 100px 0px;
 }
-.titell{
-    font-size: 20px;
+.title{
+    font-size: 25px;
     margin: 20px 0;
+    color: #0b418d;
+    font-weight: bold;
+    position: relative;
+    &::before{
+        height: 4px;
+        width: 70px;
+        content: '';
+        background-color: red;
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+    }
 }
 .examBtn {
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
@@ -44,4 +56,5 @@
     padding: 25px;
     margin: 30px 15px;
     display: inline-block;
+    min-width: 180px;
 }
