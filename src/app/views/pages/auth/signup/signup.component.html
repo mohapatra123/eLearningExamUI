@@ -48,7 +48,7 @@
         </small>
         </div>
         <div class="form-group text-right w-100">
-            <button type="submit" class="btn btn-primary w-100">Submit</button>  
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!signupForm.valid">Submit</button>  
         </div>        
         <div *ngIf="statusMessage && statusMessage != ''" class="alert w-100" role="alert" [ngClass]="isError ? 'alert-danger' : 'alert-success'">
             {{statusMessage}}
