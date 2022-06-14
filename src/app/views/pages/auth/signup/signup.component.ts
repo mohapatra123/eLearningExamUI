@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, MinLengthValidator, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+
+  @Output() myOutput:EventEmitter<boolean>= new EventEmitter(); 
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -46,6 +48,11 @@ export class SignupComponent implements OnInit {
         this.statusMessage = res.message;        
       })
     }
+    this.sendValue(true);
+  }
+
+  sendValue(val: boolean){
+    this.myOutput.emit(val);
   }
 
   matchValues(

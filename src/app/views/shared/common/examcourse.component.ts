@@ -41,6 +41,7 @@ export class ExamcourseComponent implements OnInit {
     });
     this._behaviorSubject.setBannerHeading("We Envision World’s Best Category.");
     this._behaviorSubject.setBannerDescription("Category Description");
+    this._behaviorSubject.setRoute('ExamCourse');
     // this._behaviorSubject.subCategory.subscribe(o =>{
     //   this.subCategoryName = o;
     //   this.getSubCategory();      

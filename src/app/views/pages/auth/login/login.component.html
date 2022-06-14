@@ -14,7 +14,7 @@
           </div>
 
 
-          <mat-tab-group mat-align-tabs="start">
+          <mat-tab-group mat-align-tabs="start" [selectedIndex]="tabIndex">
 
             <!----------------Login Page Start ------------>
 
@@ -84,7 +84,7 @@
             <!----------------Register Page Start ------------>
             <mat-tab label="Register">
               <ng-template matTabContent>
-                <app-signup></app-signup>
+                <app-signup (myOutput) ="GetChildData($event)"></app-signup>
               </ng-template>
 
             </mat-tab>

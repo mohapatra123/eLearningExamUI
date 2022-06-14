@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isValid: boolean = true;
   statusMessage: string;
+  tabIndex: number = 0;
 
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
@@ -61,6 +62,10 @@ export class LoginComponent implements OnInit {
 
   redirectAfterAuth(){
     this._router.navigateByUrl('home');
+  }
+
+  GetChildData(data){    
+    this.tabIndex = 0;
   }
 
   getUserInformation(email: string){

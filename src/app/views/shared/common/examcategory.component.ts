@@ -41,6 +41,7 @@ export class ExamcategoryComponent implements OnInit {
       left: 0, 
       behavior: 'smooth' 
     });
+    this._behaviorSubject.setRoute('ExamCategory');
     this._behaviorSubject.setBannerHeading("We Envision World’s Best Category.");
     this._behaviorSubject.setBannerDescription("Category Description");    
     this.categoryName = this._activatedRoute.snapshot.paramMap.get('examCategory');    

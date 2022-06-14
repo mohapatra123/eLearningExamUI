@@ -87,8 +87,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   addQuestions(value: string = '', checked: boolean = false){    
-    this.answers.push(this._formBuilder.control(checked));
-    console.log(this.questionForm);
+    this.answers.push(this._formBuilder.control(checked));    
   }
 
   ngOnInit(): void {
@@ -97,14 +96,9 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));
     if(this.userData != undefined){
       this.isValidUser = true;
-    }
+    }    
+    this._behaviorSubject.setRoute('ExamCategoryAns');
     
-    console.log(this.numArr1);
-
-    // this._behaviorSubject.subCategory.subscribe(o =>{
-    //   if(o != 0)
-    //     this.subCategoryName = o;      
-    // })
     this.categoryName = this._activatedRoute.snapshot.paramMap.get('category');
     this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');
     this.examName = this._activatedRoute.snapshot.paramMap.get('exam');
@@ -116,8 +110,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     this.subscription = interval(1000)
       .subscribe(x => { 
       this.getTimeDifference(); 
-      this.alertSecond -= 1
-      console.log(this.alertSecond);
+      this.alertSecond -= 1      
     }); 
 
     //this.getCategoryFromFile();
@@ -136,7 +129,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
 
   private getTimeDifference () {
     this.timeDifference = new  Date().getTime() - this.dDay.getTime();
-    if(this.alertSecond == 15){
+    if(this.alertSecond == 11){
       //this.subscription.unsubscribe();
       this.openDialog();
     }
@@ -165,8 +158,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
       else{
         this.ans[id] = '0'
       }
-    }        
-    console.log(this.ans);
+    }   
   }
 
   openDialog(){
@@ -182,18 +174,17 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
       if(this.result.status == 1){
         this.SubmitAnswer(this.questionForm);
       }      
+      this.subscription.unsubscribe();
     });
   }
 
   getQuestionList(){
     this.numArr1.pop()
-    this.numArr2.pop()
-    console.log(this.examId);
+    this.numArr2.pop()    
     var idList = [];
     this._examService.getQuestionList().subscribe(res => {
       if(res != null){
-        this.dataSource = res.data.filter(o => o.courseId == this.examId); 
-        console.log(this.dataSource);
+        this.dataSource = res.data.filter(o => o.courseId == this.examId);
         this.totalQuestion = this.dataSource.length;
         this.currentQuestion = this.dataSource[0].content;
         this.currentOption = this.dataSource[0].option;
@@ -299,8 +290,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     return false;
   }
 
-  tdClick(val){
-    console.log(val)
+  tdClick(val){    
     this.questionIndex = val - 1;
     this.currentQuestionId = this.dataSource[this.questionIndex].id;
     this.currentQuestion = this.dataSource[this.questionIndex].content;
@@ -308,6 +298,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   } 
 
   SubmitAnswer(questionForm){
+    if(this.totalAttempted <= 0)
+      return;
     if(this.ans.indexOf('1') >= 0){
       let numIndex = (this.questionIndex) / 10;
       let numColIndex = (this.questionIndex) % 10;
@@ -321,8 +313,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
         this.numArr1[Number.parseInt(numIndex.toString())][numColIndex.toFixed()].isCorrect = false;
       }
     }
-    this.ans = ['0', '0', '0', '0'];
-    console.log(this.answerArr);
+    this.ans = ['0', '0', '0', '0'];    
     this.isSubmitted = true;
     
     this.totalAttempted = this.answerArr.length;
@@ -369,8 +360,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     this.subscription = interval(1000)
       .subscribe(x => { 
       this.getTimeDifference(); 
-      this.alertSecond -= 1
-      console.log(this.alertSecond);
+      this.alertSecond -= 1      
     }); 
     this.getQuestionList();
   }
