@@ -80,20 +80,37 @@ export class ExamcourseComponent implements OnInit {
     }
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
       this.accountData = res.data.my_courses; 
-      if(this.accountData && this.accountData.findIndex(o => o.category_selected == this.categoryId.toString()) > -1){
-        this.btnHeaderText = '';
+      if(this.accountData && this.accountData.findIndex(o => o.category_selected == this.categoryId.toString() && o.status == 22) >= 0){
+        this.dataSource.forEach(element => {          
+            element.isEnrolled = true;
+            element.btnText = "";          
+        });
+        this.btnHeaderText = '';        
       }
-      else if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString()) > -1){
+      else if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString() && o.status == 22) >= 0){
+          this.dataSource.forEach(element => {          
+          element.isEnrolled = true;
+          element.btnText = "";          
+        });
         this.btnHeaderText = '';
       }
       else{
         this.dataSource.forEach(element => {
-          if(this.accountData.findIndex(o => o.sub_category_selected == element.subcategoryId && o.status == 22) >= 0){            
+          if(this.accountData.findIndex(o => o.category_selected == this.categoryId && o.status == 22) >= 0){            
+            element.isEnrolled = true;
+            element.btnText = "";
+          }
+          else if(this.accountData.findIndex(o => o.category_selected == this.categoryId && o.status == 21) >= 0){
+            element.isEnrolled = false;
+            element.btnText = "";
+          }
+          else if(this.accountData.findIndex(o => o.sub_category_selected == element.subcategoryId && o.status == 22) >= 0){            
             element.isEnrolled = true;
             element.btnText = "";
           }
           else if(this.accountData.findIndex(o => o.sub_category_selected == element.subcategoryId && o.status == 21) >= 0){
             element.isEnrolled = false;
+            element.btnText = "";
           }
           else{
             if(this.accountData.findIndex(o => o.courses_selected == element.id && o.status == 22) >= 0){
@@ -102,6 +119,7 @@ export class ExamcourseComponent implements OnInit {
             }
             else if(this.accountData.findIndex(o => o.courses_selected == element.id && o.status == 21) >= 0){
               element.isEnrolled = false;
+              element.btnText = "";
             }
             else{
               element.isEnrolled = false;
