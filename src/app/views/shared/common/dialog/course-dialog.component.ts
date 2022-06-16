@@ -36,8 +36,7 @@ export class CourseDialogComponent implements OnInit {
 
   dialogResult: any = {status: 1, message: ''}
 
-  ngOnInit(): void {    
-    console.log(this.data);
+  ngOnInit(): void {
   }  
 
   onNoClick(): void {

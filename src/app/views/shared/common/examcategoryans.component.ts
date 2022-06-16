@@ -233,8 +233,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     })
   }
 
-  checkValue(data: any){    
-    console.log(data);
+  checkValue(data: any){
   }
 
   Next(){
@@ -298,8 +297,10 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   } 
 
   SubmitAnswer(questionForm){
-    if(this.totalAttempted <= 0)
+    if(this.answerArr.length <= 0){
+      alert('You have not attend any questions.')
       return;
+    }      
     if(this.ans.indexOf('1') >= 0){
       let numIndex = (this.questionIndex) / 10;
       let numColIndex = (this.questionIndex) % 10;

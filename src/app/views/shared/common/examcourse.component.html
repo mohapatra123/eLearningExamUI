@@ -18,7 +18,7 @@
                     <h2 class="header1">Select Your {{subCategoryName}} Exam</h2>
                 </div> -->
                 <div class="examCategory-body" *ngFor="let data of dataSource">
-                    <button mat-flat-button class="examBtn" (click)="redirectExam(data)">
+                    <button [disabled]="!data.isEnrolled" mat-flat-button class="examBtn" (click)="redirectExam(data)">
                         {{data.name}}
                     </button>
                     <button *ngIf="data.btnText && data.btnText != ''" type="button" (click)="openDialogExam(data)">{{data.btnText}}</button>

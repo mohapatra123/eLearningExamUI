@@ -13,10 +13,13 @@ export interface DialogData {
   subCategoryName: string;
   courseId: number;
   courseName: string;
+  featuredCourseId: number;
+  featuredCourseName: string;
   status: number;
   message: string;
   retailPrice: number;
   sellingPrice: number;
+  availability: string;
 }
 
 @Component({
@@ -44,7 +47,6 @@ export class PaymentDialogComponent implements OnInit {
   dialogResult: any = {status: 1, message: ''}
 
   ngOnInit(): void {
-    console.log(this.data);
     if(this.data.categoryName && this.data.categoryName != ''){
       this.packageName = this.data.categoryName; 
       this.packageId = this.data.categoryId;     
@@ -57,8 +59,6 @@ export class PaymentDialogComponent implements OnInit {
       this.packageName = this.data.courseName;
       this.packageId = this.data.courseId;
     }
-      
-    console.log(this.packageName);
     this.paymentData = { 
       transaction_id: '',
       email_id: '',
@@ -70,8 +70,9 @@ export class PaymentDialogComponent implements OnInit {
       category_name: null,
       sub_category_name: null,
       courses_name: null,
-      name: '',
-      contact_num: ''
+      featured_course_id: null,
+      featured_course_name: null,
+      availability: null
   }
     this.setForm();
     this.getUserData();
@@ -90,8 +91,9 @@ export class PaymentDialogComponent implements OnInit {
       category_name: this.data.categoryName ? this.data.categoryName : null,
       sub_category_name: this.data.subCategoryName ? this.data.subCategoryName : null,
       courses_name: this.data.courseName ? this.data.courseName : null,
-      name: this.userData.firstName + ' ' + this.userData.lastName,
-      contact_num: this.userData.mobile
+      featured_course_id: this.data.featuredCourseId ? this.data.featuredCourseId : null,
+      featured_course_name: this.data.featuredCourseName ? this.data.featuredCourseName : null,
+      availability: this.data.availability ? this.data.availability : null
     }
   }
 
@@ -101,8 +103,6 @@ export class PaymentDialogComponent implements OnInit {
   }
 
   SavePayment(formData: any){
-    console.log(formData);
-    console.log(this.paymentData);
     if(formData.value.TransactionId == undefined || formData.value.TransactionId == ''){
       this.message = 'Please enter transaction';
       return;

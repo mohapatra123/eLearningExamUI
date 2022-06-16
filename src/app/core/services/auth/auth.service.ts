@@ -47,7 +47,7 @@ export class AuthService {
     formData.append('eMail', param.eMail);
     formData.append('mobile', param.mobile); 
     formData.append('password', param.password); 
-    formData.append('roleId', "1"); 
+    formData.append('roleId', "3"); 
     formData.append('status', "1"); 
     return this._http.post(this.baseLoginUri + 'cms/user/register', formData, { headers: this.header }).pipe(
       map((response: Response) => {

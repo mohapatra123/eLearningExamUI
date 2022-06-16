@@ -38,7 +38,6 @@ export class CommonDialogComponent implements OnInit {
   dialogResult: any = {status: 1, message: ''}
 
   ngOnInit(): void {
-    console.log(this.data); 
     this.subscription = interval(1000)
       .subscribe(x => {      
       this.data.alertDuration -= 1;

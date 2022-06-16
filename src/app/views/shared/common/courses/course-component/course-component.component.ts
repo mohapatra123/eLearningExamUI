@@ -21,7 +21,6 @@ export class CourseComponentComponent implements OnInit {
   getCourseList(){    
       this._commonService.list().subscribe(o => { 
       this.courseList = o[3].FeaturedCourse;
-      console.log(this.courseList);
     });    
   }
 

@@ -41,11 +41,21 @@ export class SignupComponent implements OnInit {
     }
     if(this.signupForm.valid){
       this._authService.userRegistration(this.signupForm.value).subscribe(res => {  
-        if(res.error)
+        if(res.error){
           this.isError = true;
-        else
-          this.isError = false;           
-        this.statusMessage = res.message;        
+          this.statusMessage = res.message; 
+        }          
+        else{
+          this.isError = false;
+          setTimeout(() => { this.statusMessage = res.message; }, 1000)          
+          setTimeout(() => { 
+              this.statusMessage = '';
+              let currentUrl = this._router.url;
+              this._router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+              this._router.navigate([currentUrl]);
+            });
+          }, 1000)             
+        }               
       })
     }
     this.sendValue(true);

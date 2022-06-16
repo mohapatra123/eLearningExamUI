@@ -47,12 +47,11 @@ export class HomeComponent implements OnInit {
     this.examService.getAllCategory().subscribe(res => {
       if(res != null){
         res.data.forEach(element => {
-          element.tag_name = element.tag_name == null ? 'aptitude' : element.tag_name;
+          element.tag_name = element.tag_name == null || element.tag_name == '' ? 'aptitude' : element.tag_name;
           element.tag_name = '/assets/' + element.tag_name  + '.svg';
         });
         this.examList = res.data;
         this.dataSource = res.data.slice(0, 8);
-        console.log(res);
       }      
     })
   }

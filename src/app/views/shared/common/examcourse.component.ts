@@ -70,6 +70,10 @@ export class ExamcourseComponent implements OnInit {
     if(!this.userData){
       this.isEnrolledSubCategory = false;
       this.btnHeaderText = "Enroll";
+      this.dataSource.forEach(element => {
+        element.isEnrolled = false;
+        element.btnText = "Enroll";
+      });
     }
     var formData = {
       email: this.userData.eMail
@@ -91,7 +95,7 @@ export class ExamcourseComponent implements OnInit {
           else{
             if(this.accountData.findIndex(o => o.courses_selected == element.id) >= 0){
               element.isEnrolled = true;
-              element.btnText = "";
+              element.btnText = "";              
             }
             else{
               element.isEnrolled = false;
@@ -132,7 +136,12 @@ export class ExamcourseComponent implements OnInit {
   }
 
   redirectExam(data){ 
-    this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0]);
+    if(this.userData){
+      this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0]);
+    }
+    else{
+      this._router.navigate(['/login']);
+    }    
   }  
 
   openDialogExam(data){    

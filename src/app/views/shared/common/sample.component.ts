@@ -13,8 +13,7 @@ export class SampleComponent implements OnInit {
   categoryName: string;
 
   ngOnInit(): void {
-    this.categoryName = this._activatedRoute.snapshot.paramMap.get('name');    
-    console.log(this.categoryName);
+    this.categoryName = this._activatedRoute.snapshot.paramMap.get('name');
     this._router.navigate(['/examcategory', this.categoryName]);    
   }
 }

@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isValid: boolean = true;
-  statusMessage: string;
+  statusMessage: string = '';
   tabIndex: number = 0;
 
   ngOnInit(): void {
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  validateUser(loginForm){    
+  validateUser(loginForm){   
+    this.statusMessage = ''; 
     let loginData = {
       email: this.loginForm.value.userId,
       password: this.loginForm.value.password      
@@ -37,23 +38,24 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
       let authToken: any;
       let result: any;
-      this._authService.authenticateUser(loginData).subscribe(res => {        
-        if(res.token != null && res.token != undefined && res.token != ''){
-          this.isValid = true;
-          authToken = res.token;
-          if(authToken){
-            this._authService.setToken(authToken); 
-            this.getUserInformation(loginData.email);
-            this.redirectAfterAuth();
+      setTimeout(() => { 
+        this._authService.authenticateUser(loginData).subscribe(res => {        
+          if(res.token != null && res.token != undefined && res.token != ''){
+            this.isValid = true;
+            authToken = res.token;
+            if(authToken){
+              this._authService.setToken(authToken); 
+              this.getUserInformation(loginData.email);
+              this.redirectAfterAuth();
+            }            
           }
-          //this._authService.removeLocalAuth(authToken);
-        }
-        else{
-          this.isValid = false;
-        }
-      }, (err) => {
-        console.log(err);
-      })
+          else{
+            this.isValid = false;
+          }
+        }, (err) => {          
+          this.statusMessage = err.error.message;
+        })
+      }, 2000)      
       if(this.loginForm.value.userId == 'admin' && this.loginForm.value.password == 'admin'){
         this.redirectAfterAuth();
       }
@@ -73,7 +75,6 @@ export class LoginComponent implements OnInit {
       email: email
     }
     this._authService.getUser(formData).subscribe((res: any) => {
-      console.log(res);
       let userDetail: any;
       if(res != undefined){
         userDetail = {
