@@ -88,14 +88,20 @@ export class ExamcourseComponent implements OnInit {
       }
       else{
         this.dataSource.forEach(element => {
-          if(this.accountData.findIndex(o => o.sub_category_selected == element.id) >= 0){
+          if(this.accountData.findIndex(o => o.sub_category_selected == element.subcategoryId && o.status == 22) >= 0){            
             element.isEnrolled = true;
             element.btnText = "";
           }
+          else if(this.accountData.findIndex(o => o.sub_category_selected == element.subcategoryId && o.status == 21) >= 0){
+            element.isEnrolled = false;
+          }
           else{
-            if(this.accountData.findIndex(o => o.courses_selected == element.id) >= 0){
+            if(this.accountData.findIndex(o => o.courses_selected == element.id && o.status == 22) >= 0){
               element.isEnrolled = true;
               element.btnText = "";              
+            }
+            else if(this.accountData.findIndex(o => o.courses_selected == element.id && o.status == 21) >= 0){
+              element.isEnrolled = false;
             }
             else{
               element.isEnrolled = false;
