@@ -87,6 +87,12 @@ export class ExamcourseComponent implements OnInit {
         });
         this.btnHeaderText = '';        
       }
+      else if(this.accountData && this.accountData.findIndex(o => o.category_selected == this.categoryId.toString() && o.status == 21) >= 0){
+        this.dataSource.forEach(element => {          
+            element.isEnrolled = false;      
+        });
+        this.btnHeaderText = '';        
+      }
       else if(this.accountData && this.accountData.findIndex(o => o.sub_category_selected == this.subCategoryId.toString() && o.status == 22) >= 0){
           this.dataSource.forEach(element => {          
           element.isEnrolled = true;
