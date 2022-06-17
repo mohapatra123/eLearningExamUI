@@ -129,3 +129,22 @@
     font-size: 2em;
     margin: 0 3px 0 15px;
   }
+  .resultBOx{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 0 0px #ccc;
+    li{
+        display: flex;
+        flex-basis: 50%;
+        font-size: 16px;
+        padding: 6px 0;
+        strong{
+            color: #0a2468;
+        }
+    }
+  }

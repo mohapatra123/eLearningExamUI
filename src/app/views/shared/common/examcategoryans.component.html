@@ -77,11 +77,18 @@
             </div>
             <div class="col-md-4">
               <div *ngIf="isSubmitted && dataSource && dataSource.length > 0 && answerArr && answerArr.length > 0">
-                Total Questions: {{dataSource.length}}
+                <ul class="resultBOx">
+                  <li> <span>Total Questions:</span> <strong>{{dataSource.length}}</strong></li>
+                  <li><span>Total Attended:</span> <strong>{{answerArr.length}}</strong></li>
+                  <li><span>Total Correct Ans:</span> <strong>{{totalCorrectAnswer}}</strong></li>
+                  <li><span>Total Wrong Ans:</span> <strong>{{totalWrongAnswer}}</strong></li>
+                  <li><span>Percentage: </span> <strong>{{(totalCorrectAnswer / dataSource.length) * 100}}</strong></li>
+                </ul>
+                <!-- Total Questions: {{dataSource.length}}
                 Total Attended: {{answerArr.length}}
                 Total Correct Ans: {{totalCorrectAnswer}}
                 Total Wrong Ans: {{totalWrongAnswer}}
-                Percentage:   {{(totalCorrectAnswer / dataSource.length) * 100}}
+                Percentage:   {{(totalCorrectAnswer / dataSource.length) * 100}} -->
               </div>
               <div class="timeDash">
 
