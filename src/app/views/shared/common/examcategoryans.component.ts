@@ -55,6 +55,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   totalCorrectAnswer: number = 0;
   totalWrongAnswer: number = 0;
   isValidUser: boolean = false;
+  percentage: string = '0';
   
   
   isSubmitted: boolean = false;
@@ -297,7 +298,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   } 
 
   SubmitAnswer(questionForm){
-    if(this.answerArr.length <= 0){
+    if(this.answerArr.length <= 0 && this.ans.indexOf('1') < 0){
       alert('You have not attend any questions.')
       return;
     }      
@@ -322,6 +323,8 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     
     this.totalCorrectAnswer = this.answerArr.filter(o => o.isCorrect == true).length;
     this.totalWrongAnswer = this.answerArr.length - this.totalCorrectAnswer;
+
+    this.percentage = ((this.totalCorrectAnswer / this.totalQuestion) * 100).toFixed(2);
      
 
     var requestBody = {
