@@ -26,12 +26,12 @@
               
                 <button mat-button [matMenuTriggerFor]="menu" class="mob-menu"><mat-icon>menu</mat-icon></button>
                 <mat-menu #menu="matMenu" class="menu-screen">
-                  <button mat-menu-item>Home</button>
-                  <button mat-menu-item>About Us</button>
-                  <button mat-menu-item>Services</button>
-                  <button mat-menu-item>Training</button>
-                  <button mat-menu-item>Events</button>
-                  <button mat-menu-item>Contact Us</button>
+                  <button mat-menu-item routerLink="/home" routerLinkActive="true">Home</button>
+                  <button mat-menu-item routerLink="/aboutus" routerLinkActive="true">About Us</button>
+                  <button mat-menu-item routerLink="/services" routerLinkActive="true">Services</button>
+                  
+                  <button mat-menu-item routerLink="/events/comingsoon" routerLinkActive="true">Events</button>
+                  <button mat-menu-item routerLink="/contactus">Contact Us</button>
                </mat-menu>
               
 
@@ -43,25 +43,20 @@
             <!-- <button mat-button routerLink="/services" routerLinkActive="true">Services</button> -->
             <button mat-button routerLink="/services" routerLinkActive="true" [matMenuTriggerFor]="services">Services <mat-icon>arrow_drop_down</mat-icon></button>
             <mat-menu #services="matMenu">
-              <button mat-menu-item routerLink="#">Technology Training</button>
-              <button mat-menu-item routerLink="#">Internship and Insustrial training</button>
-              <button mat-menu-item routerLink="#">Placement mentorship
-              </button>
-              <button mat-menu-item routerLink="#">Fintech Consultancy</button>
-              <button mat-menu-item routerLink="#">EdTech Consultancy
-              </button>
-              <button mat-menu-item routerLink="#">Financial Inclusion
-
-              </button>
-              <button mat-menu-item routerLink="#">Overseas education assistance
-              </button>
-              <button mat-menu-item routerLink="#">Social Impact
-              </button>
+              <a class="mat-menu-item" href="#moreService">Fintech Consultancy</a>              
+              <a class="mat-menu-item" href="#moreService">Financial Inclusion</a>
+                <a class="mat-menu-item" href="#moreService">EdTech Consultancy</a>
+              <a class="mat-menu-item" href="#moreService">Fintech Consultancy</a>
+              <a class="mat-menu-item" href="#moreService">Social Impact</a>
+              <a class="mat-menu-item" href="#moretraining">Technology Training</a>
+             <a class="mat-menu-item" href="#moretraining">Internship and Placement mentorship</a>
+             <a class="mat-menu-item" href="#moretraining">Financial Training </a>
+             <a class="mat-menu-item" href="#moretraining">Overseas education Training</a>
             </mat-menu>
             
             <!-- <button mat-button routerLink="#" routerLinkActive="true">Training</button> -->
             <button mat-button routerLink="/events/comingsoon" routerLinkActive="true">Events</button>
-            <button mat-button routerLink="/contactus" routerLinkActive="true">Contact</button>
+            <button mat-button routerLink="/contactus" routerLinkActive="true">Contact Us</button>
           </nav>     
           
           

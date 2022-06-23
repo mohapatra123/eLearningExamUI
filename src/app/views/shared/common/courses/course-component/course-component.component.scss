@@ -86,3 +86,14 @@
     margin-top: -11px;
         }
     }
+    @media (max-width: 576px) {
+        .feature-box{
+            .card{
+                min-height: 500px;
+                margin-bottom: 15px;
+            }
+        }
+        .card-body{
+            padding: 20px 0 0;
+        }
+    }
