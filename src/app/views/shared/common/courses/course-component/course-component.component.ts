@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonService } from 'src/app/core/services/common/common.service';
+import { ExamService } from 'src/app/core/services/exam/exam.service';
 import { CourseDialogComponent } from '../../dialog/course-dialog.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { CourseDialogComponent } from '../../dialog/course-dialog.component';
 })
 export class CourseComponentComponent implements OnInit {
 
-  constructor(private _commonService: CommonService, public dialog: MatDialog) { }
+  constructor(private _commonService: CommonService, public dialog: MatDialog, private _examService: ExamService) { }
 
   courseList: any;
 
@@ -18,10 +19,10 @@ export class CourseComponentComponent implements OnInit {
     this.getCourseList();
   }
 
-  getCourseList(){    
-      this._commonService.list().subscribe(o => { 
-      this.courseList = o[3].FeaturedCourse;
-    });    
+  getCourseList(){
+    this._examService.getFeaturedCourse().subscribe(res => {
+      this.courseList = res.data;      
+    })    
   }
 
   enrollCourse(course: any){
@@ -33,11 +34,11 @@ export class CourseComponentComponent implements OnInit {
       width: '400px',
       data: {
         courseId: course.id,
-        courseName: course.courseName,
+        courseName: course.name,
         description: course.description,
         module: course.module,
-        duration: course.duration,
-        price: course.price
+        duration: '4 Weeks',
+        price: course.selling_price
       }, disableClose: true
     });      
   }

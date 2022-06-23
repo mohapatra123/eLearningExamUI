@@ -34,6 +34,7 @@ import { MyAccountComponent } from '../../shared/common/account/my-account/my-ac
 import {FeatureCourseComponent} from '../../shared/common/courses/feature-course/feature-course.component'
 import { CourseComponentComponent } from '../../shared/common/courses/course-component/course-component.component';
 import { SampleComponent } from '../../shared/common/sample.component';
+import { ResetPasswordComponent } from '../auth/reset-password/reset-password.component';
 
 
 
@@ -64,7 +65,7 @@ const routes: Routes = [{
     { path: 'events/comingsoon', component: ComingSoonComponent }, 
     { path: 'myaccount', component: MyAccountComponent }, 
     { path: 'feature-course', component: FeatureCourseComponent},  
-    { path: 'sample/:name', component: SampleComponent},   
+    { path: 'sample/:name', component: SampleComponent}    
   ]
 }]
 

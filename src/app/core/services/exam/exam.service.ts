@@ -86,6 +86,14 @@ export class ExamService {
     );
   }
 
+  getFeaturedCourse(): Observable<any>{
+    return this._http.get(this.baseUri + 'featured_course/cms/retrieve', { headers: this.header }).pipe(
+      map((response: Response) => {
+          return response;
+      })
+    );
+  }
+
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
         case 404: {

@@ -18,7 +18,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 
 const routes: Routes = [      
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }  
+  { path: 'signup', component: SignupComponent },
+  { path: 'resetpassword', component: ResetPasswordComponent }  
 ]
 
 @NgModule({

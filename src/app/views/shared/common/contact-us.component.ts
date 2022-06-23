@@ -20,8 +20,13 @@ export class ContactUsComponent implements OnInit {
   statusMessage: string = '';
   status: boolean = false;
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this._behaviorSubject.setRoute('Contactus');
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'auto' 
+    });
     this.clearForm();
   }
 
