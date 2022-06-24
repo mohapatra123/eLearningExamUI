@@ -19,6 +19,7 @@ export class ContactUsComponent implements OnInit {
   contactForm: FormGroup;
   statusMessage: string = '';
   status: boolean = false;
+  isLoaded: boolean = false;
 
   ngOnInit(): void {    
     this._behaviorSubject.setRoute('Contactus');

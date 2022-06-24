@@ -167,7 +167,7 @@ export class ExamcourseComponent implements OnInit {
 
   redirectExam(data){ 
     if(this.userData){
-      this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0]);
+      this._router.navigate(['/examcategoryans', this.categoryName, this.subCategoryName, this.subCategoryId, data.name, data.id, data.duration ? data.duration : 0], {queryParams: { freeMock: 'false' }});
     }
     else{
       this._router.navigate(['/login']);

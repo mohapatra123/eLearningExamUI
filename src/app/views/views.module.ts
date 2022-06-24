@@ -12,10 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseDialogComponent } from './shared/common/dialog/course-dialog.component';
 import { CommonDialogComponent } from './shared/common/dialog/common-dialog.component';
 
-
-
-
-
 @NgModule({
   declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent],
   imports: [

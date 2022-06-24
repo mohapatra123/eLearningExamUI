@@ -44,8 +44,7 @@ export class CourseDialogComponent implements OnInit {
     this.dialogRef.close(this.dialogResult);
   } 
   
-  Submit(){
-    this._router.navigate(['/contactus']);
-    this.dialogRef.close(this.dialogResult);
+  Submit(){   
+    this.dialogRef.close(this.dialogResult);    
   }
 }

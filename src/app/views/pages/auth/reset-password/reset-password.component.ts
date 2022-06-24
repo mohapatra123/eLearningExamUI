@@ -8,22 +8,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  resetData: {email: '', password: '', confirmPassword: ''}
+  resetData: {email: ''}
   resetForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.resetData = {email: '', password: '', confirmPassword: ''};
+    this.resetData = {email: ''};
     this.resetForm = this._formBuilder.group({      
-      email: [''],
-      password: [''],
-      confirmPassword: ['']
+      email: ['']
+      // password: [''],
+      // confirmPassword: ['']
     });
   }
 
   ResetForm(){
-
+    this.resetData = {email: ''};
   }
 
   Submit(formValue){

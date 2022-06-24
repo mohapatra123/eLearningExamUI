@@ -31,6 +31,10 @@ export class HeaderComponent implements OnInit {
     this._router.navigate(['/login']);
   }
 
+  ResetPassword(){
+    this._router.navigate(['/updatepassword']);
+  }
+
   setBanner(){
     this._behaviorService.bannerHeading.subscribe(data => {
       this.bannerText = data;

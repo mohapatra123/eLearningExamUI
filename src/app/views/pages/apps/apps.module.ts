@@ -35,7 +35,8 @@ import {FeatureCourseComponent} from '../../shared/common/courses/feature-course
 import { CourseComponentComponent } from '../../shared/common/courses/course-component/course-component.component';
 import { SampleComponent } from '../../shared/common/sample.component';
 import { ResetPasswordComponent } from '../auth/reset-password/reset-password.component';
-
+import { FreeMockComponent } from '../../shared/common/free-mock.component';
+import { UpdatePasswordComponent } from '../../shared/common/update-password.component';
 
 
 
@@ -65,7 +66,9 @@ const routes: Routes = [{
     { path: 'events/comingsoon', component: ComingSoonComponent }, 
     { path: 'myaccount', component: MyAccountComponent }, 
     { path: 'feature-course', component: FeatureCourseComponent},  
-    { path: 'sample/:name', component: SampleComponent}    
+    { path: 'sample/:name', component: SampleComponent},
+    { path: 'freemock', component: FreeMockComponent},
+    { path: 'updatepassword', component: UpdatePasswordComponent}    
   ]
 }]
 
@@ -73,7 +76,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]

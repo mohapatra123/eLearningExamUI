@@ -22,7 +22,7 @@
           </div>
          
         </div>
-        <div class="row w-100">
+        <div *ngIf="!freeMock" class="row w-100">
           <div class="col-md-8 breadcrumbs">
           <div> <a style="cursor:pointer" (click)="navigateCourse()">{{categoryName}}</a>  
             > <a style="cursor:pointer" (click)="navigateSubCategory()">{{subCategoryName}}</a> > &nbsp;&nbsp;{{examName}}</div>
@@ -53,7 +53,7 @@
             <div class="question-dash col-md-8 pt-1 pb-5">
             
               <div class="question-header">
-                <h2>{{questionIndex + 1}}. {{currentQuestion}}</h2>
+                <h2><span style="color: blue"> {{questionIndex + 1}}) </span> {{currentQuestion}}</h2>
               </div>
               <div class="question-body">
                 <table>
@@ -69,9 +69,9 @@
                             {{opt}}                            
                         </p> -->
                 <div class="question-footer">
-                  <button type="button" [disabled]="!isValidUser" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
-                  <button [disabled]="!isValidUser || questionIndex == 0" (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
-                  <button [disabled]="!isValidUser || dataSource && dataSource.length == questionIndex + 1" (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
+                  <button type="button" [disabled]="!isValidUser && !freeMock" (click)="clearResponse()" class="questionBtn btn mr-2">Clear Response</button>
+                  <button [disabled]="(!isValidUser && !freeMock) || questionIndex == 0" (click)="Previous()" type="button" class="questionBtn btn">Previous</button> &nbsp;
+                  <button [disabled]="(!isValidUser && !freeMock) || dataSource && dataSource.length == questionIndex + 1" (click)="Next()" type="button" class="questionBtn btn">Save & Next</button>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
                       </div>
                     </div>
 
-                    <button [disabled]="!isValidUser || isSubmitted" type="submit" class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
+                    <button [disabled]="(!isValidUser && !freeMock) || isSubmitted" type="submit" class="quesPalletBtn btn btn-block"><strong>Submit Test</strong></button>
                   </div>                  
                 </div>
               </div>

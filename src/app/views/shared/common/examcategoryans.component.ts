@@ -56,6 +56,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
   totalWrongAnswer: number = 0;
   isValidUser: boolean = false;
   percentage: string = '0';
+  freeMock: boolean = false;
   
   
   isSubmitted: boolean = false;
@@ -100,6 +101,7 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     }    
     this._behaviorSubject.setRoute('ExamCategoryAns');
     
+    this.freeMock = (this._activatedRoute.snapshot.queryParamMap.get('freeMock') == 'true');
     this.categoryName = this._activatedRoute.snapshot.paramMap.get('category');
     this.subCategoryName = this._activatedRoute.snapshot.paramMap.get('subCategory');
     this.examName = this._activatedRoute.snapshot.paramMap.get('exam');
@@ -183,9 +185,13 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
     this.numArr1.pop()
     this.numArr2.pop()    
     var idList = [];
-    this._examService.getQuestionList().subscribe(res => {
+    this._examService.getQuestionList(this.examId).subscribe(res => {
       if(res != null){
-        this.dataSource = res.data.filter(o => o.courseId == this.examId);
+        if(this.freeMock == true){
+          this.dataSource = res.data.slice(0, 5);
+        }
+        else
+          this.dataSource = res.data;
         this.totalQuestion = this.dataSource.length;
         this.currentQuestion = this.dataSource[0].content;
         this.currentOption = this.dataSource[0].option;
@@ -334,14 +340,19 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
       time_spent : "240/240",                
       answer_sheet: this.totalQuestion.toString() + "/"+ this.totalCorrectAnswer + "/" + this.totalWrongAnswer + "/" + this.totalUnattempted
     }
-
-    this._examService.submitAnswer(requestBody).subscribe((res) => {
-      if(res.status == true){
-        this.statusMessage = res.message;
-        this.subscription.unsubscribe();
-        setTimeout(() => { alert(this.statusMessage) }, 2000)        
-      }
-    })
+    if(this.freeMock){
+      this.subscription.unsubscribe();
+      setTimeout(() => { alert('Exam Completed.') }, 1000);
+    }
+    else{
+      this._examService.submitAnswer(requestBody).subscribe((res) => {
+        if(res.status == true){
+          this.statusMessage = res.message;
+          this.subscription.unsubscribe();
+          setTimeout(() => { alert(this.statusMessage) }, 2000)        
+        }
+      })
+    }    
   }
 
   navigateCourse(){

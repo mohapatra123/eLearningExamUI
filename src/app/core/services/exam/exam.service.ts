@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map, catchError } from 'rxjs/operators'
+import { ExamcategoryAnsComponent } from 'src/app/views/shared/common/examcategoryans.component';
 
 @Injectable({
   providedIn: 'root'
@@ -61,8 +62,8 @@ export class ExamService {
    )  
   }
 
-  getQuestionList(): Observable<any> {
-    return this._http.get(this.baseUri + 'exam/f/exam_questions/retrieve', { headers: this.header }).pipe(
+  getQuestionList(examCagetoryId: number): Observable<any> {
+    return this._http.get(this.baseUri + 'exam/f/courses/questions/' + examCagetoryId, { headers: this.header }).pipe(
     map((response: Response) => {
       return response;
     })
