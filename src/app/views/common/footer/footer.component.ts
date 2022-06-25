@@ -18,4 +18,10 @@ export class FooterComponent implements OnInit {
       this.fromRoute = o;      
     })
   }
+
+  getClass(fromroute: string){
+    if(fromroute != 'Home')
+      return 'noNews';
+    return '';
+  }
 }

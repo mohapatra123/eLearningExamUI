@@ -33,6 +33,11 @@
   padding: 40px;
   
 }
+.back{
+  cursor: pointer;
+  display: flex;
+    justify-content: flex-end;
+}
   .ng-invalid{
     +.form-text{
       &.text-muted{

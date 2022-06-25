@@ -4,20 +4,9 @@
 
     <div class="row loginLayout">
 
-      <div class="col-6" *ngIf="isForgetPwd">
-        <div class="loginForm">
-          <div class="text-center">
-            <a href="#">
-              <img src="/assets/logo.png" alt="logo">
-            </a>
-          </div>
-          <input type="text" placeholder="Enter UserId" [(ngModel)]="forgotPasswordData.email">
-          <button type="button" (click)="invokeForgotPassword()">Submit</button>
-          <a (click)="BackToLogin()">Back to login</a>
-        </div>        
-      </div>
+      
 
-      <div *ngIf="!isForgetPwd" class="col-6">
+      <div class="col-6">
         <div class="loginForm">
 
           <div class="text-center">
@@ -25,7 +14,29 @@
               <img src="/assets/logo.png" alt="logo">
             </a>
           </div>
-          <mat-tab-group mat-align-tabs="start" [selectedIndex]="tabIndex">
+
+          <div *ngIf="isForgetPwd">
+            <div class="loginForm formblock">
+              <div class="form-group">
+                <span class="input-icons"><i title="email" class="elIcon icon-email"></i></span>
+                <!-- <input type="text" placeholder="Enter UserId" [(ngModel)]="forgotPasswordData.email"> -->
+                <input type="text" formControlName="" class="form-control" placeholder="Enter UserId"
+                    formControlName="" required>
+              </div>
+              <div class="row m-0">
+                <div class="col p-0">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary w-100"(click)="invokeForgotPassword()">Submit</button>
+                  </div>
+                 
+                </div>
+                </div>
+              
+             
+              <a class="back" (click)="BackToLogin()">Back to login</a>
+            </div>        
+          </div>
+          <mat-tab-group mat-align-tabs="start" [selectedIndex]="tabIndex" *ngIf="!isForgetPwd">
 
             <!----------------Login Page Start ------------>
 
@@ -85,7 +96,7 @@
                   
                 
                 <div class="form-group text-right">                  
-                  <a (click)="ForgotPassword()">Forgot Password ?</a>                  
+                  <a class="back" (click)="ForgotPassword()">Forgot Password ?</a>                  
                 </div>
               </form>
 

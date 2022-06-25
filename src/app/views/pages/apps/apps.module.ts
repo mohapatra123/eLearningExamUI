@@ -37,6 +37,10 @@ import { SampleComponent } from '../../shared/common/sample.component';
 import { ResetPasswordComponent } from '../auth/reset-password/reset-password.component';
 import { FreeMockComponent } from '../../shared/common/free-mock.component';
 import { UpdatePasswordComponent } from '../../shared/common/update-password.component';
+import { TermsAndConditionsComponent } from '../../shared/common/company/terms-and-conditions.component';
+import { RefundPolicyComponent } from '../../shared/common/company/refund-policy.component';
+import { PrivacyPolicyComponent } from '../../shared/common/company/privacy-policy.component';
+import { DisclaimerComponent } from '../../shared/common/company/disclaimer.component';
 
 
 
@@ -68,7 +72,11 @@ const routes: Routes = [{
     { path: 'feature-course', component: FeatureCourseComponent},  
     { path: 'sample/:name', component: SampleComponent},
     { path: 'freemock', component: FreeMockComponent},
-    { path: 'updatepassword', component: UpdatePasswordComponent}    
+    { path: 'updatepassword', component: UpdatePasswordComponent},
+    { path: 'terms-and-condition', component:TermsAndConditionsComponent },
+    { path: 'refund-policy', component:RefundPolicyComponent },
+    { path: 'privacy-policy', component:PrivacyPolicyComponent },
+    { path: 'disclaimer', component:DisclaimerComponent },
   ]
 }]
 
@@ -76,7 +84,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent,TermsAndConditionsComponent,RefundPolicyComponent,PrivacyPolicyComponent,DisclaimerComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]

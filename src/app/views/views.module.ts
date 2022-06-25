@@ -11,12 +11,10 @@ import { PaymentDialogComponent } from './shared/common/dialog/payment-dialog.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseDialogComponent } from './shared/common/dialog/course-dialog.component';
 import { CommonDialogComponent } from './shared/common/dialog/common-dialog.component';
-import { RefundPolicyComponent } from './shared/common/company/refund-policy.component';
-import { DisclaimerComponent } from './shared/common/company/disclaimer.component';
-import { PrivacyPolicyComponent } from './shared/common/company/privacy-policy.component';
+
 
 @NgModule({
-  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent, RefundPolicyComponent, DisclaimerComponent, PrivacyPolicyComponent],
+  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent],
   imports: [
     CommonModule, AuthModule, AppsModule, AppAuthModule, MatModule, FormsModule, ReactiveFormsModule
   ]
