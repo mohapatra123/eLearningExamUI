@@ -31,24 +31,44 @@
        font-size: 24px;
        padding:  10px 15px;
         }
-    input[type=submit] {
-       position: absolute;
-       top: 15%;
-       right: 5%;
-       bottom: 0;
-       border: 0;
-       background: none;
-       font-size: 18px;
-       padding: 0 30px 0 60px;
-       background: #1A213B;
-       color: #fff;
-       transition: 0.3s;
-       border-radius: 50px;
-       background-image: url(/assets/Email.svg);
-       background-repeat: no-repeat;
-       background-position: 15% 50%;
-       height: 70%;
-    }
+    // input[type=submit] {
+    //    position: absolute;
+    //    top: 15%;
+    //    right: 5%;
+    //    bottom: 0;
+    //    border: 0;
+    //    background: none;
+    //    font-size: 18px;
+    //    padding: 0 30px 0 60px;
+    //    background: #1A213B;
+    //    color: #fff;
+    //    transition: 0.3s;
+    //    border-radius: 50px;
+    //    background-image: url(/assets/Email.svg);
+    //    background-repeat: no-repeat;
+    //    background-position: 15% 50%;
+    //    height: 70%;
+    // }
+    a {
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        bottom: 0;
+        border: 0;
+        background: none;
+        font-size: 18px;
+        padding: 0 30px 0 60px;
+        background: #1A213B;
+        color: #fff;
+        transition: 0.3s;
+        border-radius: 50px;
+        background-image: url(/assets/Email.svg);
+        background-repeat: no-repeat;
+        background-position: 15% 50%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+     }
   }
 }
 

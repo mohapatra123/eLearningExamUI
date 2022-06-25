@@ -3,11 +3,13 @@
     <div class="row">
       <div class="col-12 col-sm-12 col-md-4 item" *ngFor="let course of courseList">
           <div class="card">
-            <img [src]="course.tag_name" alt="banking">
+            <img src='/assets/fCourse/{{course.imageTag}}.png 'alt={{course.courseName}}>
             <div class="card-body">
-                <p>{{course.name}} </p>
+                <p>{{course.courseName}} </p>
                 <h4>{{course.description}} </h4>
-                <div class="price"> <div><span>4 Weeks</span> : <span>{{course.selling_price}}.00</span></div> <button mat-raised-button color="primary" type="button" (click)="EnrollCourse(course)">Request Now</button></div>                
+                <div class="price"> <div><span>{{course.duration}}</span> : <span>{{course.price}}.00</span></div> 
+                <button mat-raised-button color="primary" type="button" (click)="EnrollCourse(course)">Request Now</button></div>
+                
             </div>
         </div>
       </div>
@@ -16,8 +18,8 @@
 
 <div class="row text-center">                
     <div class="col-12">
-    <button mat-stroked-button class="own-btn blue-btn">Browse All</button>
+    <a mat-stroked-button class="own-btn blue-btn browseall" href="/#/feature-course" routerLinkActive="true">Browse All</a>
 </div>
 </div>
 
-</div>
+  </div>

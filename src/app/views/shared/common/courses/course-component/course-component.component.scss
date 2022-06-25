@@ -7,6 +7,11 @@
       padding: 30px 25px;
       max-height: 580px;
       min-height: 580px;
+      img{
+        min-height: 320px;
+        max-width: 320px;
+        object-fit: cover;
+      }
     } 
     .mat-card-content {
         margin: 15px 0px;
