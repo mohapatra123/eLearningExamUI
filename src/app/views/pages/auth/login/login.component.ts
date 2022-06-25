@@ -20,8 +20,11 @@ export class LoginComponent implements OnInit {
   isValid: boolean = true;
   statusMessage: string = '';
   tabIndex: number = 0;
+  isForgetPwd: boolean = false;
+  forgotPasswordData: {email: string}
 
   ngOnInit(): void {
+    this.forgotPasswordData = { email: '' }
     this.loginForm = this._formBuilder.group({
       userId: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -68,6 +71,18 @@ export class LoginComponent implements OnInit {
 
   GetChildData(data){    
     this.tabIndex = 0;
+  }
+
+  invokeForgotPassword(){
+    console.log(this.forgotPasswordData.email);
+  }
+
+  ForgotPassword(){
+    this.isForgetPwd = true;
+  }
+
+  BackToLogin(){
+    this.isForgetPwd = false;
   }
 
   getUserInformation(email: string){
