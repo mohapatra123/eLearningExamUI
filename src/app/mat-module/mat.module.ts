@@ -18,6 +18,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { NativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -44,7 +46,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatGridListModule,
     NativeDateModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule
   ],
   exports:[
     MatCardModule,
@@ -65,7 +69,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatGridListModule,
     NativeDateModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule,
+    MatSlideToggleModule
   ]
 })
 export class MatModule { }

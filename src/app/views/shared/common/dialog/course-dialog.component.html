@@ -3,12 +3,15 @@
     <div class="col-3"><p class="listinfo"><span>Package:</span></p>  </div>
     <div class="col-9"> <h3 class="listinfo"><strong>{{data.courseName}}</strong> </h3></div>
   </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-3"><p class="listinfo"><span>Module:</span></p>  </div>
-      <div class="col-9"><p class="listinfo"> <div *ngFor="let m of data.module">
-        <strong>{{m}}</strong>
-      </div>  </div>
+      <div class="col-9"><p class="listinfo"> 
+        <div *ngFor="let m of data.module">
+          <strong>{{m.name}}</strong>
+          <strong>{{m.description}}</strong>
+      </div>  
     </div>
+    </div> -->
   
     <div class="row">
       <div class="col-3"><p class="listinfo"><span>Info:</span></p>  </div>
@@ -19,14 +22,23 @@
       <div class="col-9"> <h3 class="listinfo"><strong>{{data.duration}}</strong> </h3></div>
     </div>
     <div class="row">
-      <div class="col-3"><p class="listinfo"><span>Price:</span></p>  </div>
-      <div class="col-9"> <h3 class="listinfo"><strong>{{data.price}}</strong> </h3></div>
+      <div class="col-3"><p class="listinfo"><span>Retail Price:</span></p>  </div>
+      <div class="col-9"> <h3 class="listinfo"><strong>{{data.retailPrice}}</strong> </h3></div>
     </div>
-    <div class="alert alert-primary" role="alert">
-     Please request us to know more.
+    <div class="row">
+      <div class="col-3"><p class="listinfo"><span>Selling Price:</span></p>  </div>
+      <div class="col-9"> <h3 class="listinfo"><strong>{{data.sellingPrice}}</strong> </h3></div>
     </div>
-  <div class="buttonblock">
-    <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
-    <!-- <button class="btn btn-primary" type="button" (click)="Submit()">Request Now</button>   -->
-    <a class="btn btn-primary" type="button"  href="/#/contactus" routerLinkActive="true">Request Now</a> 
-  </div>
+    <div>
+      <img _ngcontent-wkc-c218="" src="/assets/QR_Code.png" style="margin-left:20%" height="200" width="200" alt="man" class="img-fluid">
+    </div>
+    <br>
+    <form [formGroup]="paymentForm" (ngSubmit)="SavePayment(paymentForm)"> 
+      <mat-form-field appearance="outline"  class="mr-3 width100">                    
+        <mat-label>Transaction Id:</mat-label>
+        <input matInput placeholder="TransactionId" formControlName="TransactionId">      
+      </mat-form-field>        
+      <span style="color:red">{{message}}</span>  
+      <button [disabled]="!data.sellingPrice || data.sellingPrice <= 0" class="btn btn-primary"  type="submit">Submit</button>
+      <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
+    </form>  

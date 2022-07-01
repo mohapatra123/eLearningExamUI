@@ -41,6 +41,7 @@ export class MyAccountComponent implements OnInit {
       email: this.userData.eMail
     }
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
+      console.log(res);
       this.accountData = res.data.my_details      
       this.courseData = res.data.my_courses
       this.courseData.forEach(element => {
@@ -49,6 +50,9 @@ export class MyAccountComponent implements OnInit {
         }
         else if(element.sub_category_name && element.sub_category_name != ''){
           element.package = element.sub_category_name
+        }
+        else if(element.featured_course_name && element.featured_course_name != ''){
+          element.package = element.featured_course_name
         }
         if(element.courses_name && element.courses_name != ''){
           element.package = element.courses_name
@@ -72,6 +76,9 @@ export class MyAccountComponent implements OnInit {
           this._router.navigate(['/examcourse', this.categoryName, this.categoryId, element.sub_category_name, element.sub_category_selected]);
         }        
       })      
+    }
+    else if(element.featured_course_id != undefined && element.featured_course_id != null){
+      this._router.navigate(['/feature-course', element.featured_course_id, element.featured_course_name]);
     }
   }
 

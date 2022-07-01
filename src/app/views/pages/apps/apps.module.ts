@@ -69,7 +69,7 @@ const routes: Routes = [{
     { path: 'socialImpact', component: SocialImpactComponent },
     { path: 'events/comingsoon', component: ComingSoonComponent }, 
     { path: 'myaccount', component: MyAccountComponent }, 
-    { path: 'feature-course', component: FeatureCourseComponent},  
+    { path: 'feature-course/:id/:name', component: FeatureCourseComponent},  
     { path: 'sample/:name', component: SampleComponent},
     { path: 'freemock', component: FreeMockComponent},
     { path: 'updatepassword', component: UpdatePasswordComponent},

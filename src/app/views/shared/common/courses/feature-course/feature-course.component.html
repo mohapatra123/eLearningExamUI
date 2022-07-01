@@ -8,8 +8,31 @@
 
 <section class="featuredpage  content">
 
-<div class="container">
-    <app-course-component></app-course-component>
-
+<div *ngIf="featuredCourse" class="container">
+    <!-- <app-course-component></app-course-component> -->
+    <img src="/assets/fCourse/{{featuredCourse.name}}.png" alt="man" class="img-fluid">
+    <p>Course Name: {{featuredCourse.name}}</p>
+    <p>Description: {{featuredCourse.description}}</p>
+    <p>Retail Price: {{featuredCourse.retail_price}}</p>
+    <p>Selling Price: {{featuredCourse.selling_price}}</p>
+    <p>Discount: {{featuredCourse.discount}}</p>    
+    <p *ngIf="featuredCourse.modules != null"><strong>Modules</strong></p>   
+    <div *ngIf="featuredCourse.modules">
+      <ul *ngFor="let mod of featuredCourse.modules">
+        <li>{{mod.name}}</li>
+        <li>{{mod.description}}</li>
+      </ul>
+    </div> 
+        
+    <p *ngIf="isApproved && featuredCourse.fileUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.fileUrl)">Show PDF</a></p>    
+    <p *ngIf="isApproved && featuredCourse.videoUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.videoUrl)">Play Video</a></p>    
+  <mat-slide-toggle [(ngModel)]="isOnline">{{isOnline ? 'On line' : 'Off line'}}</mat-slide-toggle>
+  <div>
+    <button type="button" *ngIf="!isEnrolled" (click)="enrollCourse(featuredCourse)">Enroll</button>
   </div>
+  <br>
+  <div>
+    {{statusMessage}}
+  </div>
+</div>
 </section>

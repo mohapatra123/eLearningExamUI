@@ -87,8 +87,9 @@ export class ExamService {
     );
   }
 
-  getFeaturedCourse(): Observable<any>{
-    return this._http.get(this.baseUri + 'featured_course/cms/retrieve', { headers: this.header }).pipe(
+  getFeaturedCourse(id: Number = 0): Observable<any>{
+    var url = id > 0 ? 'featured_course/cms/retrieve/' + id : 'featured_course/cms/retrieve';
+    return this._http.get(this.baseUri + url, { headers: this.header }).pipe(
       map((response: Response) => {
           return response;
       })
