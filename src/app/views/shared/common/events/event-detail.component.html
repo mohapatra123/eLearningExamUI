@@ -1,0 +1,13 @@
+<div class="inner-banner">
+    <div class="container">
+        <h2 class="header1">Events</h2>        
+    </div>
+  </div>  
+  <section class="featuredpage  content">  
+    <div *ngIf="eventData" class="container">        
+        <img src="/assets/fCourse/{{eventData.path}}.png" alt="man" class="img-fluid">
+        <p>Event Name: {{eventData.name}}</p>
+        <p>Description: <span [innerHTML]="eventData.description"></span></p>
+        <p>Date: {{eventData.created_date}}</p>      
+    </div>
+  </section>

@@ -28,6 +28,8 @@ export class FeatureCourseComponent implements OnInit {
   isEnrolled: boolean = false;
   isApproved: boolean = false;
   result: any;
+  paymentData: any;
+  featuredCourseDeatil: any;
 
   ngOnInit(): void {
     this.courseId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
@@ -57,15 +59,19 @@ export class FeatureCourseComponent implements OnInit {
     } 
     this._paymentService.getAccountByEmail(formData).subscribe(res => {
         if(res != undefined && res != null){
-          if(res.data.my_courses.findIndex(o => o.featured_course_id == this.courseId && o.status == 21) >= 0){
-            this.isEnrolled = true;
-            this.statusMessage = 'Course enrolled & waiting for approval.';
-          } 
-          else if(res.data.my_courses.findIndex(o => o.featured_course_id == this.courseId && o.status == 22) >= 0){
-            this.isEnrolled = true;
-            this.isApproved = true;
-            this.statusMessage = 'Course enrolled.';
-          } 
+          if(res.data.my_courses.findIndex(o => o.featured_course_id == this.courseId) >= 0){
+            this.featuredCourseDeatil = res.data.my_courses.filter(o => o.featured_course_id == this.courseId)[0];
+            this.isOnline = this.featuredCourseDeatil.availability == 'Online' ? true : false;
+            if(res.data.my_courses.findIndex(o => o.status == 21) >= 0){
+              this.isEnrolled = true;
+              this.statusMessage = 'Course enrolled & waiting for approval.';
+            } 
+            else if(res.data.my_courses.findIndex(o => o.status == 22) >= 0){
+              this.isEnrolled = true;
+              this.isApproved = true;
+              this.statusMessage = 'Course enrolled.';
+            } 
+          }          
           else{
             this.isEnrolled = false;
             this.statusMessage = '';
@@ -107,9 +113,39 @@ export class FeatureCourseComponent implements OnInit {
           }      
         });
       }
+      else{
+        this.EnrollOfflineCourse(featuredCourse);
+      }
     }
     else{
       this._router.navigate(['/login']);
     }
+  }
+
+  EnrollOfflineCourse(featuredCourse: any){    
+    this.paymentData = { 
+      transaction_id: null,
+      email_id: this.userData.eMail,
+      status: 21,
+      amount: featuredCourse.sellingPrice,  
+      category_name: null,    
+      category_selected: null,      
+      courses_name: null,
+      courses_selected: null,      
+      sub_category_name: null,
+      sub_category_selected: null,
+      featured_course_id: featuredCourse.id,
+      featured_course_name: featuredCourse.name,
+      availability: this.isOnline ? 'Online' : 'Offline'
+    }
+
+    this._paymentService.createPayment(this.paymentData).subscribe((res) => {
+    if(res.status == true){        
+      setTimeout(() => { this.statusMessage = res.message; }, 1000)          
+      setTimeout(() => { 
+        this.statusMessage = '';          
+      }, 2000)          
+    }
+  })
   }
 }

@@ -96,6 +96,22 @@ export class ExamService {
     );
   }
 
+  getEvents(): Observable<any>{
+    return this._http.get(this.baseUri + 'events/f/retrieve', { headers: this.header }).pipe(
+      map((response: Response) => {
+          return response;
+      })
+    );
+  }
+
+  getEventsById(id: number): Observable<any>{
+    return this._http.get(this.baseUri + 'events/f/retrieve/' + id, { headers: this.header }).pipe(
+      map((response: Response) => {
+          return response;
+      })
+    );
+  }
+
   private getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
         case 404: {

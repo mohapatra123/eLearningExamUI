@@ -30,12 +30,15 @@ export class HomeComponent implements OnInit {
   dataSource: any;
   imgBaseName: '/assets/';
   imgExtension: '.svg'
+  eventList: any;
+  eventShortList: any;
   
 
   ngOnInit(): void {
     this.setBanner();
     this._behaviorSubject.setRoute('Home');    
     this.getAllExam();
+    this.getAllEvents();
   }
 
   setBanner(){
@@ -54,6 +57,17 @@ export class HomeComponent implements OnInit {
         this.dataSource = res.data.slice(0, 8);
       }      
     })
+  }
+
+  getAllEvents(){
+    this.examService.getEvents().subscribe(res => {
+      this.eventList = res.data;
+      this.eventShortList = res.data.slice(0, 2);
+    })
+  }
+
+  gotoEvent(evt){
+    this._router.navigate(['event-detail', evt.id, evt.name]);
   }
 
   showAll(text: string){

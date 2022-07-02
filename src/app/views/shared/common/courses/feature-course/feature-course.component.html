@@ -18,15 +18,15 @@
     <p>Discount: {{featuredCourse.discount}}</p>    
     <p *ngIf="featuredCourse.modules != null"><strong>Modules</strong></p>   
     <div *ngIf="featuredCourse.modules">
-      <ul *ngFor="let mod of featuredCourse.modules">
-        <li>{{mod.name}}</li>
-        <li>{{mod.description}}</li>
-      </ul>
+      <div *ngFor="let mod of featuredCourse.modules; let i = index">
+        <p> {{i + 1}}) {{mod.name}}</p>
+        <span [innerHtml]="mod.description"></span>
+      </div>
     </div> 
         
     <p *ngIf="isApproved && featuredCourse.fileUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.fileUrl)">Show PDF</a></p>    
     <p *ngIf="isApproved && featuredCourse.videoUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.videoUrl)">Play Video</a></p>    
-  <mat-slide-toggle [(ngModel)]="isOnline">{{isOnline ? 'On line' : 'Off line'}}</mat-slide-toggle>
+  <mat-slide-toggle [disabled]="isEnrolled" [(ngModel)]="isOnline">{{isOnline ? 'On line' : 'Off line'}}</mat-slide-toggle>
   <div>
     <button type="button" *ngIf="!isEnrolled" (click)="enrollCourse(featuredCourse)">Enroll</button>
   </div>

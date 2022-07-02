@@ -267,92 +267,38 @@
         <div class="row">
 
          <div class="col-12 col-sm-12 col-md-8">
-            <div class="row last">
+            <div class="row last" *ngFor="let evt of eventShortList">
                 <div class="col-12 col-sm-12 col-md-6">
-                <div class="readBox card">
-                    <img src="/assets/fCourse/Stockmarket.png" alt="banking" class="img-fluid">
-                    <div class="card-body">
-                        <h4>
-                            Webinar on Basics of Stock Market 
-                        </h4>
-                        <p class="para">
-                            Free to all</p>                        
-                        <a hre="#" class="readmore">
-                         <span class="plusblack"></span> Read more</a>
+                    <div class="readBox card">
+                        <img src="/assets/fCourse/{{evt.path}}.png" class="img-fluid">
+                        <div class="card-body">
+                            <h4>
+                                {{evt.name}} 
+                            </h4>
+                            <p class="para"><span [innerHtml]="evt.description"></span></p>                        
+                            <a hre="#" class="readmore">
+                            <span class="plusblack" (click)="gotoEvent(evt)"></span>Read more</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6">
-                <div class="readBox card">
-                    <img src="/assets/engineering.svg" alt="banking" class="img-fluid">
-                    <div class="card-body">
-                        <h4>
-                            Opening Office and Training Centre
-                        </h4>
-                        <p class="para">
-                            At Raipur Chhattisgarh to run Technical and Financial courses, overseas education, admission counselling</p>                        
-                        <a hre="#" class="readmore">
-                            <span class="plusblack"></span> Read more</a>
-                    </div>
-                </div>
-            </div>      
+                </div>                
             </div>
          </div>
 
          <div class="col-12 col-sm-12 col-md-4">
              <div class="last">
-                <mat-card class="time-box"> 
-                    <div class="last" fxLayout="row">
-                 <div class="year">
-                   <p>May 2022</p>
-                   <h2 class="sub-header">20</h2>
-                 </div>
-                 <div class="track">
-                   <p cass="dot">Opening Office and Training Centre</p>
-                   <h2 class="sub-header"> At Raipur Chhattisgarh to run Technical and Financial courses, overseas education, admission counselling
-
-                </h2>
-                 </div>
-                </div>
+                <mat-card class="time-box" *ngFor="let evt of eventList"> 
+                    <div class="last" fxLayout="row" (click)="gotoEvent(evt)">
+                        <div class="year">
+                        <p>{{evt.created_date  | date: 'MMM-yyyy'}}</p>
+                        <h2 class="sub-header">{{evt.created_date  | date: 'dd'}}</h2>
+                        </div>
+                        <div class="track">
+                        <p cass="dot">{{evt.name}}</p>
+                        <h2 class="sub-header"><span>{{evt.description}}</span></h2>
+                        </div>
+                    </div>
                 </mat-card>
-                <mat-card class="time-box"> 
-                    <div class="last" fxLayout="row">
-                 <div class="year">
-                   <p>May 2022</p>
-                   <h2 class="sub-header">25</h2>
-                 </div>
-                 <div class="track">
-                   <p cass="dot">Webinar on Data Science Foundation</p>
-                   <h2 class="sub-header">Free for all</h2>
-                 </div>
-                </div>
-                </mat-card>
-                <mat-card class="time-box"> 
-                    <div class="last" fxLayout="row">
-                 <div class="year">
-                   <p>May 2022</p>
-                   <h2 class="sub-header">27</h2>
-                 </div>
-                 <div class="track">
-                   <p cass="dot">Webinar on Overseas Study</p>
-                   <h2 class="sub-header">About IELTS / TOEFL – Free to all</h2>
-                 </div>
-                </div>
-                </mat-card>
-                <mat-card class="time-box"> 
-                    <div class="last" fxLayout="row">
-                 <div class="year">
-                   <p>May 2022</p>
-                   <h2 class="sub-header">27</h2>
-                 </div>
-                 <div class="track">
-                   <p cass="dot">Webinar on Study abroad</p>
-                   <h2 class="sub-header">About GMAT, GRE, SAT – Free to all</h2>
-                 </div>
-                </div>
-                </mat-card>
-             </div>
-             
+             </div>             
         </div>
         </div>
 
