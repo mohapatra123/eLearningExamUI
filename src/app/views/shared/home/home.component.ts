@@ -8,6 +8,7 @@ import { BehaviorSubjectService } from '../../../core/services/common/behavior-s
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { Category } from 'src/app/core/models/category.model';
 import { Router } from '@angular/router';
+import { LoaderService } from 'src/app/core/services/common/loader.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private examService: ExamService, private _behaviorSubject: BehaviorSubjectService,
-    @Inject(DOCUMENT) private document: Document, private _commonService: CommonService, private _router: Router) { }
+    @Inject(DOCUMENT) private document: Document, private _commonService: CommonService, private _router: Router, private _loaderService: LoaderService) { }
 
   examArray: any[];
   examList: any[];
@@ -36,7 +37,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.setBanner();
-    this._behaviorSubject.setRoute('Home');    
+    this._behaviorSubject.setRoute('Home');  
+
     this.getAllExam();
     this.getAllEvents();
   }
@@ -47,16 +49,25 @@ export class HomeComponent implements OnInit {
   }
 
   getAllExam(){
-    this.examService.getAllCategory().subscribe(res => {
-      if(res != null){
-        res.data.forEach(element => {
-          element.tag_name = element.tag_name == null || element.tag_name == '' ? 'aptitude' : element.tag_name;
-          element.tag_name = '/assets/' + element.tag_name  + '.svg';
-        });
-        this.examList = res.data;
-        this.dataSource = res.data.slice(0, 8);
-      }      
-    })
+    this._loaderService.display(true);
+    setTimeout(() => {
+      this.examService.getAllCategory().subscribe(res => {
+        if(res != null){
+          res.data.forEach(element => {
+            element.tag_name = element.tag_name == null || element.tag_name == '' ? 'aptitude' : element.tag_name;
+            element.tag_name = '/assets/' + element.tag_name  + '.svg';
+          });
+          this.examList = res.data;
+          this.dataSource = res.data.slice(0, 8);
+          this._loaderService.display(false);
+        }      
+      }, (err) => {
+        console.log(err);
+        this._loaderService.display(false);
+      },() => {
+        this._loaderService.display(false);
+      })
+    }, 1000);    
   }
 
   getAllEvents(){

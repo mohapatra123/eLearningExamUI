@@ -3,6 +3,7 @@ import { FormsModule, FormBuilder, FormGroup, FormControl, Validators } from '@a
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoaderService } from 'src/app/core/services/common/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private _authService: AuthService, private _router: Router
+    private _authService: AuthService, private _router: Router, private _loaderService: LoaderService
   ) { }
 
   loginForm: FormGroup;
@@ -32,12 +33,12 @@ export class LoginComponent implements OnInit {
   }
 
   validateUser(loginForm){   
+    this._loaderService.display(true);
     this.statusMessage = ''; 
     let loginData = {
       email: this.loginForm.value.userId,
       password: this.loginForm.value.password      
     }
-
     if(this.loginForm.valid){
       let authToken: any;
       let result: any;
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
             if(authToken){
               this._authService.setToken(authToken); 
               this.getUserInformation(loginData.email);
+              
               this.redirectAfterAuth();
             }            
           }
@@ -58,11 +60,13 @@ export class LoginComponent implements OnInit {
         }, (err) => {          
           this.statusMessage = err.error.message;
         })
-      }, 2000)      
+        this._loaderService.display(false);
+      }, 1000)      
       if(this.loginForm.value.userId == 'admin' && this.loginForm.value.password == 'admin'){
         this.redirectAfterAuth();
       }
     }
+    
   }
 
   redirectAfterAuth(){
@@ -74,7 +78,7 @@ export class LoginComponent implements OnInit {
   }
 
   invokeForgotPassword(){
-    console.log(this.forgotPasswordData.email);
+    
   }
 
   ForgotPassword(){

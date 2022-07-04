@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <table style="width: 100%" mat-table [dataSource]="dataSource">
+      <table *ngIf="dataSource" style="width: 100%" mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="Package">
           <th mat-header-cell *matHeaderCellDef> Package </th>
           <td mat-cell *matCellDef="let element"> {{element.package}} </td>

@@ -8,6 +8,7 @@ import { Category } from 'src/app/core/models/category.model';
 import { Router } from '@angular/router';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 import { ExamService } from 'src/app/core/services/exam/exam.service';
+import { LoaderService } from 'src/app/core/services/common/loader.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class MyAccountComponent implements OnInit {
 
   displayedColumns: string[] = ['Package','TransactionId', 'Date',  'Price', 'Status', 'Action'];  
 
-  constructor(private _authService: AuthService, private _paymentService: PaymentService, private _router: Router, private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService) { }
+  constructor(private _authService: AuthService, private _paymentService: PaymentService, private _router: Router, private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService, private _loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.userData = JSON.parse(this._authService.getLocalStorage('userInfo'));
@@ -37,30 +38,33 @@ export class MyAccountComponent implements OnInit {
   }
 
   getAccountDetail(){
-    var formData = {
-      email: this.userData.eMail
-    }
-    this._paymentService.getAccountByEmail(formData).subscribe(res => {
-      console.log(res);
-      this.accountData = res.data.my_details      
-      this.courseData = res.data.my_courses
-      this.courseData.forEach(element => {
-        if(element.category_name && element.category_name != ''){
-          element.package = element.category_name
-        }
-        else if(element.sub_category_name && element.sub_category_name != ''){
-          element.package = element.sub_category_name
-        }
-        else if(element.featured_course_name && element.featured_course_name != ''){
-          element.package = element.featured_course_name
-        }
-        if(element.courses_name && element.courses_name != ''){
-          element.package = element.courses_name
-        }        
-      });
-      this.dataSource = new MatTableDataSource(this.courseData);
-      this.dataSource.paginator = this.paginator;      
-    })
+    this._loaderService.display(true); 
+    setTimeout(() => {
+      var formData = {
+        email: this.userData.eMail
+      }
+      this._paymentService.getAccountByEmail(formData).subscribe(res => {        
+        this.accountData = res.data.my_details      
+        this.courseData = res.data.my_courses
+        this.courseData.forEach(element => {
+          if(element.category_name && element.category_name != ''){
+            element.package = element.category_name
+          }
+          else if(element.sub_category_name && element.sub_category_name != ''){
+            element.package = element.sub_category_name
+          }
+          else if(element.featured_course_name && element.featured_course_name != ''){
+            element.package = element.featured_course_name
+          }
+          if(element.courses_name && element.courses_name != ''){
+            element.package = element.courses_name
+          }        
+        });
+        this.dataSource = new MatTableDataSource(this.courseData);
+        this.dataSource.paginator = this.paginator; 
+        this._loaderService.display(false);     
+      })  
+    }, 1000);      
   }
 
   GetCourse(element){    

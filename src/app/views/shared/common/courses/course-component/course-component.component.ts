@@ -64,8 +64,7 @@ export class CourseComponentComponent implements OnInit {
   //   });      
   // }
 
-  EnrollCourse(course: any): void {  
-    console.log(course);  
+  EnrollCourse(course: any): void {
     this._router.navigate(['feature-course', course.id, course.name]);
   }
 }
