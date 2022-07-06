@@ -8,9 +8,8 @@
 
 <section class="featuredpage  content">
 
-<div *ngIf="featuredCourse" class="container">
-    <!-- <app-course-component></app-course-component> -->
-    <img src="/assets/fCourse/{{featuredCourse.name}}.png" alt="man" class="img-fluid">
+<div *ngIf="featuredCourse" class="container">    
+    <img src="/assets/images/fCourse/{{featuredCourse.name.replace(' ', '_')}}.png" alt="{{featuredCourse.name}}" class="img-fluid">
     <p>Course Name: {{featuredCourse.name}}</p>
     <p>Description: {{featuredCourse.description}}</p>
     <p>Retail Price: {{featuredCourse.retail_price}}</p>
