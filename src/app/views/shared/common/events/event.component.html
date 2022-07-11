@@ -1,0 +1,14 @@
+<mat-accordion>
+    <div *ngFor="let event of eventList" >
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            {{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong>
+          </mat-expansion-panel-header>
+          <div>             
+            <p><span [innerHTML]="event.description"></span></p>         
+            <p><img src="/assets/images/event/{{event.path}}.png" alt="man" class="img-fluid"></p>            
+            <a [href]="event.discount_type" target="_blank">{{event.discount_type}}</a>
+          </div>
+      </mat-expansion-panel>
+    </div>
+</mat-accordion>

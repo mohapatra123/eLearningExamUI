@@ -151,7 +151,7 @@
     </div>
 </div>
 
-   <app-course-component></app-course-component>
+   <app-course-component [isFromHomePage]="isFromHomePage"></app-course-component>
 </section>
 
 <!------------ feature-course section end--------->
@@ -295,12 +295,16 @@
                         </div>
                         <div class="track">
                         <p cass="dot">{{evt.name}}</p>
-                        <h2 class="sub-header"><span>{{evt.description}}</span></h2>
+                        <p cass="dot"><a [href]="evt.discount_type" target="_blank">{{evt.discount_type}}</a></p>
+                        <h2 class="sub-header"><span [innerHTML]="evt.description"></span></h2>
                         </div>
                     </div>
                 </mat-card>
              </div>             
         </div>
+        </div>
+        <div>
+            <button type="button"><a routerLink="events" routerLinkActive="active">Get All</a></button>
         </div>
 
     </div>

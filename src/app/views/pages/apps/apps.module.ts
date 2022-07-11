@@ -42,6 +42,7 @@ import { RefundPolicyComponent } from '../../shared/common/company/refund-policy
 import { PrivacyPolicyComponent } from '../../shared/common/company/privacy-policy.component';
 import { DisclaimerComponent } from '../../shared/common/company/disclaimer.component';
 import { EventDetailComponent } from '../../shared/common/events/event-detail.component';
+import { EventComponent } from '../../shared/common/events/event.component';
 
 
 
@@ -56,7 +57,7 @@ const routes: Routes = [{
     { path: 'aboutus', component: AboutusComponent },
     { path: 'contactus', component: ContactUsComponent },
     { path: 'services', component: ServicesComponent },
-    { path: 'events', component: EventsComponent },
+    // { path: 'events', component: EventsComponent },
     { path: 'examcategory/:examCategory', component: ExamcategoryComponent },
     { path: 'examcategoryans/:category/:subCategory/:subCategoryId/:exam/:id/:duration', component: ExamcategoryAnsComponent},
     { path: 'examcourse/:category/:categoryId/:subCategory/:subCategoryId', component: ExamcourseComponent},
@@ -79,6 +80,8 @@ const routes: Routes = [{
     { path: 'privacy-policy', component:PrivacyPolicyComponent },
     { path: 'disclaimer', component:DisclaimerComponent },
     { path: 'event-detail/:id/:name', component:EventDetailComponent },
+    { path: 'featuredcourse', component:CourseComponentComponent },
+    { path: 'events', component:EventComponent },
   ]
 }]
 
@@ -88,7 +91,7 @@ const routes: Routes = [{
     AboutusComponent, ContactUsComponent, ContentComponent,
     ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent,TermsAndConditionsComponent,RefundPolicyComponent,PrivacyPolicyComponent,DisclaimerComponent, EventDetailComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
+    CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true, scrollPositionRestoration: 'enabled' }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
 })
 export class AppsModule { }

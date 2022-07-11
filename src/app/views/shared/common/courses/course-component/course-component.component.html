@@ -16,7 +16,7 @@
 </div>
 </div>
 
-<div class="row text-center">                
+<div class="row text-center" *ngIf="isFromHomePage">                
     <div class="col-12">
     <a mat-stroked-button class="own-btn blue-btn browseall" (click)="showAll(buttonText, target)" routerLinkActive="true">{{buttonText}}</a>
 </div>

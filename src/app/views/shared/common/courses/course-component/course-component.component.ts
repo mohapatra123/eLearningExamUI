@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/core/services/common/common.service';
@@ -14,9 +14,11 @@ export class CourseComponentComponent implements OnInit {
 
   constructor(private _commonService: CommonService, public dialog: MatDialog, public _router: Router, private _examService: ExamService) { }
 
+  @Input() isFromHomePage: boolean = false;
   courseList: any;
   courseListTemp: any;
   buttonText: string = 'Browse All';
+  isNavigated: boolean = false;
 
   ngOnInit(): void {
     this.getCourseList();
@@ -29,7 +31,25 @@ export class CourseComponentComponent implements OnInit {
     
     this._examService.getFeaturedCourse().subscribe(res => {      
       this.courseListTemp = res.data;
-      this.courseList = res.data.slice(0, 6);
+      if(this.isFromHomePage){
+        if(res != undefined){
+          res.data.forEach(element => {
+            if(element.path == null || element.path == ''){
+              element.path = 'featuredCourseDefault';
+            }
+          });
+        }
+        this.courseList = res.data.slice(0, 6);
+      }
+      else{
+        this.courseList = this.courseListTemp;
+        window.scroll({ 
+          top: 0, 
+          left: 0, 
+          behavior: 'smooth' 
+        });
+      }
+        
     })
   }
 
@@ -40,8 +60,9 @@ export class CourseComponentComponent implements OnInit {
   showAll(text: string, el: HTMLElement){
     el.scrollIntoView();
     if(text == "Browse All"){
-      this.courseList = this.courseListTemp;
-      this.buttonText = "Browse less";
+      this._router.navigate(['featuredcourse'])
+      //this.courseList = this.courseListTemp;
+      //this.buttonText = "Browse less";
     }
     else{
       this.courseList = this.courseListTemp.slice(0, 6);

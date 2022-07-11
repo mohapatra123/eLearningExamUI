@@ -11,10 +11,11 @@ import { PaymentDialogComponent } from './shared/common/dialog/payment-dialog.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseDialogComponent } from './shared/common/dialog/course-dialog.component';
 import { CommonDialogComponent } from './shared/common/dialog/common-dialog.component';
+import { EventComponent } from './shared/common/events/event.component';
 
 
 @NgModule({
-  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent],
+  declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent, EventComponent],
   imports: [
     CommonModule, AuthModule, AppsModule, AppAuthModule, MatModule, FormsModule, ReactiveFormsModule
   ]

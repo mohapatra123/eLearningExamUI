@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
   imgExtension: '.svg'
   eventList: any;
   eventShortList: any;
+  isFromHomePage: boolean = true;
   
 
   ngOnInit(): void {
@@ -72,8 +73,21 @@ export class HomeComponent implements OnInit {
 
   getAllEvents(){
     this.examService.getEvents().subscribe(res => {
-      this.eventList = res.data;
+      if(res != undefined){
+        res.data.forEach(element => {
+          if(element.path == null || element.path == ''){
+            element.path = 'defaultEvent';
+          }
+        });
+      }
+      this.eventList = res.data.slice(0, 3);      
+      this.eventList.sort((a, b) => {
+        return <any>new Date(b.eventDate) - <any>new Date(a.eventDate);
+      });
       this.eventShortList = res.data.slice(0, 2);
+      this.eventShortList.sort((a, b) => {
+        return <any>new Date(b.eventDate) - <any>new Date(a.eventDate);
+      });
     })
   }
 
