@@ -16,10 +16,9 @@
     </div>
     <div class="col-12 col-md-9">
       <h2><strong>Course Name:</strong> {{featuredCourse.name}}</h2>
-      <p><strong>Description:</strong>{{featuredCourse.description}} </p>
-      <p class="pricetag"><span>Retail Price:</span><strong>{{featuredCourse.retail_price}}</strong> </p>
-      <p class="pricetag"><span>Selling Price:</span><strong> {{featuredCourse.selling_price}}</strong></p>
-      <p class="pricetag"><span>Discount:</span><strong>{{featuredCourse.discount}}</strong> </p>
+      <p><strong>Description:</strong>{{featuredCourse.description}} </p>       
+      <p class="pricetag"><span>Discount:</span><strong>{{featuredCourse.duration}}</strong> </p>
+      <p class="pricetag"><span>Price:</span><strong> {{featuredCourse.selling_price}}.00</strong> <strong class="oldprice">{{featuredCourse.retail_price}}.00</strong> </p>
     </div>
   </div>  
         
@@ -39,7 +38,7 @@
     <button class="enroll-btn" type="button" mat-raised-button color="primary" *ngIf="!isEnrolled" (click)="enrollCourse(featuredCourse)">Enroll Now</button>
   </div>
   <br>
-  <div>
+  <div class="alert alert-info" role="alert" *ngIf="statusMessage">
     {{statusMessage}}
   </div>
 </div>
