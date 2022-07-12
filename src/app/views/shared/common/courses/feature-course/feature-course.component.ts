@@ -8,6 +8,7 @@ import { CourseDialogComponent } from '../../dialog/course-dialog.component';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { PaymentService } from 'src/app/core/services/payment/payment.service';
 import { TileStyler } from '@angular/material/grid-list/tile-styler';
+import { LoaderService } from 'src/app/core/services/common/loader.service';
 
 @Component({
   selector: 'app-feature-course',
@@ -16,7 +17,7 @@ import { TileStyler } from '@angular/material/grid-list/tile-styler';
 })
 export class FeatureCourseComponent implements OnInit {
 
-  constructor(private _router: Router, public dialog: MatDialog, private _activatedRoute: ActivatedRoute, private _examService: ExamService, private _authService: AuthService, private _paymentService: PaymentService) { }
+  constructor(private _router: Router, public dialog: MatDialog, private _activatedRoute: ActivatedRoute, private _examService: ExamService, private _authService: AuthService, private _paymentService: PaymentService, private _loaderService: LoaderService) { }
 
   courseId: number;
   courseName: string;
@@ -32,6 +33,7 @@ export class FeatureCourseComponent implements OnInit {
   featuredCourseDeatil: any;
 
   ngOnInit(): void {
+    this._loaderService.display(true);
     this.courseId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
     this.courseName = this._activatedRoute.snapshot.paramMap.get('name');    
     window.scroll({ 
@@ -43,13 +45,19 @@ export class FeatureCourseComponent implements OnInit {
     this.getFeaturedCourse(this.courseId);    
   }
 
-  getFeaturedCourse(id: Number){
-    this._examService.getFeaturedCourse(id).subscribe(res => {
-      if(res != undefined && res != null){
-        this.verifyAccount();
-        this.featuredCourse = res.data[0];        
-      }      
-    })
+  getFeaturedCourse(id: Number){    
+    setTimeout(() => {
+      this._examService.getFeaturedCourse(id).subscribe(res => {
+        if(res != undefined && res != null){
+          this.verifyAccount();
+          this.featuredCourse = res.data[0];        
+        }      
+      }, (err) => {
+        this._loaderService.display(false);
+      }, () => {
+        this._loaderService.display(false);
+      })  
+    }, 500);    
   }
 
   verifyAccount(){

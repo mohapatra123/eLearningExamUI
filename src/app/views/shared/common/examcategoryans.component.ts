@@ -13,6 +13,7 @@ import { interval, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonDialogComponent } from './dialog/common-dialog.component';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LoaderService } from 'src/app/core/services/common/loader.service';
 
 @Component({
   selector: 'app-examcategory',
@@ -21,7 +22,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private dialog: MatDialog, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService, private _router: Router, private _authService: AuthService) { }
+  constructor(private _commonService: CommonService, private _activatedRoute: ActivatedRoute, private dialog: MatDialog, private _behaviorSubject: BehaviorSubjectService, private _formBuilder: FormBuilder, private _examService: ExamService, private _router: Router, private _authService: AuthService, private _loaderService: LoaderService) { }
 
   examName: string;
   categoryName: string;
@@ -341,16 +342,26 @@ export class ExamcategoryAnsComponent implements OnInit, AfterViewInit, OnDestro
       answer_sheet: this.totalQuestion.toString() + "/"+ this.totalCorrectAnswer + "/" + this.totalWrongAnswer + "/" + this.totalUnattempted
     }
     if(this.freeMock){
+      this._loaderService.display(true);
       this.subscription.unsubscribe();
-      setTimeout(() => { alert('Exam Completed.') }, 1000);
+      setTimeout(() => { 
+        this._loaderService.display(false);
+        alert('Exam Completed.') }, 1000);
     }
     else{
+      this._loaderService.display(true);
       this._examService.submitAnswer(requestBody).subscribe((res) => {
         if(res.status == true){
           this.statusMessage = res.message;
           this.subscription.unsubscribe();
-          setTimeout(() => { alert(this.statusMessage) }, 2000)        
+          setTimeout(() => {
+            this._loaderService.display(false);
+            alert(this.statusMessage) }, 2000)        
         }
+      }, (err) => {
+        this._loaderService.display(false);
+      }, () => {
+        this._loaderService.display(false);
       })
     }    
   }

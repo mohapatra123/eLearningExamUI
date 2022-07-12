@@ -1,4 +1,4 @@
-<mat-accordion>
+<mat-accordion *ngIf="eventList">
     <div *ngFor="let event of eventList" >
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -10,5 +10,8 @@
             <a [href]="event.discount_type" target="_blank">{{event.discount_type}}</a>
           </div>
       </mat-expansion-panel>
-    </div>
+    </div>    
 </mat-accordion>
+<div *ngIf="!eventList">
+  <div style="height: 400px; background-color: white"></div>
+</div>

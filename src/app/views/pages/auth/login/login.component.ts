@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectAfterAuth(){
-    this._router.navigateByUrl('home');
+    this._router.navigateByUrl('');
   }
 
   GetChildData(data){    
