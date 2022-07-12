@@ -32,3 +32,12 @@
     .blue-btn{
         display: none;
     }
+    .event-dtls{
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        p{
+            margin-right: 50px;
+            font-size: 20px;
+        }
+    }

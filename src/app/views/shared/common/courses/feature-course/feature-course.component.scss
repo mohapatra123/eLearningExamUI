@@ -32,3 +32,24 @@
 .blue-btn{
     display: none;
 }
+h2{
+    font-size: 26px;
+    color:#0A2468;
+}
+.pricetag{
+    display: flex;
+    align-items: center;
+    span{
+        min-width: 100px;
+    }
+}
+.enroll-course{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    align-items: center;
+}
+.enroll-btn{
+    width: 120px;
+    margin-left: 40px;
+}

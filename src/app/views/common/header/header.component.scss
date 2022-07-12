@@ -73,6 +73,10 @@
         display: none;
       }
     }
+    .userlogin{
+        display: flex;
+        justify-content: flex-end;
+    }
     .headerRight {
         justify-content: space-between;
         padding: 5px 0px;
@@ -80,11 +84,11 @@
             display: none;
             cursor: pointer;
         }
-        .login {
-            a {
-                display: none;
-            }
-        }
+        // .login {
+        //     a {
+        //         display: none;
+        //     }
+        // }
         .search .elIcon {
             padding: 0px;
             margin-right: 10px;

@@ -6,6 +6,13 @@
         subtitel=""
     </app-pagebanner>
   </div>
+  <section class="addsec">
+    <div class="container">
+
+       <div class="addbanner"><img src="/assets/tally.jpeg" alt="tally"/><h3>Our training partner</h3></div> 
+    </div>
+    
+  </section>
 <section class="tutor">
 
     <div class="container">      
@@ -121,7 +128,7 @@
                           <h4>{{cat.name}}</h4>
                           <p>Mock Test</p>
                       </mat-card-content>
-                      <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">Enrol Now</button>
+                      <button mat-stroked-button class="own-btn" (click)="showAll(buttonText)">Enroll Now</button>
                   </mat-card>
                   
                 </div>
@@ -188,7 +195,7 @@
 
             <div class="col-12 col-sm-12 col-md-4">
             <div class="testimonial-sec">
-               <p>Fintechedu is a one stop shop for our training needs. I have gone through its Python training and found it very useful for my career</p>
+               <p>Fintechedu is a one stop shop for our training needs. I have gone through its Python training and found it very useful for my career.</p>
                 <div class="testimonial-man">
                     <span class="icon">
                         <img src="/assets/man.svg" alt="man" class="img-fluid">
@@ -203,7 +210,7 @@
 
             <div class="col-12 col-sm-12 col-md-4">
             <div class="testimonial-sec">
-                <p>I have learnt Basics of Stock Market and have started investing in stock market. Willing to participate in next level courses run by Fintechedu</p>
+                <p>I have learnt Basics of Stock Market and have started investing in stock market. Willing to participate in next level courses run by Fintechedu.</p>
                  <div class="testimonial-man">
                      <span class="icon">
                         <img src="/assets/man.svg" alt="man" class="img-fluid">
@@ -240,13 +247,13 @@
     <div class="testimonial-header">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-4">
-            <p class="para">#News</p>
+            <p class="para">#News </p>
             <h2 class="header1">News & Events</h2>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
               <div class="testimonial-para">
                   <p class="line para">Discover how to anticipate and adapt to the latest 
-                    trends and digital</p>
+                    trends and digital.</p>
                 </div>
             </div>
         </div>
@@ -267,22 +274,27 @@
         <div class="row">
 
          <div class="col-12 col-sm-12 col-md-8">
-            <div class="row last" *ngFor="let evt of eventShortList">
-                <div class="col-12 col-sm-12 col-md-6">
+            <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 last" *ngFor="let evt of eventShortList">
+               
                     <div class="readBox card">
-                        <img src="/assets/images/event/{{evt.path}}.png" class="img-fluid">
+                        <img src="/assets/images/event/{{evt.path}}.jpg" class="img-fluid">
                         <div class="card-body">
                             <p>{{evt.eventDate  | date: 'dd-MMM-yyyy'}}</p>                            
                             <h4>
-                                {{evt.name}} 
+                                {{evt.name}}
                             </h4>
                             <p class="para"><span [innerHtml]="evt.description"></span></p>                        
                             <a style="cursor: pointer" (click)="gotoEvent(evt)" class="readmore">
                             <span class="plusblack" (click)="gotoEvent(evt)"></span>Read more</a>
                         </div>
                     </div>
-                </div>                
+                               
             </div>
+            <div class="col-12 text-right pt-3">
+                <button type="button" class="own-btn blue-btn browseall"><a routerLink="events" routerLinkActive="active"> All Events</a></button>
+            </div>
+        </div>
          </div>
 
          <div class="col-12 col-sm-12 col-md-4">
@@ -295,8 +307,10 @@
                         </div>
                         <div class="track">
                         <p cass="dot">{{evt.name}}</p>
-                        <p cass="dot"><a [href]="evt.discount_type" target="_blank">{{evt.discount_type}}</a></p>
-                        <h2 class="sub-header"><span [innerHTML]="evt.description"></span></h2>
+                        <!-- <p cass="dot"><a [href]="evt.discount_type" target="_blank">{{evt.discount_type}}</a></p> -->
+                        <!-- <h2 class="sub-header"><span [innerHTML]="evt.description"></span></h2> -->
+                        <a style="cursor: pointer" [href]="evt.discount_type" target="_blank" class="readmore">
+                            <span class="plusblack"></span>Read more</a>
                         </div>
                     </div>
                 </mat-card>
@@ -304,7 +318,7 @@
         </div>
         </div>
         <div>
-            <button type="button"><a routerLink="events" routerLinkActive="active">Get All</a></button>
+            
         </div>
 
     </div>

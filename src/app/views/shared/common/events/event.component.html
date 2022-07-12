@@ -1,17 +1,25 @@
-<mat-accordion *ngIf="eventList">
-    <div *ngFor="let event of eventList" >
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            {{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong>
-          </mat-expansion-panel-header>
-          <div>             
-            <p><span [innerHTML]="event.description"></span></p>         
-            <p><img src="/assets/images/event/{{event.path}}.png" alt="man" class="img-fluid"></p>            
-            <a [href]="event.discount_type" target="_blank">{{event.discount_type}}</a>
-          </div>
-      </mat-expansion-panel>
-    </div>    
-</mat-accordion>
-<div *ngIf="!eventList">
-  <div style="height: 400px; background-color: white"></div>
+
+<div class="inner-banner">
+  <div class="container">
+      <h2 class="header1">Our Events </h2>
+      
+  </div>
+  
 </div>
+
+<section class="eventcontent">
+
+  <div class="container"> 
+    <div class="row">
+      <div class="col-12 col-md-3" *ngFor="let event of eventList" >
+        <p><img src="/assets/images/event/{{event.path}}.jpg" alt="man" class="img-fluid"></p>  
+        <p>{{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong></p>
+        <p><span [innerHTML]="event.description"></span></p>  
+        <a [href]="event.discount_type" target="_blank">{{event.discount_type}}</a>
+         
+      </div>
+    </div>
+   
+    </div>
+    </section>
+

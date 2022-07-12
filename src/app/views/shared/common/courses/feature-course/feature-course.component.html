@@ -8,26 +8,35 @@
 
 <section class="featuredpage  content">
 
-<div *ngIf="featuredCourse" class="container">    
-    <img src="/assets/images/fCourse/{{featuredCourse.name.replace(' ', '_')}}.png" alt="{{featuredCourse.name}}" class="img-fluid">
-    <p>Course Name: {{featuredCourse.name}}</p>
-    <p>Description: {{featuredCourse.description}}</p>
-    <p>Retail Price: {{featuredCourse.retail_price}}</p>
-    <p>Selling Price: {{featuredCourse.selling_price}}</p>
-    <p>Discount: {{featuredCourse.discount}}</p>    
+<div *ngIf="featuredCourse" class="container">  
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <img src="/assets/images/fCourse/{{featuredCourse.name.replace(' ', '_')}}.png" alt="{{featuredCourse.name}}" class="img-fluid">
+    
+    </div>
+    <div class="col-12 col-md-9">
+      <h2><strong>Course Name:</strong> {{featuredCourse.name}}</h2>
+      <p><strong>Description:</strong>{{featuredCourse.description}} </p>
+      <p class="pricetag"><span>Retail Price:</span><strong>{{featuredCourse.retail_price}}</strong> </p>
+      <p class="pricetag"><span>Selling Price:</span><strong> {{featuredCourse.selling_price}}</strong></p>
+      <p class="pricetag"><span>Discount:</span><strong>{{featuredCourse.discount}}</strong> </p>
+    </div>
+  </div>  
+        
     <p *ngIf="featuredCourse.modules != null"><strong>Modules</strong></p>   
-    <div *ngIf="featuredCourse.modules">
-      <div *ngFor="let mod of featuredCourse.modules; let i = index">
-        <p> {{i + 1}}) {{mod.name}}</p>
-        <span [innerHtml]="mod.description"></span>
+    <div *ngIf="featuredCourse.modules" class="row">
+      <div *ngFor="let mod of featuredCourse.modules; let i = index" class="col-12 col-md-4">
+        <strong> {{i + 1}}) {{mod.name}}</strong>
+        <div [innerHtml]="mod.description"class="modualDes" ></div>
       </div>
     </div> 
         
     <p *ngIf="isApproved && featuredCourse.fileUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.fileUrl)">Show PDF</a></p>    
     <p *ngIf="isApproved && featuredCourse.videoUrl != ''"><a style="cursor: pointer" (click)="goToLink(featuredCourse.videoUrl)">Play Video</a></p>    
-  <mat-slide-toggle [disabled]="isEnrolled" [(ngModel)]="isOnline">{{isOnline ? 'On line' : 'Off line'}}</mat-slide-toggle>
-  <div>
-    <button type="button" *ngIf="!isEnrolled" (click)="enrollCourse(featuredCourse)">Enroll</button>
+  
+  <div class="enroll-course">
+    <mat-slide-toggle [disabled]="isEnrolled" [(ngModel)]="isOnline">{{isOnline ? 'On line' : 'Off line'}}</mat-slide-toggle>
+    <button class="enroll-btn" type="button" mat-raised-button color="primary" *ngIf="!isEnrolled" (click)="enrollCourse(featuredCourse)">Enroll Now</button>
   </div>
   <br>
   <div>

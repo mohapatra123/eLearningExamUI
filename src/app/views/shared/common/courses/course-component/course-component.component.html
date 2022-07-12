@@ -6,7 +6,7 @@
             <img src="/assets/images/fCourse/{{course.name.replace(' ', '_')}}.png" alt={{course.name}}>
             <div class="card-body">
                 <p>{{course.name}} </p>
-                <h4>{{course.description}} </h4>
+                <h4>{{course.description.substring(0, 60)}} ...</h4>
                 <div class="price"> <div><span>{{course.duration}}</span> : <span>{{course.selling_price}}.00</span></div> 
                 <button mat-raised-button color="primary" type="button" (click)="EnrollCourse(course)">Request Now</button></div>
                 

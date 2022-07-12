@@ -36,7 +36,13 @@ a {
 }
 
 }
+.modualDes{
+  ul{
+      margin: 0;
+      padding: 0 0 0 34px;
+  }
 
+}
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 

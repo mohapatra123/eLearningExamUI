@@ -15,3 +15,10 @@
     border-radius: 10px;
     background: #fff;
    } 
+   @media (max-width: 576px) { 
+    .registerform{
+      .form-group{
+        width: 100%;
+      }
+    }
+   }

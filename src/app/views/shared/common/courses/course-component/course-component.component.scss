@@ -5,12 +5,13 @@
       border-radius: 20px;
       margin-bottom: 50px;
       padding: 30px 25px;
-      max-height: 580px;
-      min-height: 580px;
+      max-height: 440px;
+      min-height: 430px;
       img{
-        min-height: 320px;
-        max-width: 320px;
-        object-fit: cover;
+        min-height: 200px;
+        max-height: 240px;
+        max-width: 100%;
+        object-fit: contain;
       }
     } 
     .mat-card-content {
@@ -94,7 +95,7 @@
     @media (max-width: 576px) {
         .feature-box{
             .card{
-                min-height: 500px;
+                min-height: 430px;
                 margin-bottom: 15px;
             }
         }

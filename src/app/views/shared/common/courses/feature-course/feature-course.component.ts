@@ -101,7 +101,7 @@ export class FeatureCourseComponent implements OnInit {
       }      
       if(this.isOnline){
         const dialogRef = this.dialog.open(CourseDialogComponent, {
-          width: '400px',
+          width: '500px',
           data: {
             courseId: featuredCourse.id,
             courseName: featuredCourse.name,
