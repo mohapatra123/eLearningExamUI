@@ -3,6 +3,7 @@ import { ExamService } from 'src/app/core/services/exam/exam.service';
 import { FormsModule } from '@angular/forms';
 import { LoaderService } from 'src/app/core/services/common/loader.service';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -16,7 +17,7 @@ export class EventComponent implements OnInit {
   eventList: any;
   isFromHomePage: boolean = true;
 
-  constructor(private examService: ExamService, private _loaderService: LoaderService, private _behaviorSubject: BehaviorSubjectService) { }
+  constructor(private examService: ExamService, private _loaderService: LoaderService, private _behaviorSubject: BehaviorSubjectService, private _router: Router) { }
 
   ngOnInit(): void {
     window.scroll({ 
@@ -49,5 +50,9 @@ export class EventComponent implements OnInit {
         this._loaderService.display(false);
       })  
     }, 500);    
+  }
+
+  gotoEvent(id: number, name: string){
+    this._router.navigate(['event-detail', id, name]);
   }
 }

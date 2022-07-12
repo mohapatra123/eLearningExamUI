@@ -14,8 +14,9 @@
       <div class="col-12 col-md-3" *ngFor="let event of eventList" >
         <p><img src="/assets/images/event/{{event.path}}.jpg" alt="man" class="img-fluid"></p>  
         <p>{{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong></p>
-        <p><span [innerHTML]="event.description"></span></p>  
-        <a [href]="event.discount_type" target="_blank">{{event.discount_type}}</a>
+        <p><span [innerHTML]="event.description.substring(0, 60) + '  ...'"></span></p>  
+        <p><button type="button" (click)="gotoEvent(event.id, event.name)">View Details</button></p>  
+        <a [href]="event.discount_type" target="_blank">Know More</a>
          
       </div>
     </div>
