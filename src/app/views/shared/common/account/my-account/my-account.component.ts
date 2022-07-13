@@ -28,7 +28,7 @@ export class MyAccountComponent implements OnInit {
   dataSource: MatTableDataSource<Category>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns: string[] = ['Package','TransactionId', 'Date',  'Price', 'Status', 'Action'];  
+  displayedColumns: string[] = ['Package', 'Mock', 'FeaturedCourse', 'Online', 'TransactionId', 'Date',  'Price', 'Status', 'Action'];  
 
   constructor(private _authService: AuthService, private _paymentService: PaymentService, private _router: Router, private _behaviorSubject: BehaviorSubjectService, private _examService: ExamService, private _loaderService: LoaderService) { }
 
@@ -47,6 +47,8 @@ export class MyAccountComponent implements OnInit {
         this.accountData = res.data.my_details      
         this.courseData = res.data.my_courses
         this.courseData.forEach(element => {
+          element.isFeaturedCourse = false;
+          element.isMock = true;
           if(element.category_name && element.category_name != ''){
             element.package = element.category_name
           }
@@ -55,10 +57,18 @@ export class MyAccountComponent implements OnInit {
           }
           else if(element.featured_course_name && element.featured_course_name != ''){
             element.package = element.featured_course_name
+            element.isFeaturedCourse = true;
+            element.isMock = false;
           }
           if(element.courses_name && element.courses_name != ''){
             element.package = element.courses_name
-          }        
+          }       
+          if(element.availability != null && element.availability == 'Offline'){
+            element.isOnline = false;
+          }
+          else{
+            element.isOnline = true;
+          } 
         });
         this.dataSource = new MatTableDataSource(this.courseData);
         this.dataSource.paginator = this.paginator; 
