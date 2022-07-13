@@ -43,6 +43,10 @@ a {
   }
 
 }
+.mat-menu-item:hover:not([disabled]), .mat-menu-item.cdk-program-focused:not([disabled]), .mat-menu-item.cdk-keyboard-focused:not([disabled]), .mat-menu-item-highlighted:not([disabled]) {
+  background: #1a237e;
+  color: #fff;
+}
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
