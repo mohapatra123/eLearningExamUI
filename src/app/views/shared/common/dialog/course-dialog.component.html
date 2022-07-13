@@ -1,4 +1,4 @@
-  <h2>Request your Coueses</h2>
+  <h2>Enroll you Course</h2>
   <div class="row">
     <div class="col-3"><p class="listinfo"><span>Package:</span></p>  </div>
     <div class="col-9"> <h3 class="listinfo"><strong>{{data.courseName}}</strong> </h3></div>
@@ -22,13 +22,10 @@
       <div class="col-9"> <h3 class="listinfo"><strong>{{data.duration}}</strong> </h3></div>
     </div>
     <div class="row">
-      <div class="col-3"><p class="listinfo"><span>Retail Price:</span></p>  </div>
-      <div class="col-9"> <h3 class="listinfo"><strong>{{data.retailPrice}}</strong> </h3></div>
+      <div class="col-3"><p class="listinfo"><span>Price:</span></p>  </div>
+      <div class="col-9"> <h3> <strong>{{data.sellingPrice}}.00</strong> <strong class="oldprice">{{data.retailPrice}}.00</strong> </h3></div>
     </div>
-    <div class="row">
-      <div class="col-3"><p class="listinfo"><span>Selling Price:</span></p>  </div>
-      <div class="col-9"> <h3 class="listinfo"><strong>{{data.sellingPrice}}</strong> </h3></div>
-    </div>
+    
     <div>
       <img _ngcontent-wkc-c218="" src="/assets/QR_Code.png" style="margin-left:20%" height="200" width="200" alt="man" class="img-fluid">
     </div>
@@ -39,6 +36,9 @@
         <input matInput placeholder="TransactionId" formControlName="TransactionId">      
       </mat-form-field>        
       <span style="color:red">{{message}}</span>  
-      <button [disabled]="!data.sellingPrice || data.sellingPrice <= 0" class="btn btn-primary"  type="submit">Submit</button>
-      <button class="btn btn-light" (click)="onNoClick()">Cancel</button>
+      <div class="button-block d-flex justify-content-end">
+        <button [disabled]="!data.sellingPrice || data.sellingPrice <= 0" class="btn btn-primary"  type="submit">Submit</button>
+        <button class="btn btn-light ml-3" (click)="onNoClick()">Cancel</button>
+      </div>
+     
     </form>  
