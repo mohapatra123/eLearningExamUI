@@ -33,7 +33,7 @@
     <form [formGroup]="paymentForm" (ngSubmit)="SavePayment(paymentForm)"> 
       <mat-form-field appearance="outline"  class="mr-3 width100">                    
         <mat-label>Transaction Id:</mat-label>
-        <input matInput placeholder="TransactionId" formControlName="TransactionId">      
+        <input matInput placeholder="TransactionId" formControlName="TransactionId" [(ngModel)]="paymentData.transaction_id">      
       </mat-form-field>        
       <span style="color:red">{{message}}</span>  
       <div class="button-block d-flex justify-content-end">
