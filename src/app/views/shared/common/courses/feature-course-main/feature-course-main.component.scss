@@ -1,3 +1,5 @@
+@import './src/app/common-styles/variable';
+
 .inner-banner{
     background-image: url(/assets/innerBanner.png);
     min-height: 200px;
@@ -20,11 +22,4 @@
        width: 200px;
        height: 80px;
    }
-}
-.eventcontent{
-    padding:50px 0;
-}
-.divSize{
-    width: 70%;
-    margin: 0 auto;
 }

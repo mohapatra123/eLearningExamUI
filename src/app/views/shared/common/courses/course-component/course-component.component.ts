@@ -60,7 +60,7 @@ export class CourseComponentComponent implements OnInit {
   showAll(text: string, el: HTMLElement){
     el.scrollIntoView();
     if(text == "Browse All"){
-      this._router.navigate(['featuredcourse'])
+      this._router.navigate(['featured-course'])
       //this.courseList = this.courseListTemp;
       //this.buttonText = "Browse less";
     }

@@ -16,11 +16,8 @@
         <p>{{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong></p>
         <p><span [innerHTML]="event.description.substring(0, 60) + '  ...'"></span></p>  
         <p><button type="button"  mat-raised-button color="primary"  (click)="gotoEvent(event.id, event.name)">View Details</button></p>  
-        
-         
+      </div>         
       </div>
-    </div>
-   
     </div>
     </section>
 

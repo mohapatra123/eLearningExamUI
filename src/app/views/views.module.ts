@@ -14,6 +14,7 @@ import { CommonDialogComponent } from './shared/common/dialog/common-dialog.comp
 import { EventComponent } from './shared/common/events/event.component';
 
 
+
 @NgModule({
   declarations: [EventsComponent, ExamcourseComponent, MyAccountComponent, PaymentDialogComponent, CourseDialogComponent, CommonDialogComponent, EventComponent],
   imports: [

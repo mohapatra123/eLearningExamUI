@@ -43,6 +43,7 @@ import { PrivacyPolicyComponent } from '../../shared/common/company/privacy-poli
 import { DisclaimerComponent } from '../../shared/common/company/disclaimer.component';
 import { EventDetailComponent } from '../../shared/common/events/event-detail.component';
 import { EventComponent } from '../../shared/common/events/event.component';
+import { FeatureCourseMainComponent } from '../../shared/common/courses/feature-course-main/feature-course-main.component'
 
 
 
@@ -80,7 +81,7 @@ const routes: Routes = [{
     { path: 'privacy-policy', component:PrivacyPolicyComponent },
     { path: 'disclaimer', component:DisclaimerComponent },
     { path: 'event-detail/:id/:name', component:EventDetailComponent },
-    { path: 'featuredcourse', component:CourseComponentComponent },
+    { path: 'featured-course', component:FeatureCourseMainComponent },
     { path: 'events', component:EventComponent },
   ]
 }]
@@ -89,7 +90,7 @@ const routes: Routes = [{
   declarations: [HomeComponent, HeaderComponent, MainmenuComponent,
     PagebannerComponent, FooterComponent, SidenavComponent, ServicesComponent,
     AboutusComponent, ContactUsComponent, ContentComponent,
-    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent,TermsAndConditionsComponent,RefundPolicyComponent,PrivacyPolicyComponent,DisclaimerComponent, EventDetailComponent],
+    ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent,TermsAndConditionsComponent,RefundPolicyComponent,PrivacyPolicyComponent,DisclaimerComponent, EventDetailComponent,FeatureCourseMainComponent],
   imports: [
     CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true, scrollPositionRestoration: 'enabled' }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
   ]
