@@ -45,6 +45,9 @@ import { EventDetailComponent } from '../../shared/common/events/event-detail.co
 import { EventComponent } from '../../shared/common/events/event.component';
 import { FeatureCourseMainComponent } from '../../shared/common/courses/feature-course-main/feature-course-main.component'
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 const routes: Routes = [{
@@ -92,7 +95,7 @@ const routes: Routes = [{
     AboutusComponent, ContactUsComponent, ContentComponent,
     ExamcategoryComponent, ExamcategoryAnsComponent, TechnologyTrainingComponent, InternshipComponent, PlacementMentorshipComponent, ConsultancyComponent, EdtechComponent, FinancialInclusionComponent, OverseasEducationComponent, SocialImpactComponent, ComingSoonComponent,FeatureCourseComponent,CourseComponentComponent, SampleComponent, FreeMockComponent, UpdatePasswordComponent,TermsAndConditionsComponent,RefundPolicyComponent,PrivacyPolicyComponent,DisclaimerComponent, EventDetailComponent,FeatureCourseMainComponent],
   imports: [
-    CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true, scrollPositionRestoration: 'enabled' }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule
+    CommonModule, RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true, scrollPositionRestoration: 'enabled' }), FormsModule, MatModule, MatTabsModule, ReactiveFormsModule,NgbModule
   ]
 })
 export class AppsModule { }
