@@ -12,9 +12,9 @@
   <div class="container"> 
     <div class="row">
       <div class="col-12 col-md-3" *ngFor="let event of eventList" >
-        <p><img src="/assets/images/event/{{event.path}}.jpg" alt="man" class="img-fluid"></p>  
+        <p><img src="{{baseImageUrl}}{{event.path}}" alt="{{event.name}}" class="img-fluid"></p>  
         <p>{{event.name}} on  <strong>{{event.eventDate  | date: 'dd-MMM-yyyy'}}</strong></p>
-        <p><span [innerHTML]="event.description.substring(0, 60) + '  ...'"></span></p>  
+        <p><span [innerHTML]="event.description.substring(0, 60)"></span><span *ngIf="event.description && event.description != ''">...</span></p>  
         <p><button type="button"  mat-raised-button color="primary"  (click)="gotoEvent(event.id, event.name)">View Details</button></p>  
       </div>         
       </div>

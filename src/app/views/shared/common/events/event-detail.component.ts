@@ -7,6 +7,7 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { PaymentService } from 'src/app/core/services/payment/payment.service';
 import { TileStyler } from '@angular/material/grid-list/tile-styler';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-event-detail',
@@ -19,10 +20,17 @@ export class EventDetailComponent implements OnInit {
   eventData: any; 
   eventId: number;
   eventName: string; 
+  baseImageUrl: string = environment.baseImageUri;
+  eventImageSrc: string = '';
 
   ngOnInit(): void {
     this.eventId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
-    this.eventName = this._activatedRoute.snapshot.paramMap.get('name');    
+    this.eventName = this._activatedRoute.snapshot.paramMap.get('name'); 
+    this._examService.getEventsById(this.eventId).subscribe(res => {
+      if(res != undefined && res.data != undefined && res.data.length > 0){        
+        this.eventImageSrc = res.data[0].path != '' ? res.data[0].path : '/upload/event/defaultEvent.png';
+      }      
+    })   
     window.scroll({ 
       top: 0, 
       left: 0, 

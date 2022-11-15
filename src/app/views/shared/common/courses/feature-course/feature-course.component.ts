@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { PaymentService } from 'src/app/core/services/payment/payment.service';
 import { TileStyler } from '@angular/material/grid-list/tile-styler';
 import { LoaderService } from 'src/app/core/services/common/loader.service';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-feature-course',
@@ -32,6 +33,8 @@ export class FeatureCourseComponent implements OnInit {
   paymentData: any;
   featuredCourseDeatil: any;
 
+  baseImageUrl: string = environment.baseImageUri;
+
   ngOnInit(): void {
     this._loaderService.display(true);
     this.courseId = Number.parseInt(this._activatedRoute.snapshot.paramMap.get('id'));
@@ -50,7 +53,13 @@ export class FeatureCourseComponent implements OnInit {
       this._examService.getFeaturedCourse(id).subscribe(res => {
         if(res != undefined && res != null){
           this.verifyAccount();
-          this.featuredCourse = res.data[0];        
+          this.featuredCourse = res.data[0]; 
+          if(this.featuredCourse && this.featuredCourse.path != null && this.featuredCourse.path != ''){
+            this.featuredCourse.path = this.featuredCourse.path.replace('feature_course', 'feature_courses');      
+          }
+          else{
+            this.featuredCourse.path = '/upload/feature_courses/defaultFeaturedCourse.png';
+          }
         }      
       }, (err) => {
         this._loaderService.display(false);

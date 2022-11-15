@@ -309,7 +309,7 @@
             <div class="col-12 col-sm-12 col-md-6 last" *ngFor="let evt of eventShortList">
                
                     <div class="readBox card">
-                        <img src="/assets/images/event/{{evt.path}}.jpg" class="img-fluid">
+                        <img src="{{baseImageUrl}}{{evt.path}}" class="img-fluid">
                         <div class="card-body">
                             <p>{{evt.eventDate  | date: 'dd-MMM-yyyy'}}</p>                            
                             <h4>

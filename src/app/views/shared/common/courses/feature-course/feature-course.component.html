@@ -11,7 +11,7 @@
 <div *ngIf="featuredCourse" class="container">  
   <div class="row">
     <div class="col-12 col-md-3">
-      <img src="/assets/images/fCourse/{{featuredCourse.name.replace(' ', '_')}}.png" alt="{{featuredCourse.name}}" class="img-fluid">
+      <img src="{{baseImageUrl}}{{featuredCourse.path}}" alt="{{featuredCourse.name}}" class="img-fluid">
     
     </div>
     <div class="col-12 col-md-9">

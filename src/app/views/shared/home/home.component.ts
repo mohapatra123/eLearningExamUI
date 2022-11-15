@@ -9,7 +9,7 @@ import { CommonService } from 'src/app/core/services/common/common.service';
 import { Category } from 'src/app/core/models/category.model';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/core/services/common/loader.service';
-
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   eventList: any;
   eventShortList: any;
   isFromHomePage: boolean = true;
+  baseImageUrl: string = environment.baseImageUri;
   
 
   ngOnInit(): void {
@@ -76,7 +77,7 @@ export class HomeComponent implements OnInit {
       if(res != undefined){
         res.data.forEach(element => {
           if(element.path == null || element.path == ''){
-            element.path = 'defaultEvent';
+            element.path = '/upload/event/defaultEvent.png';
           }
         });
       }

@@ -5,7 +5,7 @@
   </div>  
   <section class="featuredpage  content">  
     <div *ngIf="eventData" class="container">        
-        <img src="/assets/images/event/{{eventData.path != '' ? eventData.path : 'defaultEvent'}}.jpg" alt="man" class="img-fluid">
+        <img src="{{baseImageUrl}}{{eventImageSrc}}" alt="man" class="img-fluid">
        <div class="event-dtls"> <p>Event Name: {{eventData.name}}</p> <p>Date: {{eventData.eventDate | date: 'dd-MMM-yyyy'}}</p>   
        </div><p>Description: <span [innerHTML]="eventData.description"></span></p>
 

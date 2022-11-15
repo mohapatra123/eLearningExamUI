@@ -5,11 +5,11 @@
     <div class="row">
       <div class="col-12 col-sm-12 col-md-4 item" *ngFor="let course of courseList">
           <div class="card">
-            <img src="/assets/images/fCourse/{{course.name.replace(' ', '_')}}.png" alt={{course.name}}>
+            <img src="{{baseImageUrl}}{{course.path}}" alt={{course.name}}>
             <div class="card-body">
                 <p>{{course.name}} </p>
-                <h4>{{course.description.substring(0, 60)}} ...</h4>
-                <div class="price"> <div><span>{{course.duration}}</span> : <span>{{course.selling_price}}.00</span></div> 
+                <h4>{{course.description.substring(0, 60)}} <span *ngIf="course.description && course.description.length > 60">...</span></h4>
+                <div class="price"> <div><span>{{course.duration}}</span> <span *ngIf="course.duration && course.duration != ''">:</span> {{course.selling_price}}.00</div> 
                 <button mat-raised-button color="primary" type="button" (click)="EnrollCourse(course)">Request Now</button></div>
                 
             </div>

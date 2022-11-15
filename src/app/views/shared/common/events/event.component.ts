@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { LoaderService } from 'src/app/core/services/common/loader.service';
 import { BehaviorSubjectService } from 'src/app/core/services/common/behavior-subject.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-event',
@@ -16,6 +17,7 @@ export class EventComponent implements OnInit {
   examList: any[];
   eventList: any;
   isFromHomePage: boolean = true;
+  baseImageUrl: string = environment.baseImageUri;
 
   constructor(private examService: ExamService, private _loaderService: LoaderService, private _behaviorSubject: BehaviorSubjectService, private _router: Router) { }
 
@@ -40,8 +42,8 @@ export class EventComponent implements OnInit {
           }); 
           this.eventList.forEach(element => {
             if(element.path == null || element.path == ''){
-              element.path = 'defaultEvent';
-            }
+              element.path = '/upload/event/defaultEvent.png';
+            }            
           });
         }      
       }, (err) => {

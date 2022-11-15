@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonService } from 'src/app/core/services/common/common.service';
 import { ExamService } from 'src/app/core/services/exam/exam.service';
 import { CourseDialogComponent } from '../../dialog/course-dialog.component';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
   selector: 'app-course-component',
@@ -19,6 +20,7 @@ export class CourseComponentComponent implements OnInit {
   courseListTemp: any;
   buttonText: string = 'Browse All';
   isNavigated: boolean = false;
+  baseImageUrl: string = environment.baseImageUri;
 
   ngOnInit(): void {
     this.getCourseList();
@@ -35,7 +37,10 @@ export class CourseComponentComponent implements OnInit {
         if(res != undefined){
           res.data.forEach(element => {
             if(element.path == null || element.path == ''){
-              element.path = 'featuredCourseDefault';
+              element.path = '/upload/feature_courses/defaultFeaturedCourse.png';
+            }
+            else{
+              element.path = element.path.replace('feature_course', 'feature_courses');
             }
           });
         }
@@ -43,6 +48,14 @@ export class CourseComponentComponent implements OnInit {
       }
       else{
         this.courseList = this.courseListTemp;
+        this.courseList.forEach(element => {
+          if(element.path == null || element.path == ''){
+            element.path = '/upload/feature_courses/defaultFeaturedCourse.png';
+          }
+          else{
+            element.path = element.path.replace('upload/feature_course', 'upload/feature_courses');
+          }
+        });
         window.scroll({ 
           top: 0, 
           left: 0, 
